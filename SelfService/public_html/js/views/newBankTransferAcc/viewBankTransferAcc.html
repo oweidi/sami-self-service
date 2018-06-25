@@ -1,0 +1,96 @@
+<div id="train-container">
+    <div class="oj-form-layout">
+        <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline">
+        
+         <div class="oj-form-top" >
+                            <button id="cancel" type="button" class="oj-button-primary" style="vertical-align:center;margin-left:auto;margin-right:auto;" data-bind="click: backAction,
+								ojComponent: {
+								  component: 'ojButton', 
+								  label: back,
+								  icons: {start:'oj-fwk-icon-back oj-fwk-icon'}}">
+                                </button>
+                        </div>
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                   <label for="requestDate"  data-bind="text:requestDateLbl "></label>
+                </div>
+         
+                <div class="oj-flex-item">
+                <input id="requestDate"
+                   data-bind="ojComponent: {component: 'ojInputDate',
+                   value: bankTransferAccModel.requestDate, 
+                   converter: dateConverter, disabled: true}"/>
+                    
+                </div>
+
+            </div>
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                   <label for="bankName"  data-bind="text:bankNameLbl "></label>
+                 
+                </div>
+                <div class="oj-flex-item">
+                    <input id="bankName" data-bind="ojComponent: {component: 'ojInputText', disabled: true,
+                                          value:bankTransferAccModel.bankName}"/>
+                </div>
+
+            </div>
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                 <label for="branchName"  data-bind="text:branchNameLbl "></label>
+                </div>
+         
+                <div class="oj-flex-item">
+                <input id="branchName" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value: bankTransferAccModel.branchName , required: true ,disabled:true}">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="iban"  data-bind="text:IBANLbl "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="iban" data-bind="ojComponent: {component: 'ojInputText',
+                                          value:bankTransferAccModel.iban,disabled: true}"/>
+                </div>
+
+            </div>
+
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                     <label for="effectiveStartDate" data-bind="text:effectiveStartDateLbl "/>
+                </div>
+                <div class="oj-flex-item">
+                             
+                                <input id="effectiveStartDate"
+                   data-bind="ojComponent: {component: 'ojInputDate',
+                   value: bankTransferAccModel.effectiveStartDate, 
+                   converter: dateConverter, disabled: true}"/>
+                </div>
+
+            </div>
+
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                   <label for="remarks" data-bind="text:remarksLbl "/>
+                     
+                </div>
+                <div class="oj-flex-item">
+                    <input id="remarks" data-bind="ojComponent: {component: 'ojInputText',
+                                          value:bankTransferAccModel.remarks, disabled: true}">
+                </div>
+
+            </div>
+
+           
+
+        </div>
+    </div>
+</div>

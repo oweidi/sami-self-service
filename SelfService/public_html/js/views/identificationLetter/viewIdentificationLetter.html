@@ -1,0 +1,123 @@
+<div id="train-container">
+    <div class="oj-form-layout">
+        <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline">
+        
+         <div class="oj-form-top" >
+                            <button id="cancel" type="button" class="oj-button-primary" style="margin-left:auto;margin-right:auto;" data-bind="click: backAction,
+								ojComponent: {
+								  component: 'ojButton', 
+								  label: back,
+								  icons: {start:'oj-fwk-icon-back oj-fwk-icon'}}">
+                                </button>
+                        </div>
+            <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+                <div class="oj-flex-item">
+                   <label for="control1"  data-bind="text:arabicName "/>
+                 
+                </div>
+                <div class="oj-flex-item">
+                    <input id="arabicName" data-bind="ojComponent: {component: 'ojInputText',
+                                          value:identificationLettersModel.arabicName, disabled: true }">
+                </div>
+
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:englishName "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="englishName" data-bind="ojComponent: {component: 'ojInputText',
+                                          value:identificationLettersModel.englishName, disabled: true}">
+                </div>
+
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:profession "/>
+                </div>
+                <div class="oj-flex-item">
+                             
+                              <input id="iqamaProfession" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:identificationLettersModel.iqamaProfession,  disabled: true}">
+                </div>
+
+            </div>
+
+
+            <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+                 <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:requestDate "/>
+                </div>
+         
+                <div class="oj-flex-item">
+                
+                <input id="requestDate"
+                   data-bind="ojComponent: {component: 'ojInputDate',
+                   value: identificationLettersModel.requestDate, 
+                   converter: dateConverter, disabled: true}"/>
+                    
+                </div>
+
+                <div class="oj-flex-item">
+                     <label for="control1"  data-bind="text:requestReason "/>
+                     
+                </div>
+                <div class="oj-flex-item">
+                    <input id="reason" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:identificationLettersModel.reason,  disabled: true}">
+                </div>
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:directTo "/>
+                     
+                </div>
+                <div class="oj-flex-item">
+                    <input id="directedTo" data-bind="ojComponent: {component: 'ojInputText',
+                                          value:identificationLettersModel.directedTo,  disabled: true}">
+                </div>
+
+                <div class="oj-flex-item">
+                   <label for="control1"  data-bind="text:withSalary "/>
+                     
+                </div>
+                <div class="oj-flex-item">
+                    <oj-radioset id="checkboxSetAgreeId" labelled-by="agreeId" required=true  value="{{identificationLettersModel.withSalary}}" disabled=[[true]] class="oj-choice-direction-row">
+                        <oj-option id="agree" value="Yes" ><span><oj-bind-text value="[[yes]]"></oj-bind-text></span></oj-option>
+                        <oj-option id="disagree" value="No" ><span><oj-bind-text value="[[no]]"></oj-bind-text></span></oj-option>
+                    </oj-radioset>
+                </div>
+                <div class="oj-flex-item">
+                   <label for="control1"  data-bind="text:stamped "/>
+                     
+                </div>
+                <div class="oj-flex-item">
+                    <oj-radioset id="checkboxSetAgreeId" labelled-by="agreeId" required=true  value="{{identificationLettersModel.stamped}}" disabled=[[true]] class="oj-choice-direction-row">
+                        <oj-option id="agree" value="Yes" ><span><oj-bind-text value="[[yes]]"></oj-bind-text></span></oj-option>
+                        <oj-option id="disagree" value="No" ><span><oj-bind-text value="[[no]]"></oj-bind-text></span></oj-option>
+                    </oj-radioset>
+                </div>
+
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:arabicEnglish "/>
+                     
+                </div>
+                <div class="oj-flex-item">
+                    <select id="arabicEng"
+                    data-bind="ojComponent: {component: 'ojSelect',value: identificationLettersModel.arabicEnglish,disabled: true}">
+                      <!-- ko foreach: hrIdentification -->
+                      <option data-bind="value:value, text:label"></option>
+                      <!-- /ko -->
+            </select>
+                </div>
+
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:mailType "/>
+                     
+                </div>
+                <div class="oj-flex-item">
+                     <select id="mailType"
+                    data-bind="ojComponent: {component: 'ojSelect', value: identificationLettersModel.mailType,disabled: true}">
+                      <!-- ko foreach: mailTypes -->
+                      <option data-bind="value:value, text:label"></option>
+                      <!-- /ko -->
+            </select>
+                </div>
+                </div>
+        </div>
+    </div>
+</div>

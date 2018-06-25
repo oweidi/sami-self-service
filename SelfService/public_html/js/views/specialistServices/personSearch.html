@@ -1,0 +1,100 @@
+<div id="train-container">
+
+    <div class="oj-form-layout">
+        <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline">
+ <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="firstName" data-bind="text:name "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="firstName" data-bind="ojComponent: {component: 'ojInputText',
+                                          value:searchModel.name}"/>
+                </div>
+
+            </div>
+              <div class="oj-flex">
+                <div class="oj-flex-item">
+                <label for="personNumber" data-bind="text:personnumber "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="personNumber" data-bind="ojComponent: {component: 'ojInputText',
+                                          value:searchModel.personNumber}"/>
+                </div>
+
+            </div>
+                          <div class="oj-flex">
+                <div class="oj-flex-item">
+                <label for="personNumber" data-bind="text:nationalId "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="personNumber" data-bind="ojComponent: {component: 'ojInputText',
+                                          value:searchModel.nationalId}"/>
+                </div>
+
+            </div>
+             <div class="oj-flex">
+                <div class="oj-flex-item">
+                <label for="personNumber" data-bind="text:effictiveDate "/>
+                </div>
+                <div class="oj-flex-item">
+ <input id="startDate"
+                   data-bind="ojComponent: {component: 'ojInputDate',         
+                   value: searchModel.effectiveDate,                                 
+                   converter: dateConverter}"/>
+                </div>
+
+            </div>
+
+          
+
+
+
+                    <div class="oj-flex">
+                <div class="oj-flex-item" align="right">
+                  <button id="Search" data-bind="click: searchPerson, 
+                       ojComponent: { component: 'ojButton', label: search }" />
+                         <button id="reset" data-bind="click: reset, 
+                       ojComponent: { component: 'ojButton', label: clear }" />
+
+            </div>
+                    </div>
+
+
+
+                </div>
+        
+    </div>
+    <br/>
+
+         <button id="go" type="button"
+            class="oj-button-primary"
+            style="display:inline-block;vertical-align:top;"
+            data-bind="click: gotoSelfService,   
+            ojComponent: {component: 'ojButton', disabled: editDisabled,label:goTo}">
+            </button>
+            <select id="selfService"
+                    data-bind="ojComponent: {component: 'ojSelect',value: searchModel.selfServiceType,  placeholder: 'Please Select a Value'}">
+                      <!-- ko foreach: selfServices -->
+                      <option data-bind="value:value, text:label"></option>
+                      <!-- /ko -->
+            </select>
+    <div class="oj-xl-8 oj-lg-8 oj-md-6 oj-flex-item">
+
+    </oj-table-->
+     <oj-table id="tbl1" aria-label="Employees"
+                                data='[[dataSource]]'
+                                on-oj-before-current-row = "[[tableSelectionListener]]"
+                                display = "grid"
+                                selectionMode = "{'row': 'single'}"
+                                columns-default='{"sortable": "enabled"}'
+                                dnd='{"reorder": {"columns": "enabled"}}'
+                                style="width:700px"
+                                columns='{{columnArray}}'>
+                                           <oj-paging-control id="paging" data='[[dataSource]]' page-size='10' slot='bottom' class="display-inline-flex">
+                </oj-paging-control>
+    </oj-table>
+    
+    
+</div>
+
+</div>

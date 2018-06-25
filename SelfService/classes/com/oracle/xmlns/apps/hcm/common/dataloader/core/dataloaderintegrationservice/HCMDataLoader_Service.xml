@@ -1,0 +1,28 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle-webservice-clients xmlns:ns2="http://java.sun.com/xml/ns/javaee">
+   <webservice-client>
+      <service-qname localpart="HCMDataLoader"
+                     namespaceURI="http://xmlns.oracle.com/apps/hcm/common/dataLoader/core/dataLoaderIntegrationService/"/>
+      <port-info>
+         <wsdl-port localpart="HCMDataLoaderSoapHttpPort"
+                    namespaceURI="http://xmlns.oracle.com/apps/hcm/common/dataLoader/core/dataLoaderIntegrationService/"/>
+         <runtime/>
+         <policy-references>
+            <policy-reference uri="oracle/wss11_username_token_with_message_protection_client_policy"
+                              category="security"/>
+         </policy-references>
+         <operations>
+            <operation name="importAndLoadData"/>
+            <operation name="importAndLoadDataAsync"/>
+            <operation name="getDfltObjAttrHints"/>
+            <operation name="getServiceLastUpdateTime"/>
+            <operation name="getEntityList"/>
+            <operation name="getEntityListAsync"/>
+            <operation name="getDfltObjAttrHintsAsync"/>
+            <operation name="getServiceLastUpdateTimeAsync"/>
+            <operation name="getDataSetStatus"/>
+            <operation name="getDataSetStatusAsync"/>
+         </operations>
+      </port-info>
+   </webservice-client>
+</oracle-webservice-clients>

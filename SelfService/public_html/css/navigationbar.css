@@ -1,0 +1,23 @@
+.nav-container {
+  height: 240px;
+  position: relative;
+  padding: 2px 16px;
+  cursor: pointer;
+}
+
+.cardface {
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:0px;
+  left:0px;
+  backface-visibility: hidden;
+  box-sizing: border-box;
+  border: 1px solid;
+  padding: 10px;
+  background-color: wheat;
+}
+
+.backside {
+  transform: rotateY(180deg);
+}

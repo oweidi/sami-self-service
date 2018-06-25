@@ -1,0 +1,131 @@
+<h1>
+    <b>Review New Bank Transfer account request : </b>
+    <span data-bind="text: bankTransferAccModel.name" style="color:#a52a2a;"></span>
+</h1>
+<br></br>
+<div class="oj-form-layout">
+    <div class="oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-flex-items-pad">
+        <div class="oj-flex">
+            <div class="oj-flex-item" style="margin: auto;">
+                <button id="approve" type="button" class="oj-button-confirm"
+                        data-bind="visible:isShown,click: submitButton, ojComponent: {component: 'ojButton',label: 'Approve'}"></button>
+                 
+                <button id="reject" type="button" class="demo-button-error"
+                        data-bind="visible:isShown,click: rejectButton, ojComponent: { component: 'ojButton', label: 'Reject'}"></button>
+                 
+                <button id="back" type="button" class="oj-button-primary"
+                        data-bind="click: cancelAdvHousing,ojComponent: { component: 'ojButton', label: 'Back'}"></button>
+            </div>
+            <div id="sampleDemo" style="" class="demo-padding demo-container">
+                <div id="componentDemoContent"
+                     style="width: 1px; min-width: 100%;">
+                    <div id="dialogWrapper">
+                  <oj-dialog style="display:none;width:350px;height:auto"
+                                   id="yesNoDialog" title="Confirm Message">
+                            <div slot="body">Are You Sure To Approve New Bank Account
+                                            </div>
+                            <div slot="footer">
+                                <button id="buttonOpenerNested" type="button"
+                                        data-bind="click: approveBankTransferAcc,        ojComponent: {          component: 'ojButton',           label: 'Yes'}"></button>
+                                 
+                                <button id="cancelButton" type="button"
+                                        data-bind="click: cancelButton,        ojComponent: {          component: 'ojButton',           label: 'No'}"></button>
+                            </div>
+                        </oj-dialog>
+                         
+                        <oj-dialog style="display:none;width:350px;height:auto"
+                                   id="rejectDialog" title="Reject Message">
+                            <div slot="body">Are You Sure To Reject New Bank Account</div>
+                            <div slot="footer">
+                                <button id="buttonOpenerNested" type="button"
+                                        data-bind="click: rejectBankTransferAcc,        ojComponent: {          component: 'ojButton',           label: 'Yes'}"></button>
+                                 
+                                <button id="cancelButton" type="button"
+                                        data-bind="click: rejectCancelButton,        ojComponent: {          component: 'ojButton',           label: 'No'}"></button>
+                            </div>
+                        </oj-dialog>
+                    </div>
+                </div>
+            </div>
+        </div>
+      <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="requestDate"  data-bind="text:requestDateLbl "></label>
+                </div>
+         
+                <div class="oj-flex-item">
+                <input id="requestDate"
+                   data-bind="ojComponent: {component: 'ojInputDate',
+                   value: bankTransferAccModel.requestDate, 
+                   converter: dateConverter, disabled: true}"/>
+                    
+                </div>
+
+            </div>
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="bankName"  data-bind="text:bankNameLbl "></label>
+                 
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText', disabled: true,
+                                          value:bankTransferAccModel.bankName}">
+                </div>
+
+            </div>
+             <div class="oj-flex">
+                <div class="oj-flex-item">
+                 <label for="branchName"  data-bind="text:branchNameLbl "></label>
+                </div>
+         
+                <div class="oj-flex-item">
+                <input id="branchName" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value: bankTransferAccModel.branchName , required: true ,disabled:true}">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                     <label for="iban"  data-bind="text:IBANLbl "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="iban" data-bind="ojComponent: {component: 'ojInputText',
+                                          value:bankTransferAccModel.iban,disabled: true}"/>
+                </div>
+
+            </div>
+
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="effectiveStartDate" data-bind="text:effectiveStartDateLbl "/>
+                </div>
+                <div class="oj-flex-item">
+                             
+                                <input id="effectiveStartDate"
+                   data-bind="ojComponent: {component: 'ojInputDate',
+                   value: bankTransferAccModel.effectiveStartDate, 
+                   converter: dateConverter, disabled: true}"/>
+                </div>
+
+            </div>
+
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="remarks" data-bind="text:remarksLbl "/>
+                     
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText',
+                                          value:bankTransferAccModel.remarks, disabled: true}">
+                </div>
+
+            </div>
+
+    </div>
+</div>

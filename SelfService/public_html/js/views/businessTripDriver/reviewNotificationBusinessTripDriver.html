@@ -1,0 +1,176 @@
+   <h1>
+<label for="type" style="display:block; font-size:large; font-weight:bold;" data-bind="text:reviewBusinessTripDriver "/>
+   </h1>
+   
+<br></br>
+<div class="oj-form-layout">
+    <div class="oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-flex-items-pad">
+        <div class="oj-flex">
+            <div class="oj-flex-item" style="margin: auto;">
+                <button id="approve" type="button" class="oj-button-confirm"
+                        data-bind="visible:isShown,click: submitButton, ojComponent: {component: 'ojButton',label: approve}"></button>
+                 
+                <button id="reject" type="button" class="demo-button-error"
+                        data-bind="visible:isShown,click: rejectButton, ojComponent: { component: 'ojButton', label: reject}"></button>
+                 
+                <button id="back" type="button" class="oj-button-primary"
+                        data-bind="click: cancelBTDriver,ojComponent: { component: 'ojButton', label: back,icons: {start:'oj-fwk-icon-back oj-fwk-icon'}}"></button>
+            </div>
+            <div id="sampleDemo" style="" class="demo-padding demo-container">
+                <div id="componentDemoContent"
+                     style="width: 1px; min-width: 100%;">
+                    <div id="dialogWrapper">
+                        <oj-dialog style="display:none;width:350px;height:auto"
+                                   id="yesNoDialog" >
+                           <div slot="header" class="oj-helper-clearfix">
+                                <label  data-bind="text:confirmMessage "/>
+                         </div>
+                        <div slot="body">
+                        
+                                 <label  data-bind="text:approveMessage "/>
+                        
+                        </div>
+                            <div slot="footer">
+                                <button id="buttonOpenerNested" type="button"
+                                        data-bind="click: approveBTripDriver,        ojComponent: {          component: 'ojButton',           label: yes,disabled:disableSubmit}"></button>
+                                 
+                                <button id="cancelButton" type="button"
+                                        data-bind="click: cancelButton,        ojComponent: {          component: 'ojButton',           label: no}"></button>
+                            </div>
+                        </oj-dialog>
+                         
+                        <oj-dialog style="display:none;width:350px;height:auto"
+                                   id="rejectDialog" >
+                    <div slot="header" class="oj-helper-clearfix">
+                            <label  data-bind="text:confirmMessage "/>
+                    </div>
+                    <div slot="body">
+                    
+                             <label  data-bind="text:rejectMessage "/>
+                    
+                    </div>                              
+                    <div slot="footer">
+                                <button id="buttonOpenerNested" type="button"
+                                        data-bind="click: rejectBTripDriver,        ojComponent: {          component: 'ojButton',           label: yes ,disabled:disableSubmit}"></button>
+                                 
+                                <button id="cancelButton" type="button"
+                                        data-bind="click: rejectCancelButton,        ojComponent: {          component: 'ojButton',           label: no}"></button>
+                            </div>
+   <div class="oj-flex">
+          <div class="oj-flex-item">
+                    <label for="control1" data-bind="text:rejectReason" />
+          </div>
+          <div class="oj-flex-item">
+            <input id='city' type="text"
+                   data-bind="ojComponent: {component: 'ojInputText', value:bTripDriverModel.rejectRessone, disabled: false,required: true}"/>
+          </div>
+        </div>
+                        </oj-dialog>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+       
+                         <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+					<div class="oj-flex-item">
+						<label for="control1"  data-bind="text:requestDate "/>
+					</div>
+					<div class="oj-flex-item">
+						<input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:bTripDriverModel.requestDate,invalidComponentTracker: tracker,disabled:  true}">
+					</div>
+			
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:type "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:bTripDriverModel.type,invalidComponentTracker: tracker,disabled:  true}">
+                </div>
+                
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:countrylbl "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:bTripDriverModel.area,invalidComponentTracker: tracker,disabled:  true}">
+                </div>
+                </div>
+     
+            <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+                <div class="oj-flex-item">
+                   <label for="control1"  data-bind="text:tripsNumber "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:bTripDriverModel.tripsNumber,invalidComponentTracker: tracker,disabled:  true}">
+                </div>
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:totalKM "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:bTripDriverModel.totalKm,invalidComponentTracker: tracker,disabled:  true}">
+                </div>
+
+            </div>
+            <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+                <div class="oj-flex-item">
+                   <label for="control1"  data-bind="text:startdate "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:bTripDriverModel.startDate,invalidComponentTracker: tracker,disabled:  true}">
+                </div>
+
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:enddate "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:bTripDriverModel.endDate,invalidComponentTracker: tracker,disabled:  true}">
+                </div>
+
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:nodays "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:bTripDriverModel.daysNumber,invalidComponentTracker: tracker,disabled:  true}">
+                </div>
+
+            </div>
+			<div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+                <div class="oj-flex-item">
+                   <label for="control1"  data-bind="text:notes "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:bTripDriverModel.notes,invalidComponentTracker: tracker,disabled:  true}">
+                </div>
+
+            </div>
+
+			 <!--<div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations" data-bind="visible:isVisible">
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:paymentperiod "/>
+                </div>
+                <div class="oj-flex-item">
+            <select id="payperiod"
+                    data-bind="ojComponent: {component: 'ojSelect', placeholder: 'Please Select a Value',invalidComponentTracker: tracker, required: isRequired,value: bTripDriverModel.paymentPeriod,Visible:isVisible}">
+              --><!-- ko foreach: payPeriods --><!--
+              <option data-bind="value:value, text:label"></option>
+              --><!-- /ko --><!--
+            </select>
+            </div>
+
+            </div>-->
+    
+       
+    
+     
+       
+      
+    </div>
+</div>

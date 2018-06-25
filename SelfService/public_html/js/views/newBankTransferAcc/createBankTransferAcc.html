@@ -1,0 +1,223 @@
+ <div id="train-container">
+    <div style="display:none" id="modalDialog1"
+         data-bind="ojComponent:{component: 'ojDialog', initialVisibility: 'hide',                                rootAttributes: { style: 'min-width: 50vw; min-height: 65vh;'}}">
+      <div class="oj-dialog-header">
+        <span data-bind="text:approvals"></span>
+      </div>
+      <div class="oj-dialog-body">
+        <div id="tableDemo" class="oj-flex oj-flex-items-pad">
+          <div class="oj-xl-8 oj-lg-8 oj-md-6 oj-flex-item">
+            <oj-table id="tbl12" aria-label="Departments Table"
+                      data='[[dataSourceTB2]]' display="grid"
+                      columns-default='{"sortable": "enabled"}'
+                      columns='{{columnArrayApproval}}'></oj-table>
+          </div>
+        </div>
+      </div>
+      <div class="oj-dialog-footer">
+        <button id="okButton"
+                data-bind="click: closeDialog,ojComponent: {component: 'ojButton', label: ok}"></button>
+      </div>
+    </div>
+
+                <div class="oj-form">
+                <div class="oj-flex-bar">
+                 <div class="oj-flex-bar-start">
+                    <button id="cancel" type="button"  data-bind="click: cancelAction,
+							ojComponent: {
+							  component: 'ojButton', 
+							  label: cancel}">
+					</button>
+                    <button id="PreviousStep" type="button"  data-bind="click: previousStep, 
+							ojComponent: {disabled:currentStepValue() == 'stp1',
+							  component: 'ojButton', 
+							  label: back,
+							  icons: {start:'oj-fwk-icon-back oj-fwk-icon'}}">
+					</button>
+                </div>
+                 <div class="oj-flex-bar-end">
+                 <button id="buttonOpener" class="oj-button-primary" type="button"
+                data-bind="click: openDialog,ojComponent: {component: 'ojButton',label: viewApprovalsLbl, icons:{end:'fa fa-check'}}"></button>
+                    <button id="Next" type="button"  
+                             data-bind="visible:nextBtnVisible,click: nextStep, 
+					ojComponent: {
+					  disabled:currentStepValue() == 'stp2',
+					  component: 'ojButton', 
+					  label: next}" />
+                    <button id="submit" data-bind="visible:addBtnVisible ,click: submitButton, 
+                       ojComponent: { component: 'ojButton', label: submit}"  >
+					</button>
+                    <button id="submit"  data-bind="visible:addBtnVisible ,click: submitDraft, 
+                       ojComponent: { component: 'ojButton', label: saveDraft}"/>
+                       </div>
+                </div>
+                </div>
+
+           
+    <div style="text-align: center;white-space:nowrap;">
+        <oj-train id="train"
+                style="max-width:700px;margin-left:auto;margin-right:auto;"
+                selected-step="{{currentStepValue}}"
+                steps="[[stepArray]]"
+                class="oj-train-stretch"
+                on-oj-before-select="[[stopSelectListener]]"/>
+    </div>
+    <br/>
+    <h3 id="currentStepText" data-bind="text: currentStepValueText()" style="text-align: center">
+    </h3>
+
+
+     <div class="oj-form-layout">
+        <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline">
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                 <label for="requestDate"  data-bind="text:requestDateLbl "></label>
+                </div>
+         
+                <div class="oj-flex-item">
+                <input id="requestDate" data-bind="ojComponent: {component: 'ojInputText', invalidComponentTracker: tracker,
+                                          value: bankTransferAccModel.requestDate , required: true ,disabled:true}">
+                    
+                </div>
+
+            </div>
+
+            <div class="oj-flex">
+               <div class="oj-flex-item">
+               <label for="bankName"  data-bind="text:bankNameLbl "></label>
+                 
+                </div>
+                <div class="oj-flex-item">
+                   <select id="bankName"
+                    data-bind="ojComponent: {component: 'ojSelect',value: bankTransferAccModel.bankName,
+                    placeholder: 'Please Select a Value',
+                    disabled: isDisabled,invalidComponentTracker: tracker,required: true}">
+                      <!-- ko foreach: saBank -->
+                      <option data-bind="value:value, text:label"></option>
+                      <!-- /ko -->
+            </select>
+
+                </div>
+
+            </div>
+         <div class="oj-flex">
+                <div class="oj-flex-item">
+                 <label for="branchName"  data-bind="text:branchNameLbl "></label>
+                </div>
+         
+                <div class="oj-flex-item">
+                <input id="branchName" data-bind="ojComponent: {component: 'ojInputText', invalidComponentTracker: tracker,
+                                          value: bankTransferAccModel.branchName , required: true ,disabled:isDisabled}">
+                    
+                </div>
+
+            </div>
+
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                     <label for="iban"  data-bind="text:IBANLbl "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="iban" data-bind="ojComponent: {component: 'ojInputText', invalidComponentTracker: trackerIBAN,
+                                          value:bankTransferAccModel.iban, required: true ,  disabled: isDisabled,optionChange:typeChangeHandler}">
+                </div>
+
+            </div>
+
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="effectiveStartDate" data-bind="text:effectiveStartDateLbl "/>
+                </div>
+                <div class="oj-flex-item">
+                             
+                                <input id="effectiveStartDate"
+                   data-bind="ojComponent: {component: 'ojInputDate',min:minDate,
+                   value: bankTransferAccModel.effectiveStartDate, 
+                   converter: dateConverter, invalidComponentTracker: tracker,required: true,  disabled: isDisabled}"/>
+                </div>
+
+            </div>
+
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="remarks" data-bind="text:remarksLbl "/>
+                     
+                </div>
+                <div class="oj-flex-item">
+                    <input id="remarks" data-bind="ojComponent: {component: 'ojInputText', invalidComponentTracker: tracker,
+                                          value:bankTransferAccModel.remarks, required: true,  disabled: isDisabled}">
+                </div>
+
+            </div>
+            <div class="oj-flex">
+            <div class="oj-flex-item">
+          <label for="control1" data-bind="text:attachment"/>
+        </div>
+        <div class="oj-flex-item">
+          <input type="file" onchange="prev()" accept="image/*"/>
+                    <img src="" height="200" alt="Image preview..." class="attClass" width= '207'/>
+        </div>
+        </div>
+
+           
+
+        </div>
+                       <div id="sampleDemo" style="" class="demo-padding demo-container">
+                
+                
+            <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+             <div id="dialogWrapper">
+            <oj-dialog style="display:none;width:350px;height:auto" id="yesNoDialog" title="Confirm Message">
+                        <div slot="header" class="oj-helper-clearfix">
+                                   <label  data-bind="text:confirmMessage "/>
+                        </div>
+                                <div slot="body">
+                                
+                                         <label  data-bind="text:addMessage "/>
+                                
+                                </div>    
+                <div slot="footer">
+                   <button id="buttonOpenerNested" type="button" data-bind="click: commitRecord,
+							ojComponent: {
+							  component: 'ojButton', 
+							  label: yes}">
+					</button>
+                    <button id="cancelButton" type="button" data-bind="click: cancelButton,
+							ojComponent: {
+							  component: 'ojButton', 
+							  label: no}">
+					</button>
+                </div>
+            </oj-dialog>
+            <oj-dialog style="display:none;width:350px;height:auto" id="draftDialog" >
+                	<div slot="header" class="oj-helper-clearfix">
+                    <label  data-bind="text:confirmMessage "/>
+            </div>
+                <div slot="body">
+                
+                         <label  data-bind="text:addMessage "/>
+                
+                </div>
+                <div slot="footer">        
+                    <button id="buttonOpenerNested" type="button" data-bind="click: commitRecord,
+							ojComponent: {
+							  component: 'ojButton', 
+							  label: yes}">
+					</button>
+                    <button id="cancelButton" type="button" data-bind="click: cancelDraft,
+							ojComponent: {
+							  component: 'ojButton', 
+							  label: no}">
+					</button>
+                </div>
+            </oj-dialog>  
+        </div>
+
+        
+      </div>
+    </div>
+    </div>
+</div>

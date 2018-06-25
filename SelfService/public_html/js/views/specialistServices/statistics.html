@@ -1,0 +1,37 @@
+<h1> Employe Business Trip Statistics</h1> 
+<div id='chart-container'>
+            <oj-chart id="pieChart"
+                type="pie" 
+                series="[[pieSeriesValue]]"
+                animation-on-display="auto"
+                animation-on-data-change="auto"
+                style-defaults.three-d-effect="[[threeDValue]]"
+                hover-behavior="dim"
+                style="max-width:500px;width:100%;height:350px;">
+            </oj-chart>
+            <!-- 2D/3D toggle button -->
+            <demo-chart-three-d-effect-control id="threeDControl" three-d-effect="{{threeDValue}}" aria-controls="pieChart">
+            </demo-chart-three-d-effect-control>
+        </div>
+<h1> Employe Trips Statistics</h1>        
+                    <oj-chart id="barChart"
+                  type="bar" 
+                  orientation="[[orientationValue]]"
+                  stack="[[stackValue]]"
+                  series="[[barSeriesValue]]"
+                  groups="[[barGroupsValue]]" 
+                  animation-on-display="auto"
+                  animation-on-data-change="auto"
+                  hover-behavior="dim"
+                 style="max-width:500px;width:100%;height:350px;">
+            </oj-chart>
+            <oj-toolbar id="myToolbar" aria-label="Chart Display Options Toolbar" aria-controls="barChart"
+                        style="max-width:500px;width:100%;">
+                <!-- vertical/horizontal toggle button -->
+                <demo-chart-orientation-control id="orientationControl" type="bar" focus-management="none" orientation="{{orientationValue}}">
+                </demo-chart-orientation-control>
+                <span role="separator" aria-orientation="vertical" class="oj-toolbar-separator"></span>
+                <!-- unstacked/stacked toggle button -->
+                <demo-chart-stack-control id="stackControl" type="bar" focus-management="none" stack="{{stackValue}}">
+                </demo-chart-stack-control>
+            </oj-toolbar>

@@ -1,0 +1,117 @@
+ <label for="type" style="display:block; font-size:large; font-weight:bold;" data-bind="text:advanceHousingRequest "/>
+ <span data-bind="text: advHousingModel.name"
+                                               style="color:#a52a2a;"></span>
+       
+
+	<br>
+	<div class="oj-form-layout">
+		<div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline">
+                      <div class="oj-form-top" >
+                            <button id="cancel" type="button" class="oj-button-primary" style="vertical-align:center;margin-left:auto;margin-right:auto;" data-bind="click: backAction,
+								ojComponent: {
+								  component: 'ojButton', 
+								  label: back,
+								  icons: {start:'oj-fwk-icon-back oj-fwk-icon'}}">
+                                </button>
+                        </div>
+			<div class="oj-flex" data-bind="visible:isVisible">
+					<div class="oj-flex-item">
+						<label for="control1">Initial Amount</label>
+					</div>
+					<div class="oj-flex-item">
+						<input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:advHousingModel.initialAmount,disabled:  true }">
+					</div>
+			</div>
+			
+			<div class="oj-flex" data-bind="visible:isVisible" >
+					<div class="oj-flex-item">
+						<label for="control1">Payment Period</label>
+					</div>
+					<div class="oj-flex-item">
+						<input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:advHousingModel.paymentPeriod ,disabled:  true }">
+					</div>
+			</div>
+			<div class="oj-flex" data-bind="visible:isVisible">
+					<div class="oj-flex-item">
+						<label for="control1">First Installment Period </label>
+					</div>
+					<div class="oj-flex-item">
+						<input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:advHousingModel.firstInstallmentPeriod,disabled:  true }">
+					</div>
+			</div>
+			
+            
+     <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+					<div class="oj-flex-item">
+                                        <label for="control1" data-bind="text:hireDate "/>
+
+					</div>
+					<div class="oj-flex-item">
+						<input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:advHousingModel.hireDate,disabled:  true}">
+					</div>
+					<div class="oj-flex-item">
+                                         <label for="control1"  data-bind="text:requestDate "/>
+					</div>
+					<div class="oj-flex-item">
+						<input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:advHousingModel.requestDate,disabled:  true}">
+					</div>
+                <div class="oj-flex-item">
+                    <label for="control1" data-bind="text:monthsDesired "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:advHousingModel.numbersOfMonthsDesired,disabled:  true}">
+                </div>
+            <div class="oj-flex-item">
+                    <label for="control1" data-bind="text:monthsRemaining "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:advHousingModel.nrOfMonthRemInContract,disabled:  true}">
+                </div>
+            </div>
+			<div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+                <div class="oj-flex-item">
+                    <label for="control1" data-bind="text:housingAmount "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:advHousingModel.housingAmount,disabled:  true}">
+                </div>
+
+            </div>
+			<div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+                <div class="oj-flex-item">
+		                      <label for="control1" data-bind="text:reason  "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:advHousingModel.installmentAmount,disabled:  true}">
+                </div>
+
+            </div>
+			<div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+                <div class="oj-flex-item">
+                    <label for="control1" data-bind="text:personNum "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:advHousingModel.personNumber,disabled:  true}">
+                </div>
+
+            </div>
+
+				
+				
+				<div class="oj-flex">
+
+					
+
+				</div>
+			</div>
+		</div>

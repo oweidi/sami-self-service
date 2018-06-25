@@ -1,0 +1,106 @@
+
+
+<div class="oj-flex-item oj-panel">
+
+    <div id="tableWrapper">
+        <label for="type" style="display:block; font-size:large; font-weight:bold;" data-bind="text:advanceHousingRequest "/>
+
+        <div id="form-container" class="oj-form-layout">
+            <div class="oj-form">
+             <!-- ko if: specialistSummary() == 'true'  -->
+                             <button id="backBtn" type="button" class="oj-button-primary" style="vertical-align:center;margin-left:auto;margin-right:auto;" data-bind="click: backAction,
+								ojComponent: {
+								  component: 'ojButton', 
+								  label: back,
+								  icons: {start:'oj-fwk-icon-back oj-fwk-icon'}}">
+                                </button>
+             <!-- /ko -->
+
+                <button id="addAdvHousingBtn" type="button"  class="oj-button-primary" data-bind="
+            click: addAdvancedHousing,          
+            ojComponent: {          
+            component: 'ojButton', 
+            label: addLabel,icons:{end:'fa fa-plus'} }"></button>
+
+                <button id="editAdvHousingBtn" type="button" class="oj-button-primary" data-bind="click: editAdvancedHousing,   
+            ojComponent: {
+            component: 'ojButton',
+            label: editLabel,icons:{end:'fa fa-pencil-square-o'},
+            disabled: editDisabled}"></button>
+                <button id="viewAdvHousingBtn" type="button" class="oj-button-primary" data-bind="
+            click: viewAdvancedHousing,       
+            ojComponent: {          
+            component: 'ojButton', 
+            label: viewLabel ,icons:{end:'fa fa-eye'},
+            disabled: viewDisabled}"></button>
+            
+            <button id="deleteADV" type="button"
+                class="demo-button-error"
+            style="display:inline-block;vertical-align:top;"
+            data-bind="click: deleteDraftSelfService,
+            ojComponent: {
+            component: 'ojButton', disabled: isDraft
+            ,label: deleteLabel,icons:{end:'fa fa-times'}}">
+            </button>
+
+                <button id="statusAdvanceHousingBtn" type="button"  class="oj-button-primary"   data-bind="  click: openDialog,
+            ojComponent: {
+            component: 'ojButton',
+            disabled: viewDisabled,icons:{end:'fa fa-check'},
+            label: viewApprovalsLbl}"></button>
+
+            </div>
+        </div>
+        <br>
+            <div id="sampleDemo" style="" class="demo-padding demo-container">
+      <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+        <div id="pagingControlDemo" data-bind="visible:isVisible">
+                        <oj-table id="tbl1" 
+                        
+                        aria-label="Summary Adv Housing Table"
+                                data='[[dataSource]]'
+                                on-oj-before-current-row = "[[tableSelectionListener]]"
+                                display = "grid"
+                                selectionMode = "{'row': 'single'}"
+                                columns-default='{"sortable": "enabled"}'
+                                dnd='{"reorder": {"columns": "enabled"}}'
+                                columns='{{columnArray}}' >
+        
+                  <oj-paging-control id="paging" data='[[dataSource]]' page-size='10' slot='bottom' class="display-inline-flex">
+                </oj-paging-control>
+                        </oj-table>
+               </div>
+
+        
+      </div>
+    </div>
+            
+        </div>
+        
+<div style="display:none" id="modalDialog1" title="Approvals :" 
+       data-bind="ojComponent:{component: 'ojDialog', initialVisibility: 'hide',
+                               rootAttributes: { style: 'width: 38vw; height: 60vh;'}}">
+     <div class="oj-dialog-header">
+        <span data-bind="text:approvals"></span>
+     </div>
+     <div class="oj-dialog-body">       
+         <oj-table id="tbl12"                         
+                        aria-label="Approvals Adv Housing Table"
+                                data='[[dataSourceTB2]]'
+                                display = "grid"
+                                columns-default='{"sortable": "enabled"}'
+                                columns='{{columnArrayApproval}}' >       
+                        </oj-table>
+     </div>
+     <div class="oj-dialog-footer">
+        <button id="okButton" data-bind="click: closeDialog,ojComponent: {component: 'ojButton', label: ok}"> </button>
+      </div>
+  </div> 
+  <!--add first first record paragraph -->
+        <div class="oj-flex">
+            <div class="oj-panel oj-panel-alt1 oj-sm-margin-2x demo-mypanel" data-bind="visible:isShown"  style="width: 700px;  font-size:large; font-weight:bold; color:Green;" >
+              <h1><p> <label  data-bind="text:addFirstRecord"/></p></h1>
+            </div>
+          </div>
+</div>
+  

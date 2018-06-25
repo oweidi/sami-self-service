@@ -1,0 +1,141 @@
+	
+
+
+
+
+<div class="oj-form-layout">
+    <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline">
+        <div class="oj-form-top">
+            <button id="backBtn" type="button" class="oj-button-primary"
+                    style="vertical-align:center;margin-left:auto;margin-right:auto;"
+                    data-bind="click: backAction,ojComponent: {component: 'ojButton',label: back,icons: {start:'oj-fwk-icon-back oj-fwk-icon'}}"></button>
+        </div>
+        <div class="oj-form-layout">
+            <div class="oj-form-layout">
+                <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline">
+                    <div class="oj-flex">
+                        <div class="oj-flex-item">
+                            <label for="control1" data-bind="text:requestDate"/>
+                        </div>
+                        <div class="oj-flex-item">
+                            <input id="control1"
+                                   data-bind="ojComponent: {component: 'ojInputText',value:penalitesModel.requestDate,disabled:true}"></input>
+                        </div>
+                    </div>
+                    <div class="oj-flex">
+                        <div class="oj-flex-item">
+                            <label for="control1"
+                                   data-bind="text:offenceDate "/>
+                        </div>
+                        <div class="oj-flex-item">
+                            <input id="receiveDate"
+                                   data-bind="ojComponent: {component: 'ojInputText',converter: dateConverter,value: penalitesModel.offenceDate,  disabled: true}"></input>
+                        </div>
+                    </div>
+                    <div class="oj-flex">
+                        <div class="oj-flex-item">
+                            <label for="control1"
+                                   data-bind="text:invistigationDate "/>
+                        </div>
+                        <div class="oj-flex-item">
+                            <input id="receiveDate"
+                                   data-bind="ojComponent: {component: 'ojInputText',converter: dateConverter,value: penalitesModel.invistigationDate,  disabled: true}"></input>
+                        </div>
+                    </div>
+                    <div class="oj-flex">
+                        <div class="oj-flex-item">
+                            <label for="control1"
+                                   data-bind="text:violationType"/>
+                        </div>
+                        <div class="oj-flex-item">
+                            <input id="control1"
+                                   data-bind="ojComponent: {component: 'ojInputText', value:penalitesModel.violationType, disabled: true}"></input>
+                        </div>
+                    </div>
+                    <div class="oj-flex">
+                        <div class="oj-flex-item">
+                            <label for="control1"
+                                   data-bind="text:absenceDateFrom "/>
+                        </div>
+                        <div class="oj-flex-item">
+                            <input id="receiveDate"
+                                   data-bind="ojComponent: {component: 'ojInputText',converter: dateConverter,value: penalitesModel.absenceDateFrom, disabled: true}"></input>
+                        </div>
+                    </div>
+                    <div class="oj-flex">
+                        <div class="oj-flex-item">
+                            <label for="control1"
+                                   data-bind="text:absenceDateTo "/>
+                        </div>
+                        <div class="oj-flex-item">
+                            <input id="receiveDate"
+                                   data-bind="ojComponent: {component: 'ojInputText',converter: dateConverter,value: penalitesModel.absenceDateTo, disabled: true}"></input>
+                        </div>
+                    </div>
+                    <div class="oj-flex">
+                        <div class="oj-flex-item">
+                            <label for="control1" data-bind="text:occurance "/>
+                        </div>
+                        <div class="oj-flex-item">
+                            <input id="control1"
+                                   data-bind="ojComponent: {component: 'ojInputText',value:penalitesModel.occurance, disabled: true,required: true}"></input>
+                        </div>
+                    </div>
+                    <div class="oj-flex">
+                        <div class="oj-flex-item">
+                            <label for="control1"
+                                   data-bind="text:suggestedAction"/>
+                        </div>
+                        <div class="oj-flex-item">
+                            <select id="control1"
+                                    data-bind="ojComponent: {component: 'ojSelect',value:penalitesModel.suggestedAction, disabled: true}">
+                                <!-- ko foreach: suggestedActionList -->
+                                <option data-bind="value:value, text:label"></option>
+                                <!-- /ko -->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="oj-flex">
+                        <div class="oj-flex-item">
+                            <label for="control1"
+                                   data-bind="text:deductionHours "/>
+                        </div>
+                        <div class="oj-flex-item">
+                            <input id="control1"
+                                   data-bind="ojComponent: {component: 'ojInputText',value:penalitesModel.deductionHours, disabled: true}"></input>
+                        </div>
+                    </div>
+                    <div class="oj-flex">
+                        <div class="oj-flex-item">
+                            <label for="control1"
+                                   data-bind="text:deductionDays "/>
+                        </div>
+                        <div class="oj-flex-item">
+                            <input id="control1"
+                                   data-bind="ojComponent: {component: 'ojInputText',value:penalitesModel.deductionDays, disabled: true}"></input>
+                        </div>
+                    </div>
+                    <div class="oj-flex">
+                        <div class="oj-flex-item">
+                            <label for="control1"
+                                   data-bind="text:deductionBasicSalaryPercentage "/>
+                        </div>
+                        <div class="oj-flex-item">
+                            <input id="control1"
+                                   data-bind="ojComponent: {component: 'ojInputText', value:penalitesModel.deductionBasicSalaryPercentage, disabled: true}"></input>
+                        </div>
+                    </div>
+                    <!--<div class="oj-flex">
+                    <div class="oj-flex-item">
+                        <label for="control1" data-bind="text:attachment"/>
+                    </div>
+                    <div class="oj-flex-item">
+                        <img src="penalitesModel.imageBase64" height="200" alt="Image preview..."
+                             class="attClass" width='207'/>
+                    </div>
+                </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,119 @@
+<!--<button data-bind="click: error">Go to error</button>-->
+
+<!-- code for large or extra large devices -->
+<div data-bind="css: $root.isScreenSMorMD() ? 'oj-sm-hide' : ''">
+
+<div align="center" >          
+<div >
+   <div align="center" >       
+ </br>
+       </br>
+<div class="oj-form-layout">
+<div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline
+                        oj-form-cols-labels-inline oj-form-cols-max4"    >
+    
+    <!-- ko foreach: icons -->
+    <a href="#" data-bind="click:function(){$parent.iconNavigation(router)},visible:visible" 
+     id="router" style="display:block;text-decoration: none;padding : 5%" >
+        <span class="oj-clickable-icon demo-icon-font oj-icon-circle oj-icon-circle-border oj-icon-xs + label"
+        data-bind="css:'oj-icon-xs '+   value,
+                attr:{'aria-label':'Circular icon with color ' + label}" >
+          <span class="oj-icon-circle-inner"> 
+            <span    data-bind="css:'demo-icon-circle-font '+   iconType" style= " color: white;"></span>
+          </span>
+           
+        </span>
+        </br> 
+        <span data-bind="text: text"    style= "color:brown; text-decoration:none; font-weight:bold;font-size:10px;"> </span>
+
+      </a>
+       <!-- /ko -->
+      </div>
+      </div>
+      </div>
+</div>
+</div>
+</div>
+<!-- code for medium devices -->
+<div data-bind="css: $root.windowSize() === 'MD' ? '' : 'oj-sm-hide'">
+    <div class="oj-flex oj-sm-justify-content-center" style="    max-width: 100%; ">
+        <!-- ko foreach: icons -->
+        <div class="oj-flex-item" style="max-width: 56px;
+text-align: -webkit-center;    text-align: center; margin: 20px;">
+            <a href="#" data-bind="click:function(){$parent.iconNavigation(router)}"
+               id="router" style="text-decoration: none;">
+              <span class="oj-clickable-icon demo-icon-font oj-icon-circle oj-icon-circle-border oj-icon-xs + label" style="margin-bottom: 5px;"
+                    data-bind="css:'oj-icon-xs '+   value,                 attr:{'aria-label':'Circular icon with color ' + label}">
+                <span class="oj-icon-circle-inner">
+                  <span data-bind="css:'demo-icon-circle-font '+   iconType"
+                        style=" color: white;"></span></span></span><span data-bind="text: text"
+                                                                          style="color:brown; text-decoration:none; font-weight:bold;font-size:10px;"> </span></a>
+         </div>
+        <!-- /ko -->
+      </div>
+</div>
+<!-- code for small devices -->
+<div data-bind="css: $root.windowSize() === 'SM' ? '' : 'oj-sm-hide'">
+  <div id="filmStripDiv" style="margin: 20px;">
+    <div id="filmStrip" aria-label="Set of icons"
+         data-bind="ojComponent: { component: 'ojFilmStrip', arrowVisibility: 'hidden', maxItemsPerPage: 1}">
+      <div class=" demo-filmstrip-item oj-flex oj-sm-justify-content-center" style="    max-width: 100%; ">
+        <!-- ko foreach: icons -->
+            <!-- ko if: $index() < 6 -->
+            <div class="oj-flex-item" style="max-width: 56px;
+    text-align: -webkit-center;    text-align: center; margin: 20px;">
+                <a href="#" data-bind="click:function(){$parent.iconNavigation(router)}"
+                   id="router" style="text-decoration: none;">
+                  <span class="oj-clickable-icon demo-icon-font oj-icon-circle oj-icon-circle-border oj-icon-xs + label" style="margin-bottom: 5px;"
+                        data-bind="css:'oj-icon-xs '+   value,                 attr:{'aria-label':'Circular icon with color ' + label}">
+                    <span class="oj-icon-circle-inner">
+                      <span data-bind="css:'demo-icon-circle-font '+   iconType"
+                            style=" color: white;"></span></span></span><span data-bind="text: text"
+                                                                              style="color:brown; text-decoration:none; font-weight:bold;font-size:10px;"> </span></a>
+             </div>
+            <!-- /ko -->
+        <!-- /ko -->
+      </div>
+      <div class=" demo-filmstrip-item oj-flex oj-sm-justify-content-center" style="    max-width: 100%; ">
+        <!-- ko foreach: icons -->
+            <!-- ko if: $index() >= 6 && $index() < 12 -->
+            <div class="oj-flex-item" style="max-width: 56px;
+    text-align: -webkit-center;    text-align: center; margin: 20px;">
+                <a href="#" data-bind="click:function(){$parent.iconNavigation(router)}"
+                   id="router" style="text-decoration: none;">
+                  <span class="oj-clickable-icon demo-icon-font oj-icon-circle oj-icon-circle-border oj-icon-xs + label" style="margin-bottom: 5px;"
+                        data-bind="css:'oj-icon-xs '+   value,                 attr:{'aria-label':'Circular icon with color ' + label}">
+                    <span class="oj-icon-circle-inner">
+                      <span data-bind="css:'demo-icon-circle-font '+   iconType"
+                            style=" color: white;"></span></span></span><span data-bind="text: text"
+                                                                              style="color:brown; text-decoration:none; font-weight:bold;font-size:10px;"> </span></a>
+             </div>
+            <!-- /ko -->
+        <!-- /ko -->
+      </div>
+      <div class=" demo-filmstrip-item oj-flex oj-sm-justify-content-center" style="    max-width: 100%; ">
+        <!-- ko foreach: icons -->
+            <!-- ko if: $index() >= 12 -->
+            <div class="oj-flex-item" style="max-width: 56px;
+    text-align: -webkit-center;    text-align: center; margin: 20px;">
+                <a href="#" data-bind="click:function(){$parent.iconNavigation(router)}"
+                   id="router" style="text-decoration: none;">
+                  <span class="oj-clickable-icon demo-icon-font oj-icon-circle oj-icon-circle-border oj-icon-xs + label" style="margin-bottom: 5px;"
+                        data-bind="css:'oj-icon-xs '+   value,                 attr:{'aria-label':'Circular icon with color ' + label}">
+                    <span class="oj-icon-circle-inner">
+                      <span data-bind="css:'demo-icon-circle-font '+   iconType"
+                            style=" color: white;"></span></span></span><span data-bind="text: text"
+                                                                              style="color:brown; text-decoration:none; font-weight:bold;font-size:10px;"> </span></a>
+             </div>
+            <!-- /ko -->
+        <!-- /ko -->
+      </div>
+    </div>
+  </div>
+    <div style="text-align: center;">
+      <div style="display: inline-block;margin-top: 4px;">
+        <div id="pagingControl"
+             data-bind="ojComponent: { component: 'ojPagingControl', data: getPagingModel(), pageSize: 0,  pageOptions: {type: 'dots'}}"></div>
+      </div>
+    </div>
+</div>

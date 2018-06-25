@@ -1,0 +1,265 @@
+<label for="type" style="display:block; font-size:large; font-weight:bold;" data-bind="text:businessTripRequest "/>
+ <span data-bind="text:  businessTripReturnModel.name"
+                                               style="color:#a52a2a;"></span>
+<br>
+<div id="edit" style="display: none;" data-bind="visible: true">
+</div>
+                             <div align="left" >
+                            <button id="back" type="button" class="oj-button-primary" style="margin-left:auto;margin-right:auto;" data-bind="click: cancelViewBusinessTrip,
+								ojComponent: {
+								  component: 'ojButton', 
+								  label: back,
+								  icons: {start:'oj-fwk-icon-back oj-fwk-icon'}}">
+                                </button>
+         
+                        </div>
+  <div class="oj-form-layout">
+    <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline
+                oj-form-cols-labels-inline oj-form-cols-max1"  style="column-count: 1"    >
+ 
+                        <br>
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                <label for="control1"  data-bind="text:requestDate "/>
+										  
+                </div>
+         
+                <div class="oj-flex-item">
+                
+                <input id="requestDate"
+                   data-bind="ojComponent: {component: 'ojInputDate',
+                   value: businessTripReturnModel.requestDate, 
+                   converter: dateConverter,  disabled: true}"/> 
+                </div>
+
+            </div>   
+             <div class="oj-flex">
+                <div class="oj-flex-item">
+                <label for="control1"  data-bind="text:btripDetails"/>
+										  
+                </div>
+                <div class="oj-flex-item">
+           <input id='control1' type="text"
+                   data-bind="ojComponent: {component: 'ojInputText',  value: businessTripReturnModel.btripDesc, disabled: true}"/>
+                </div>
+            </div> 
+        <div class="oj-flex">
+          <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:type "/>
+
+          </div>
+          <div class="oj-flex-item">
+            <select id="type"
+                    data-bind="ojComponent: {component: 'ojSelect', value: businessTripReturnModel.type1,
+                    disabled:true}">
+              <!-- ko foreach: types -->
+              <option data-bind="value:value, text:label"></option>
+              <!-- /ko -->
+            </select>
+          </div>
+        </div>
+        <div class="oj-flex">
+          <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:employeeLocation "/>
+          </div>
+          <div class="oj-flex-item">
+            <input id='empLoc' type="text"
+                   data-bind="ojComponent: {component: 'ojInputText',  value: businessTripReturnModel.location, disabled:  true}"/>
+          </div>
+        </div>
+        <div class="oj-flex">
+          <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:countrylbl "/>
+          </div>
+          <div class="oj-flex-item">
+            <select id="country"
+                    data-bind="ojComponent: {component: 'ojSelect',  value: businessTripReturnModel.country,
+                   disabled:true}">
+              <!-- ko foreach: country -->
+              <option data-bind="value:value, text:label"></option>
+              <!-- /ko -->
+            </select>
+          </div>
+        </div>
+        <div class="oj-flex">
+          <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:citylbl "/>
+          </div>
+          <div class="oj-flex-item">
+            <input id='city' type="text"
+                   data-bind="ojComponent: {component: 'ojInputText', value: businessTripReturnModel.city, disabled:true}"/>
+          </div>
+        </div>
+        <div class="oj-flex">
+          <div class="oj-flex-item">
+          <label for="control1"  data-bind="text:startdate "/>
+          </div>
+          <div class="oj-flex-item">
+            <input id="startDate"
+                   data-bind="ojComponent: {component: 'ojInputDate',
+                   value: businessTripReturnModel.startdate, converter: dateConverter, 
+                   disabled: true}"/>
+          </div>
+        </div>
+        <div class="oj-flex">
+          <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:enddate "/>
+          </div>
+          <div class="oj-flex-item">
+            <input id="endDate"
+                   data-bind="ojComponent: {component: 'ojInputDate',value: businessTripReturnModel.enddate, 
+                   converter: dateConverter,disabled:true}"/>
+          </div>
+        </div>
+           <!-- Commented as per client request, can be used later on----
+        <!--
+        <div class="oj-flex">
+          <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:daysbefore "/>
+          </div>
+          <div class="oj-flex-item">
+            <input id='daysBefore' 
+                   data-bind=" ojComponent: {component: 'ojInputText', value: businessTripReturnModel.daysbefore, disabled:true }"/>
+          </div>
+        </div>
+        <div class="oj-flex">
+          <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:daysafter "/>
+          </div>
+          <div class="oj-flex-item">
+            <input id='daysAfter'
+                   data-bind="ojComponent: {component: 'ojInputText', value: businessTripReturnModel.daysafter, disabled:true}"/>
+          </div>
+        </div-->
+        <div class="oj-flex">
+          <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:nodays "/>
+          </div>
+          <div class="oj-flex-item">
+            <input id='noDays' type="text"
+                   data-bind=" ojComponent: {component: 'ojInputText', value: businessTripReturnModel.numberofdays, disabled:true}"/>
+          </div>
+        </div>
+        <div class="oj-flex">
+          <div class="oj-flex-item">
+                                <label for="control1"  data-bind="text:accomodationProvided "/>
+
+          </div>
+          <div class="oj-flex-item">
+            <select id="acomProvided"
+                    data-bind="ojComponent: {component: 'ojSelect',  value: businessTripReturnModel.accommodation,  disabled:  true}">
+              <!-- ko foreach: yesNo -->
+              <option data-bind="value:value, text:label"></option>
+              <!-- /ko -->
+            </select>
+          </div>
+        </div>
+         <div class="oj-flex">
+          <div class="oj-flex-item">
+                                <label for="control1"  data-bind="text:accomodationAmount "/>
+
+          </div>
+          <div class="oj-flex-item">
+            <input id='totAmount'
+                   data-bind="ojComponent: {component: 'ojInputText', value: businessTripReturnModel.accomodationAmount,disabled:true}"/>
+          </div>
+        </div>
+        <div class="oj-flex">
+          <div class="oj-flex-item">
+             <label for="control1"  data-bind="text:tranportationProvided "/>
+
+             </div>
+             <div class="oj-flex-item">
+            <select id="tranProvided"
+                    data-bind="ojComponent: {component: 'ojSelect',  value: businessTripReturnModel.transport, placeholder: 'Please Select a Value',  disabled: true}">
+              <!-- ko foreach: yesNo -->
+              <option data-bind="value:value, text:label"></option>
+              <!-- /ko -->
+            </select>
+          </div>
+          </div>
+                   <div class="oj-flex">
+          <div class="oj-flex-item">
+                                <label for="control1"  data-bind="text:tranportationAmount"/>
+
+          </div>
+          <div class="oj-flex-item">
+            <input id='control1'
+                   data-bind="ojComponent: {component: 'ojInputText', value: businessTripReturnModel.transportationAmount,disabled:true}"/>
+          </div>
+        </div>
+          <div class="oj-flex">
+          <div class="oj-flex-item">
+                         <label for="control1"  data-bind="text:foodProvided "/>
+             </div>
+             <div class="oj-flex-item">
+            <select id="foodProvided"
+                    data-bind="ojComponent: {component: 'ojSelect', value: businessTripReturnModel.food,  placeholder: 'Please Select a Value',  disabled: true}">
+              <!-- ko foreach: yesNo -->
+              <option data-bind="value:value, text:label"></option>
+              <!-- /ko -->
+            </select>
+          </div>
+        </div>
+                           <div class="oj-flex">
+          <div class="oj-flex-item">
+                                <label for="control1"  data-bind="text:foodAmount "/>
+
+          </div>
+          <div class="oj-flex-item">
+            <input id='control1'
+                   data-bind="ojComponent: {component: 'ojInputText', value: businessTripReturnModel.foodAmount,disabled:true}"/>
+           </div>
+        </div>
+        <div class="oj-flex">
+          <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:preDiem "/>
+          </div>
+          <div class="oj-flex-item">
+            <input id='perDiems' 
+                   data-bind=" ojComponent: {component: 'ojInputText', value: businessTripReturnModel.perdiem, disabled:true}"/>
+          </div>
+        </div>
+        <div class="oj-flex">
+          <div class="oj-flex-item">
+                <label for="control1"  data-bind="text:totamount "/>
+          </div>
+          <div class="oj-flex-item">
+            <input id='totAmount'
+                   data-bind="ojComponent: {component: 'ojInputText', value: businessTripReturnModel.totalamount,disabled:true}"/>
+          </div>
+        </div>
+        <div class="oj-flex">
+          <div class="oj-flex-item">
+                            <label for="control1"  data-bind="text:ticketclass "/>
+          </div>
+          <div class="oj-flex-item">
+            <input id='ticketClass'
+                   data-bind="ojComponent: {component: 'ojInputText', value: businessTripReturnModel.ticketclass,disabled:true}"/>
+          </div>
+        </div>
+        <div class="oj-flex">
+          <div class="oj-flex-item">
+                             <label for="control1"  data-bind="text:PNRlbl"/>
+
+          </div>
+          <div class="oj-flex-item">
+            <input id='control1' type="text"
+                   data-bind="ojComponent: {component: 'ojInputText',disabled:true,
+                   value: businessTripReturnModel.pnr}"/>
+          </div>
+        </div>
+        <div class="oj-flex">
+          <div class="oj-flex-item">
+                 <label for="control1"  data-bind="text:advanceAmount"/>
+          </div>
+          <div class="oj-flex-item">
+            <input id="advAmount"
+                   data-bind="ojComponent: {component: 'ojInputNumber',  max:maxAdvAmount,min:0, step:1,value:businessTripReturnModel.advanceamount, 
+                   disabled: true}"/>
+          </div>
+        </div>
+
+      </div>
+   </div>
+</div>

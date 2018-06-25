@@ -1,0 +1,90 @@
+<div id="train-container">
+<oj-select-one id="select1" 
+                         options="[[dataProvider]]" 
+                         value="{{selectVal}}"
+                         style="max-width:20em">
+          </oj-select-one>
+          <span id="selectedval" data-bind="text: selectVal"></span>
+<oj-table id="table" aria-label="Tasks Table"
+            data="[[datasource]]"
+            edit-mode="rowEdit"
+            row-renderer="[[rowRenderer]]"
+            on-oj-before-row-edit-end="[[beforeRowEditEndListener]]"
+            columns='[{"headerText": "Self Service", 
+                        "className": "oj-read-only",
+                        "headerStyle": "min-width: 12em; max-width: 12em; width: 12em",
+                        "style": "min-width: 12em; max-width: 12em; width: 12em"},
+                      {"headerText": "Level", 
+                         "headerStyle": "min-width: 12em; max-width: 12em; width: 12em",
+                        "style": "min-width: 12em; max-width: 12em; width: 12em"},
+                      {"headerText": "Noti Type", 
+                       "headerStyle": "min-width: 12em; max-width: 12em; width: 12em",
+                       "style": "min-width: 12em; max-width: 12em; width: 12em"},
+                      {"headerText": "Position", 
+                       "headerStyle": "min-width: 12em; max-width: 12em; width: 12em",
+                       "style": "min-width: 12em; max-width: 12em; width: 12em"}]'>
+        </oj-table>
+        <script type="text/html" id="row_template">
+            <tr>
+              <td>
+                <oj-row-expander context="[[$context.rowContext]]"></oj-row-expander>
+                <span data-bind="text: service_type"></span>
+              </td>
+              <td data-bind="text: step_level">
+              </td>
+              <td data-bind="text: notification_type">
+              </td>
+              <td data-bind="text: role_id">
+              </td>
+            </tr>
+        </script>
+        <script type="text/html" id="row_template_editable">
+            <tr>
+                <td>
+                    <oj-row-expander context="[[$context.rowContext]]"></oj-row-expander>
+                    <span data-bind="text: service_type"></span>
+                </td>
+                <td>
+                    <oj-input-text id="it2" value="{{step_level}}"></oj-input-text>
+                </td>
+                <td>
+                    <oj-input-text id="dt1" value="{{notification_type}}"></oj-input-text>
+                </td>
+                <td>
+                    <oj-input-text id="dt2" value="{{role_id}}"></oj-input-text>
+                </td>
+            </tr>
+        </script>
+        <button id="submitButton" style=""
+                data-bind="click: submitButton, ojComponent: {component: 'ojButton', label: 'Submit'}"></button>
+        <div id="sampleDemo" style="" class="demo-padding demo-container">
+        
+    <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+      <div id="dialogWrapper">
+        <oj-dialog style="display:none;width:350px;height:auto"
+                   id="yesNoDialog">
+          <div slot="header" class="oj-helper-clearfix">
+            <label data-bind="text:'Confirm Message' "/>
+          </div>
+          <div slot="body">
+            <label data-bind="text:'Add Message' "/>
+          </div>
+          <div slot="footer">
+            <button id="buttonOpenerNested" type="button"
+                    data-bind="click: commitRecord,        
+                               ojComponent: {
+                                                      component: 'ojButton',           
+                                                      label: 'Yes'}"></button>
+             
+            <button id="cancelButton" type="button"
+                    data-bind="click: cancelButton,        
+                                ojComponent: {component: 'ojButton',
+                                              label: 'No'}"></button>
+          </div>
+        </oj-dialog>
+         
+        
+      </div>
+    </div>
+  </div>
+        </div>

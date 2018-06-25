@@ -1,0 +1,130 @@
+<h1>
+<label for="type" style="display:block; font-size:large; font-weight:bold;" data-bind="text:reviewStopAllowance"/>
+</h1>
+<br></br>
+<div class="oj-form-layout">
+    <div class="oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-flex-items-pad">
+        <div class="oj-flex">
+            <div class="oj-flex-item" style="margin: auto;">
+                <button id="approve" type="button" class="oj-button-confirm"
+                        data-bind="visible:isShown,click: submitButton, ojComponent: {component: 'ojButton',label: approve}"></button>
+                 
+                <button id="reject" type="button" class="demo-button-error"
+                        data-bind="visible:isShown,click: rejectButton, ojComponent: { component: 'ojButton', label: reject}"></button>
+                 
+                <button id="cancel" type="button"
+                        data-bind="visible:isShown,click: cancelBTDriver,ojComponent: { component: 'ojButton', label: cancel}"></button>
+                 <button id="backBtn" type="button" class="oj-button-primary" style="vertical-align:center;margin-left:auto;margin-right:auto;" data-bind="click: backAction,
+                                                                visible:isVisible,
+								ojComponent: {
+								  component: 'ojButton', 
+								  label: back,
+								  icons: {start:'oj-fwk-icon-back oj-fwk-icon'}}">
+                                </button>
+            </div>
+            <div id="sampleDemo" style="" class="demo-padding demo-container">                                
+                <div id="dialogWrapper">
+                    <oj-dialog style="display:none;width:350px;height:auto" id="yesNoDialog" >
+                                <div slot="header" class="oj-helper-clearfix">
+                            <label  data-bind="text:confirmMessage "/>
+                    </div>
+                        <div slot="body">
+                        
+                                 <label  data-bind="text:approveMessage "/>
+                        
+                        </div>
+                        <div slot="footer">
+                           <button id="buttonOpenerNested" type="button" data-bind="click: approveStopAllowanceRequest,
+                                                                ojComponent: {
+                                                                  component: 'ojButton', 
+                                                                  label: yes,disabled:disableSubmit}">
+                                                </button>
+                            <button id="cancelButton" type="button" data-bind="click: cancelButton,
+                                                                ojComponent: {
+                                                                  component: 'ojButton', 
+                                                                  label: no}">
+                                                </button>
+                        </div>
+                    </oj-dialog>
+                    <oj-dialog style="display:none;width:350px;height:auto" id="rejectDialog" >
+                                <div slot="header" class="oj-helper-clearfix">
+                            <label  data-bind="text:confirmMessage "/>
+                    </div>
+                        <div slot="body">
+                        
+                                 <label  data-bind="text:rejectMessage "/>
+                        
+                        </div>
+                        <div slot="footer">
+                           <button id="buttonOpenerNested" type="button" data-bind="click: rejectStopAllowanceRequest,
+                                                                ojComponent: {
+                                                                  component: 'ojButton', 
+                                                                  label: yes,disabled:disableSubmit}">
+                                                </button>
+                            <button id="cancelButton" type="button" data-bind="click: rejectCancelButton,
+                                                                ojComponent: {
+                                                                  component: 'ojButton', 
+                                                                  label: no}">
+                                                </button>
+                        </div>
+                         <div class="oj-flex">
+                          <div class="oj-flex-item">
+                                    <label for="control1"  data-bind="text:addReason"/>
+                          </div>
+                          <div class="oj-flex-item">
+                            <input id='city' type="text"
+                                   data-bind="ojComponent: {component: 'ojInputText', value:stopAllowanceRequestModel.rejctReason, disabled: false,required: true}"/>
+                          </div>
+                        </div>
+                    </oj-dialog>
+                </div>
+        </div>
+            
+        </div>
+      
+       
+     <div class="oj-flex">
+					<div class="oj-flex-item">
+						<label for="control1" data-bind="text:requestDate"/>
+					</div>
+					<div class="oj-flex-item">
+						<input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:stopAllowanceRequestModel.requestDate,invalidComponentTracker: tracker,disabled:  true}">
+					</div>
+			</div>
+     
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1" data-bind="text:allowanceType"/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:stopAllowanceRequestModel.allowanceType,invalidComponentTracker: tracker,disabled:  true}">
+                </div>
+
+            </div>
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1" data-bind="text:stoppingDate"/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:stopAllowanceRequestModel.stoppingDate,invalidComponentTracker: tracker,disabled:  true}">
+                </div>
+
+            </div>
+		
+		<div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1" data-bind="text:reason"/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:stopAllowanceRequestModel.reason,invalidComponentTracker: tracker,disabled:  true}">
+                </div>
+
+            </div>
+			
+			
+    </div>
+</div>

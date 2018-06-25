@@ -1,0 +1,31 @@
+<h1><label for="type" style="display:block; font-size:large; font-weight:bold;" data-bind="text:notifications"/></h1>
+<div class="se-pre-con"></div>
+<div>
+
+<button data-bind="click: reviewNotification ,  ojComponent: {
+         disabled:reviewDisabled,
+          component: 'ojButton', 
+
+         label: review}"
+          class="oj-button-primary">
+	
+</button>
+	 
+<br>
+<oj-table id="tbl1" aria-label="Notification"
+                                data='[[dataSource]]'
+                                display = "grid"
+                                on-oj-before-current-row = "[[tableSelectionListener]]"
+                                selectionMode = "{'row': 'single'}"
+                                columns-default='{"sortable": "enabled"}'
+                                dnd='{"reorder": {"columns": "enabled"}}'
+                                style="width:700px"
+                                columns = '{{columnArray}}'>
+                                            
+           <oj-paging-control id="paging" data='[[dataSource]]' page-size='10' slot='bottom' class="display-inline-flex"/>
+    </oj-table>
+
+</div>
+ 
+
+</script>

@@ -1,0 +1,107 @@
+
+<div class="oj-flex-item oj-panel">
+
+<div id="tableWrapper">
+        <label for="type" style="display:block; font-size:large; font-weight:bold;" data-bind="text:employeeGrievance "/>
+
+    <div id="form-container" class="oj-form-layout">
+    
+   <div class="oj-form">
+     <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+             <div id="dialogWrapper">
+     <oj-dialog style="min-width: 50vw; min-height: 65vh" id="modalDialog1" >
+                                            <div slot="header" class="oj-helper-clearfix">
+                                                    <label  data-bind="text:approvals "/>
+                                            </div>
+
+                <div slot="body">
+     <div id="tableDemo" class="oj-flex oj-flex-items-pad">
+            <div class="oj-xl-8 oj-lg-8 oj-md-6 oj-flex-item">
+                <oj-table id="tbl12" aria-label="View Approvals"
+                                            data='[[dataSourceTB2]]'
+                                            display = "grid"
+                                            columns-default='{"sortable": "enabled"}' 
+                                            columns='{{columnArrayApproval}}'>
+                </oj-table>
+            </div>
+            
+        </div>  
+     </div>
+     <div class="oj-dialog-footer">
+        <button id="okButton" data-bind="click: closeDialog,ojComponent: {component: 'ojButton', label: ok}"> </button>
+      </div>
+</oj-dialog>
+</div>
+  </div>
+    <div class="oj-flex"  data-bind="style: {visibility: $root.userPriviledge() === 'T' ? 'hidden' : 'show' }">  
+     <!--div class="oj-flex-item">
+                  <div data-bind="visible: myValues().length > 0">
+</div-->
+          </div>
+          </div>
+      <!-- ko if: specialistSummary() != 'true'  -->
+    <button id="addEmployeeGrievance" type="button" 
+            class="oj-button-primary"
+            data-bind="
+            click: addEmployeeGrievance,          
+            ojComponent: {          
+            component: 'ojButton',label: addLabel ,icons:{end:'fa fa-plus'}   }">
+            </button>
+             <!-- /ko -->
+                   <!-- ko if: specialistSummary() == 'true'  -->
+    <button id="back" type="button" 
+            class="oj-button-primary"
+            data-bind="
+            click: backAction,          
+            ojComponent: {   label: back,       
+            component: 'ojButton'   }">
+            </button>
+             <!-- /ko -->
+    <button id="edit" type="button"
+    class="oj-button-primary"
+            style="display:inline-block;vertical-align:top;"
+            data-bind="click: editEmployeeGrievance,   
+            ojComponent: {
+            component: 'ojButton', disabled: editDisabled,label: editLabel,icons:{end:'fa fa-pencil-square-o'}}">
+            </button>
+                  <!-- ko if: specialistSummary() != 'true'  -->
+
+            <button id="viewEmployeeGrievance" type="button"
+                class="oj-button-primary"
+            style="display:inline-block;vertical-align:top;"
+            data-bind="click: viewEmployeeGrievance,
+            ojComponent: {
+            component: 'ojButton', disabled: viewDisabled,label: viewLabel,icons:{end:'fa fa-eye'} }">
+            </button>
+              <!-- /ko -->
+   </div>
+  </div>
+   <br>
+
+<div id="pagingControlDemo">
+<div class="oj-xl-8 oj-lg-8 oj-md-6 oj-flex-item" data-bind="visible:isVisible">
+    <oj-table id="tbl1" aria-label="Employee Grievance"
+                                data='[[dataSource]]'
+                                on-oj-before-current-row = "[[tableSelectionListener]]"
+                                display = "grid"
+                                selectionMode = "{'row': 'single'}"
+                                columns-default='{"sortable": "enabled"}'
+                                dnd='{"reorder": {"columns": "enabled"}}'
+                                style="width:700px"
+                                columns='{{columnArray}}'>
+                                           <oj-paging-control id="paging" data='[[dataSource]]' page-size='10' slot='bottom' class="display-inline-flex">
+                </oj-paging-control>
+    </oj-table>
+    
+    
+</div>
+
+
+
+</div>
+         <div class="oj-flex">
+            <div class="oj-panel oj-panel-alt1 oj-sm-margin-2x demo-mypanel" data-bind="visible:isShown"  style="width: 700px;  font-size:large; font-weight:bold; color:Green;" >
+              <h1><p> <label  data-bind="text:addFirstRecord"/></p></h1>
+            </div>
+          </div>
+          </div>

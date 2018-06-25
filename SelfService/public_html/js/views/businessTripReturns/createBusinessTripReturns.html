@@ -1,0 +1,373 @@
+<div id="form-container" class="oj-form-layout">
+    <div class="oj-form">
+        <div class="oj-flex-bar">
+            <div class="oj-flex-bar-start">
+              <button id="cancelBtn" type="button" style="vertical-align:top;"
+                      data-bind="click: cancelAction,
+                      ojComponent: {           
+                      component: 'ojButton',label:cancel}"></button>
+               
+              <button id="PreviousStep" type="button" 
+                      data-bind="click: previousStep,
+                      ojComponent: {disabled:currentStepValue() == 'stp1', 
+                      component: 'ojButton',            label: back}"></button>
+            </div>
+            <div class="oj-flex-bar-end">               
+              <button id="NextStep" type="button"
+                      data-bind="visible:nextBtnVisible,click: nextStep, 
+                      ojComponent: { disabled:currentStepValue() == 'stp2', 
+                      component: 'ojButton',label : next 
+                      }"></button>
+                
+              <button id="submitButton" style=""
+                      data-bind="click: submitButton,ojComponent: {component: 'ojButton', label: submit}"></button>
+             <button id="submitDraft" style=""
+                      data-bind="click: submitDraft,ojComponent: {component: 'ojButton', label: saveDraft}"></button>
+            </div>                     
+      </div>
+   </div>
+             <div id="sampleDemo" style="" class="demo-padding demo-container">
+                
+                
+            <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+             <div id="dialogWrapper">
+            <oj-dialog style="display:none;width:350px;height:auto" id="yesNoDialog" >
+                 <div slot="header" class="oj-helper-clearfix">
+                    <label  data-bind="text:confirmMessage "/>
+            </div>
+                <div slot="body">
+                
+                         <label  data-bind="text:addMessage "/>
+                
+                </div>
+                <div slot="footer">
+                   <button id="buttonOpenerNested" type="button" data-bind="click: commitRecord,
+							ojComponent: {
+                                                          disabled:disableSubmit(),
+							  component: 'ojButton', 
+							  label: yes}">
+					</button>
+                    <button id="cancelButton" type="button" data-bind="click: cancelButton,
+							ojComponent: {
+							  component: 'ojButton', 
+							  label: no}">
+					</button>
+                </div>
+            </oj-dialog>
+             <oj-dialog style="display:none;width:350px;height:auto" id="draftDialog" >
+                	<div slot="header" class="oj-helper-clearfix">
+                    <label  data-bind="text:confirmMessage "/>
+            </div>
+                <div slot="body">
+                
+                         <label  data-bind="text:addMessage "/>
+                
+                </div>
+                <div slot="footer">        
+                    <button id="buttonOpenerNested" type="button" data-bind="click: commitDraft,
+							ojComponent: {
+							  component: 'ojButton', 
+							  label: yes,disabled:disableSubmit}">
+					</button>
+                    <button id="cancelButton" type="button" data-bind="click: cancelDraft,
+							ojComponent: {
+							  component: 'ojButton', 
+							  label: no}">
+					</button>
+                </div>
+            </oj-dialog> 
+        </div>
+
+        
+      </div>
+    </div>
+    </div>
+  <div id="train-container">
+    <!--div class="se-pre-con"></div-->
+    <div style="text-align: center;white-space:nowrap;">
+      <oj-train id="train"
+                style="max-width:700px;margin-left:auto;margin-right:auto;"
+                selected-step="{{currentStepValue}}"
+                steps="[[stepArray]]"
+                class="oj-train-stretch"
+                on-oj-before-select="[[stopSelectListener]]"/>
+                
+                
+    </div>
+    <div id="progress-container" style="max-width:400px;margin-left:auto;margin-right:auto;">
+    <oj-status-meter-gauge 
+                  id="gauge9"
+                  min="0" 
+                  max="100"
+                   label="{{label}}"
+                   thresholds="[[thresholdValues]]"
+                  data-bind="value:progressValue "    
+                  metric-label.rendered="on"
+                  plot-area.rendered="on"               
+                    disabled="true"
+                     readonly
+                  style="margin-top:5px;margin-bottom:5px;
+                         height:20px;width:100%;">
+                </oj-status-meter-gauge >
+                </div>
+    <br/>
+     
+    <h3 id="currentStepText" data-bind="text: currentStepValueText()"
+        style="text-align: center"></h3>
+    <div class="oj-form-layout">
+        <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline
+                oj-form-cols-labels-inline oj-form-cols-max1" style="column-count: 1">
+            
+                    <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+                <div class="oj-flex-item">
+                <label for="control1"  data-bind="text:requestDate "/>
+										  
+                </div>
+         
+                <div class="oj-flex-item">
+                
+                <input id="requestDate"
+                   data-bind="ojComponent: {component: 'ojInputDate',
+                   value: businessTripReturnModel.requestDate,  
+                   converter: dateConverter, invalidComponentTracker: tracker,required: true,  disabled: true}"/> 
+                </div>
+
+                <div class="oj-flex-item">
+                <label for="control1"  data-bind="text:btripDetails"/>
+										  
+                </div>
+                <div class="oj-flex-item">
+           <select id="control1"
+                    data-bind="ojComponent: {component: 'ojSelect', value: businessTripReturnModel.btripId,
+                    placeholder: 'Please Select a Value', disabled: isDisabled,invalidComponentTracker: tracker,required: true}">
+              <!-- ko foreach: btripReference -->
+              <option data-bind="value:value, text:label"></option>
+              <!-- /ko -->
+            </select>
+                </div>
+          <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:type "/>
+
+          </div>
+          <div class="oj-flex-item">
+            <select id="type"
+                    data-bind="ojComponent: {component: 'ojSelect', value: businessTripReturnModel.type1,
+                    placeholder: 'Please Select a Value', disabled: isDisabled,invalidComponentTracker: tracker,required: true}">
+              <!-- ko foreach: types -->
+              <option data-bind="value:value, text:label"></option>
+              <!-- /ko -->
+            </select>
+          </div>
+          <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:employeeLocation "/>
+          </div>
+          <div class="oj-flex-item">
+            <input id='empLoc' type="text"
+                   data-bind="ojComponent: {component: 'ojInputText',  value: businessTripReturnModel.location, disabled: true,required: true,invalidComponentTracker: tracker,required: true}"/>
+          </div>
+          <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:countrylbl "/>
+          </div>
+          <div class="oj-flex-item">
+            <select id="country"
+                    data-bind="ojComponent: {component: 'ojSelect',  value: businessTripReturnModel.country,
+                    placeholder: 'Please Select a Value',disabled: isDisabled,invalidComponentTracker: tracker,required: true}">
+              <!-- ko foreach: country -->
+              <option data-bind="value:value, text:label"></option>
+              <!-- /ko -->
+            </select>
+          </div>
+          <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:citylbl "/>
+          </div>
+          <div class="oj-flex-item">
+            <input id='city' type="text"
+                   data-bind="ojComponent: {component: 'ojInputText', value: businessTripReturnModel.city, disabled: isDisabled,invalidComponentTracker: tracker,required: true}"/>
+          </div>
+        </div>
+        <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+          <div class="oj-flex-item">
+          <label for="control1"  data-bind="text:startdate "/>
+          </div>
+          <div class="oj-flex-item">
+            <input id="startDate"
+                   data-bind="ojComponent: {component: 'ojInputDate',
+                   max: businessTripReturnModel.enddate, value: businessTripReturnModel.startdate, converter: dateConverter, 
+                   disabled: isDisabled,invalidComponentTracker: tracker,required: true}"/>
+          </div>
+          <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:enddate "/>
+          </div>
+          <div class="oj-flex-item">
+            <input id="endDate"
+                   data-bind="ojComponent: {component: 'ojInputDate',  min: businessTripReturnModel.startdate,value: businessTripReturnModel.enddate, 
+                   converter: dateConverter,disabled: isDisabled,invalidComponentTracker: tracker,required: true}"/>
+          </div>
+        <!-- Commented as per client request, can be used later on----
+        <div class="oj-flex">
+          <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:daysbefore "/>
+          </div>
+          <div class="oj-flex-item">
+            <input id='daysBefore' 
+                   data-bind=" ojComponent: {component: 'ojInputText', value: businessTripReturnModel.daysbefore, disabled:true ,invalidComponentTracker: tracker,required: true}"/>
+          </div>
+        </div>
+        <div class="oj-flex">
+          <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:daysafter "/>
+          </div>
+          <div class="oj-flex-item">
+            <input id='daysAfter'
+                   data-bind="ojComponent: {component: 'ojInputText', value: businessTripReturnModel.daysafter, disabled:true,invalidComponentTracker: tracker,required: true}"/>
+          </div>
+        </div-->
+          <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:nodays "/>
+          </div>
+          <div class="oj-flex-item">
+            <input id='noDays' type="text"
+                   data-bind=" ojComponent: {component: 'ojInputText', value: businessTripReturnModel.numberofdays, disabled:true,required: true}"/>
+          </div>
+        </div>
+        <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+        <div class="oj-flex-item">
+                            <label for="control1"  data-bind="text:ticketclass "/>
+          </div>
+          <div class="oj-flex-item">
+            <input id='ticketClass'
+                   data-bind="ojComponent: {component: 'ojInputText', value: businessTripReturnModel.ticketclass,disabled:true}"/>
+          </div>
+        
+          <div class="oj-flex-item">
+                                <label for="control1"  data-bind="text:accomodationProvided "/>
+
+          </div>
+          <div class="oj-flex-item">
+            <select id="acomProvided"
+                    data-bind="ojComponent: {component: 'ojSelect',  value: businessTripReturnModel.accommodation,  placeholder: 'Please Select a Value',disabled: isDisabled,invalidComponentTracker: tracker,required: true}">
+              <!-- ko foreach: yesNo -->
+              <option data-bind="value:value, text:label"></option>
+              <!-- /ko -->
+            </select>
+          </div>
+         <div class="oj-flex-item">
+             <label for="control1"  data-bind="text:tranportationProvided "/>
+
+             </div>
+             <div class="oj-flex-item">
+            <select id="tranProvided"
+                    data-bind="ojComponent: {component: 'ojSelect',  value: businessTripReturnModel.transport, placeholder: 'Please Select a Value',  disabled: isDisabled,invalidComponentTracker: tracker,required: true}">
+              <!-- ko foreach: yesNo -->
+              <option data-bind="value:value, text:label"></option>
+              <!-- /ko -->
+            </select>
+          </div>
+           <div class="oj-flex-item">
+                         <label for="control1"  data-bind="text:foodProvided "/>
+             </div>
+             <div class="oj-flex-item">
+            <select id="foodProvided"
+                    data-bind="ojComponent: {component: 'ojSelect', value: businessTripReturnModel.food,  placeholder: 'Please Select a Value',  disabled: isDisabled,invalidComponentTracker: tracker,required: true}">
+              <!-- ko foreach: yesNo -->
+              <option data-bind="value:value, text:label"></option>
+              <!-- /ko -->
+            </select>
+          </div>
+          </div>
+         <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+          <div class="oj-flex-item">
+                                <label for="control1"  data-bind="text:accomodationAmount "/>
+
+          </div>
+          <div class="oj-flex-item">
+           <!-- ko ifnot: (disabledPerdiem() == false && businessTripReturnModel.accommodation().toString() == 'N') -->
+            <input id='totAmount'
+                   data-bind="ojComponent: {component: 'ojInputText', value: businessTripReturnModel.accomodationAmount,disabled:true}"/>
+          <!-- /ko -->
+            <!-- ko if: (disabledPerdiem() == false && businessTripReturnModel.accommodation().toString() == 'N')   -->        
+             <input id='totAmount'
+                   data-bind="ojComponent: {component: 'ojInputText', value: businessTripReturnModel.accomodationAmount,disabled:isDisabled,invalidComponentTracker: tracker,required: true}"/>        
+           <!-- /ko -->
+          </div>
+          <div class="oj-flex-item">
+                                <label for="control1"  data-bind="text:tranportationAmount"/>
+
+          </div>
+          <div class="oj-flex-item">
+          <!-- ko ifnot: (disabledPerdiem() == false && businessTripReturnModel.transport().toString() == 'N') -->
+            <input id='control1'
+                   data-bind="ojComponent: {component: 'ojInputText', value: businessTripReturnModel.transportationAmount,disabled:true}"/>
+          <!-- /ko -->
+            <!-- ko if: (disabledPerdiem() == false && businessTripReturnModel.transport().toString() == 'N')   -->        
+             <input id='control1'
+                   data-bind="ojComponent: {component: 'ojInputText', value: businessTripReturnModel.transportationAmount,disabled:isDisabled,invalidComponentTracker: tracker,required: true}"/>        
+           <!-- /ko -->
+          </div>
+          <div class="oj-flex-item">
+                                <label for="control1"  data-bind="text:foodAmount "/>
+
+          </div>
+          <div class="oj-flex-item">
+          <!-- ko ifnot: (disabledPerdiem() == false && businessTripReturnModel.food().toString() == 'N') -->
+            <input id='control1'
+                   data-bind="ojComponent: {component: 'ojInputText', value: businessTripReturnModel.foodAmount,disabled:true}"/>
+          <!-- /ko -->
+            <!-- ko if: (disabledPerdiem() == false && businessTripReturnModel.food().toString() == 'N')   -->        
+             <input id='control1'
+                   data-bind="ojComponent: {component: 'ojInputText', value: businessTripReturnModel.foodAmount,disabled:isDisabled,invalidComponentTracker: tracker,required: true}"/>        
+           <!-- /ko -->
+          </div>
+          <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:preDiem "/>
+          </div>
+          <div class="oj-flex-item">
+            <input id='perDiems' 
+                   data-bind=" ojComponent: {component: 'ojInputText', value: businessTripReturnModel.perdiem, disabled:disabledPerdiem,invalidComponentTracker: tracker,required: true}"/>
+          </div>
+          <div class="oj-flex-item">
+                <label for="control1"  data-bind="text:totamount "/>
+          </div>
+          <div class="oj-flex-item">
+            <input id='totAmount'
+                   data-bind="ojComponent: {component: 'ojInputText', value: businessTripReturnModel.totalamount,disabled:true}"/>
+          </div>
+          <div class="oj-flex-item">
+                             <label for="control1"  data-bind="text:PNRlbl"/>
+
+          </div>
+          <div class="oj-flex-item">
+            <input id='control1' type="text"
+                   data-bind="ojComponent: {component: 'ojInputText',disabled:true,
+                   value: businessTripReturnModel.pnr}"/>
+          </div>
+          <div class="oj-flex-item">
+                 <label for="control1"  data-bind="text:advanceAmount"/>
+          </div>
+          <div class="oj-flex-item">
+            <input id="advAmount"
+                   data-bind="ojComponent: {component: 'ojInputNumber',  max:maxAdvAmount,min:0, step:1,value:businessTripReturnModel.advanceamount, 
+                   disabled: true}"/>
+          </div>
+        </div>
+        <br/>
+      
+      </div>
+      
+     <!--  <div style="display:none" id="modalDialogAbsenseError" title="Error :" 
+       data-bind="ojComponent:{component: 'ojDialog', initialVisibility: 'hide',
+                               rootAttributes: { style: 'width: 50vw; height: 40vh;'}}">
+     <div class="oj-dialog-body">
+     <span class="oj-fwk-icon-status-error"  style="color:#a52a2a; font-size:large;">The requested business trip overlaps with an existing absence request</span></h1>
+
+     </div>
+     <div class="oj-dialog-footer">
+        <button id="okButton" data-bind="click: closeDialog,ojComponent: {component: 'ojButton', label: 'OK'}"> </button>
+      </div>
+  </div>
+     
+    </div>-->
+        
+
+  </div>
+</div>

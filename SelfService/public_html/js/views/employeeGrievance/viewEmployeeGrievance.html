@@ -1,0 +1,203 @@
+<div id="train-container">
+    <div class="oj-form-layout">
+        <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline">
+        
+         <div class="oj-form-top" >
+                            <button id="back" type="button" class="oj-button-primary" style="margin-left:auto;margin-right:auto;" data-bind="click: backAction,
+								ojComponent: {
+								  component: 'ojButton', 
+								  label: back,
+								  icons: {start:'oj-fwk-icon-back oj-fwk-icon'}}">
+                                </button>
+                        </div>
+           <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:grievanceDate "/>
+                </div>
+         
+                <div class="oj-flex-item">
+                
+                <input id="grievanceDate"
+                   data-bind="ojComponent: {component: 'ojInputDate',
+                   value: employeeGrievanceModel.grievanceDate, 
+                   converter: dateConverter,  disabled: true}"/> 
+                </div>
+
+            </div>
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                   <label for="control1"  data-bind="text:grievanceType "/>
+                 
+                </div>
+                <div class="oj-flex-item">
+
+               <select id="grievanceType"
+                    data-bind="ojComponent: {component: 'ojSelect',value: employeeGrievanceModel.grievanceType,  placeholder: 'Please Select a Value',disabled: true}">
+                      <!-- ko foreach: grievanceTypes -->
+                      <option data-bind="value:value, text:label"></option>
+                      <!-- /ko -->
+            </select>
+                </div>
+
+            </div>
+
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:grievanceDescription "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="grievanceDesc" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:employeeGrievanceModel.grievanceDescription, disabled: true}"/>
+                </div>
+
+            </div>
+
+         
+            <div class="oj-flex" data-bind="visible:grevianceRefVisible">
+                <div class="oj-flex-item">
+                   <label for="control1"  data-bind="text:requestReference "/>
+                </div>
+                <div class="oj-flex-item">
+                             
+                              <input id="grievanceRef" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:employeeGrievanceModel.requestReference,  disabled: true}"/>
+                </div>
+
+            </div>
+        
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                     <label for="control1"  data-bind="text:grievanceStatus "/>
+                     
+                </div>
+                <div class="oj-flex-item">
+
+            <select id="grievanceStatus"
+                    data-bind="ojComponent: {component: 'ojSelect',value: employeeGrievanceModel.grievanceStatus,  placeholder: 'Please Select a Value',disabled: true}">
+                      <!-- ko foreach: grievanceStatuses -->
+                      <option data-bind="value:value, text:label"></option>
+                      <!-- /ko -->
+            </select>
+            </div>
+            </div>
+            
+            <div class="oj-flex" >
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:directManagerComment "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="managerComment" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:employeeGrievanceModel.directManagerComment,   disabled: true}"/>
+                </div>
+
+            </div>
+
+
+            <div class="oj-flex"   >
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:directManagerStatus "/>
+                </div>
+                <div class="oj-flex-item">
+                <select id="directManagerStatus"
+                    data-bind="ojComponent: {component: 'ojSelect',value: employeeGrievanceModel.directManagerStatus,  placeholder: 'Please Select a Value',
+                     disabled:true}">
+                      <!-- ko foreach: managerStatuses -->
+                      <option data-bind="value:value, text:label"></option>
+                      <!-- /ko -->
+                </select>
+                             
+                </div>
+
+            </div>
+            
+               <div class="oj-flex"   >
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:directManagerManagerComment "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="directMmComment" data-bind="ojComponent: {component: 'ojInputText',
+                                          value:employeeGrievanceModel.directMmComment, disabled: true}"/>
+                </div>
+
+            </div>
+
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:directManagerManagerStatus "/>
+                </div>
+                <div class="oj-flex-item">
+                <select id="directMmStatus"
+                    data-bind="ojComponent: {component: 'ojSelect',value: employeeGrievanceModel.directMmStatus,  placeholder: 'Please Select a Value'
+                            , disabled:true}">
+                      <!-- ko foreach: managerStatuses -->
+                      <option data-bind="value:value, text:label"></option>
+                      <!-- /ko -->
+                </select>
+                             
+                </div>
+
+            </div>
+            
+             <div class="oj-flex" >
+                <div class="oj-flex-item">
+                     <label for="control1"  data-bind="text:employeeRelationComment "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="employeeRelationComment" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:employeeGrievanceModel.employeeRelationComment, 
+                                          disabled: true}"/>
+                </div>
+
+            </div>
+
+
+            <div class="oj-flex" >
+                <div class="oj-flex-item">
+                     <label for="control1"  data-bind="text:employeeRelationStatus "/>
+                </div>
+                <div class="oj-flex-item">
+                <select id="employeeRelationStatus"
+                    data-bind="ojComponent: {component: 'ojSelect',value: employeeGrievanceModel.employeeRelationStatus,   placeholder: 'Please Select a Value',
+                    disabled: true}">
+                      <!-- ko foreach: managerStatuses -->
+                      <option data-bind="value:value, text:label"></option>
+                      <!-- /ko -->
+                </select>
+                             
+                </div>
+
+            </div>
+            
+                         <div class="oj-flex">
+                <div class="oj-flex-item">
+                   <label for="control1"  data-bind="text:headofHRComment "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="headHrComment" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:employeeGrievanceModel.headHrComment,  disabled: true}"/>
+                </div>
+
+            </div>
+
+
+            <div class="oj-flex"  >
+                <div class="oj-flex-item">
+                   <label for="control1"  data-bind="text:headofHRStatus "/>
+                </div>
+                <div class="oj-flex-item">
+                <select id="headHrCommentStatus"
+                    data-bind="ojComponent: {component: 'ojSelect',value: employeeGrievanceModel.headHrCommentStatus, placeholder: 'Please Select a Value',disabled: true}">
+                      <!-- ko foreach: headHrStatuses -->
+                      <option data-bind="value:value, text:label"></option>
+                      <!-- /ko -->
+                </select>       
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,96 @@
+<div id="train-container">
+    <div class="oj-form-layout">
+        <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline">
+        
+         <div class="oj-form-top" >
+                            <button id="cancel" type="button" class="oj-button-primary" style="margin-left:auto;margin-right:auto;" data-bind="click: backAction,
+								ojComponent: {
+								  component: 'ojButton', 
+								  label: back,
+								  icons: {start:'oj-fwk-icon-back oj-fwk-icon'}}">
+                                </button>
+                        </div>
+       
+                <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:requestDate "/>
+                </div>
+         
+                <div class="oj-flex-item">
+                
+                <input id="requestDate"
+                   data-bind="ojComponent: {component: 'ojInputDate',
+                   value: employeeAllowanceModel.requestDate, 
+                   converter: dateConverter, disabled: true}"/> 
+                </div>
+
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:hireDate "/>
+                 
+                </div>
+                <div class="oj-flex-item">
+                    <input id="hireDate"  data-bind="ojComponent: {component: 'ojInputText',
+                                          value:employeeAllowanceModel.hireDate,  disabled: true}">
+                </div>
+                 <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:startDate "/>
+                     
+                </div>
+                <div class="oj-flex-item">
+                 <input id="startDate"
+                   data-bind="ojComponent: {component: 'ojInputDate', max: employeeAllowanceModel.endDate,  converter: dateConverter,
+                   value: employeeAllowanceModel.startDate, disabled: true}"/>
+                </div>
+                <!-- ko if: employeeAllowanceModel.housingAllowance() == 'Relocation Allowance'  -->  
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:endDate "/>
+                     
+                </div>
+                <div class="oj-flex-item">
+                  <input id="endDate"
+                   data-bind="ojComponent: {component: 'ojInputDate',  min: employeeAllowanceModel.startDate,  converter: dateConverter,
+                   value: employeeAllowanceModel.endDate,disabled: true}"/>
+                </div>
+                 <!-- /ko -->
+
+            </div>
+
+
+            <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+               <!-- <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:housingType "/>
+                </div>
+                <div class="oj-flex-item">
+                   <input id="housingType"  data-bind="ojComponent: {component: 'ojInputText',
+                                          value:employeeAllowanceModel.housingType, disabled: true}">
+                </div>-->
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:allowanceType "/>
+                    
+                </div>
+                 <div class="oj-flex-item">
+               <input id="housingAllowance"  data-bind="ojComponent: {component: 'ojInputText',
+                                          value:employeeAllowanceModel.housingAllowance,  disabled: true}">
+                </div>
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:amount "/>
+                     
+                </div>
+                <div class="oj-flex-item">
+                    <input id="allowanceAmount"  data-bind="ojComponent: {component: 'ojInputText',
+                                          value:employeeAllowanceModel.allowanceAmount,  disabled: true}">
+                </div>
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:reason "/>
+                     
+                </div>
+                <div class="oj-flex-item">
+                  <input id="reason"  data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:employeeAllowanceModel.reason, disabled: true}">
+                </div>
+
+            </div>               
+               
+        </div>
+    </div>
+</div>

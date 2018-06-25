@@ -1,0 +1,110 @@
+
+<div class="oj-flex-item" data-bind="css: { 'oj-panel' : !$root.isScreenSMorMD() }">
+
+<div id="tableWrapper">
+        <label for="type" style="display:block; font-size:large; font-weight:bold;" data-bind="text:businessTripRequest "/>
+
+    <div id="form-container" class="oj-form-layout">
+   <div class="oj-form">
+   <div style="display:none" id="modalDialog1"  
+       data-bind="ojComponent:{component: 'ojDialog', initialVisibility: 'hide',
+                               rootAttributes: { style: 'min-width: 50vw; min-height: 65vh;'}}">
+     <div class="oj-dialog-header">
+        <span data-bind="text:approvals"></span>
+     </div>
+     <div class="oj-dialog-body">
+     <div id="tableDemo" class="oj-flex oj-flex-items-pad">
+            <div class="oj-xl-8 oj-lg-8 oj-md-6 oj-flex-item">
+                <oj-table id="tbl12" aria-label="Departments Table"
+                                            data='[[dataSourceTB2]]'
+                                            display = "grid"
+                                            columns-default='{"sortable": "enabled"}' 
+                                            columns='{{columnArrayApproval}}'>       
+                </oj-table>
+            </div>
+            
+        </div>  
+     </div>
+     <div class="oj-dialog-footer">
+        <button id="okButton" data-bind="click: closeDialog,ojComponent: {component: 'ojButton', label: ok}"> </button>
+      </div>
+  </div>
+    <!--div class="oj-flex"  data-bind="style: {visibility: $root.userPriviledge() === 'T' ? 'hidden' : 'show' }">  
+     <div class="oj-flex-item">
+                  <div data-bind="visible: myValues().length > 0">
+</div>
+          </div>
+          </div-->
+          <!-- ko if: specialistSummary() == 'true'  -->
+     <button id="backBtn" type="button" class="oj-button-primary" style="vertical-align:center;margin-left:auto;margin-right:auto;" data-bind="click: backAction,
+								ojComponent: {
+								  component: 'ojButton', 
+								  label: back,
+								  icons: {start:'oj-fwk-icon-back oj-fwk-icon'}}">
+                                </button>
+             <!-- /ko -->
+    <button id="addBusiness" type="button" 
+            class="oj-button-primary"
+            data-bind="visible:$root.userPriviledge() !== 'T',
+            click: addBusinessTrip,          
+            ojComponent: {          
+            component: 'ojButton', disabled: addDisabled,
+            label: addLabel,icons:{end:'fa fa-plus'}}">
+            </button>
+     
+    <button id="edit" type="button"
+    class="oj-button-primary"
+            style="display:inline-block;vertical-align:top;"
+            data-bind="click: editBusinessTrip,   
+            ojComponent: {
+            component: 'ojButton', disabled: editDisabled,
+              label: editLabel,icons:{end:'fa fa-pencil-square-o'}}">
+            </button>
+            <button id="viewBT" type="button"
+                class="oj-button-primary"
+            style="display:inline-block;vertical-align:top;"
+            data-bind="click: viewBusinessTrip,
+            ojComponent: {
+            component: 'ojButton', disabled: viewDisabled
+            ,label: viewLabel,icons:{end:'fa fa-eye'}}">
+            </button>
+           
+           <button id="buttonOpener" 
+                   class="oj-button-primary" 
+                   type="button" 
+                   data-bind="click: openDialog,
+                              ojComponent: {component: 'ojButton', 
+                                            label: viewApprovalsLbl,
+                                             disabled: viewDisabled,
+                                            icons:{end:'fa fa-check'}}">
+           </button>
+        
+     
+   </div>
+  </div>
+   <br>
+
+<div id="pagingControlDemo">
+<div class="oj-xl-8 oj-lg-8 oj-md-6 oj-flex-item" data-bind="visible:isVisible">
+    <oj-table id="tbl1" aria-label="Departments Table"
+                                data='[[dataSource]]'
+                                display = "grid"
+                                on-oj-before-current-row = "[[tableSelectionListener]]"
+                                selectionMode = "{'row': 'single'}"
+                                columns-default='{"sortable": "enabled"}'
+                                dnd='{"reorder": {"columns": "enabled"}}'
+                                columns='{{columnArray}}'
+                                style='width: calc(100vw - 20px);'>
+       <oj-paging-control id="paging" data='[[dataSource]]' page-size='10' slot='bottom' class="display-inline-flex"/>
+    </oj-table>
+</div> 
+
+    </div>
+</div>
+ <!--add first first record paragraph -->
+      <div class="oj-flex">
+            <div class="oj-panel oj-panel-alt1 oj-sm-margin-2x demo-mypanel" data-bind="visible:isShown"  style="width: 700px;  font-size:large; font-weight:bold; color:Green;" >
+              <h1><p> <label  data-bind="text:addFirstRecord"/></p></h1>
+            </div>
+          </div>
+</div>

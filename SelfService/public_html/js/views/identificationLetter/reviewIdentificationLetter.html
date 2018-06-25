@@ -1,0 +1,191 @@
+<h1>
+<label for="type" style="display:block; font-size:large; font-weight:bold;" data-bind="text:reviewIdentificationLetters "/>
+    <span data-bind="text: identificationLettersModel.name" style="color:#a52a2a;"></span>
+</h1>
+<br></br>
+<div class="oj-form-layout">
+    <div class="oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-flex-items-pad">
+        <div class="oj-flex">
+            <div class="oj-flex-item" style="margin: auto;">
+             <button id="approve" type="button" class="oj-button-confirm"
+                        data-bind="visible:isShown,click: submitButton, ojComponent: {component: 'ojButton',label: approve}"></button>
+                 
+                <button id="reject" type="button" class="demo-button-error"
+                        data-bind="visible:isShown,click: rejectButton, ojComponent: { component: 'ojButton', label: reject}"></button>
+             <button id="back" type="button" class="oj-button-primary"
+                        data-bind="click: cancelAdvHousing,ojComponent: { component: 'ojButton', label: back,icons: {start:'oj-fwk-icon-back oj-fwk-icon'}}"></button>
+             
+            </div>
+                <div class="se-pre-con"></div>
+            <div id="sampleDemo" style="" class="demo-padding demo-container">
+                <div id="componentDemoContent"
+                     style="width: 1px; min-width: 100%;">
+                    <div id="dialogWrapper">
+                                              <oj-dialog style="display:none;width:350px;height:auto"
+                                   id="yesNoDialog" >
+			<div slot="header" class="oj-helper-clearfix">
+                                   <label  data-bind="text:confirmMessage "/>
+                        </div>
+                                <div slot="body">
+                                
+                                         <label  data-bind="text:approveMessage "/>
+                                
+                                </div>                   
+                                <div slot="footer">
+                                <button id="buttonOpenerNested" type="button"
+                                        data-bind="click: approveIdentificationLetter,        ojComponent: {          component: 'ojButton',           label: yes,disabled:disableSubmit}"></button>
+                                 
+                                <button id="cancelButton" type="button"
+                                        data-bind="click: cancelButton,        ojComponent: {          component: 'ojButton',           label: no}"></button>
+                            </div>
+                        </oj-dialog>
+                         
+                        <oj-dialog style="display:none;width:350px;height:auto"
+                                   id="rejectDialog" >
+                                   <div slot="header" class="oj-helper-clearfix">
+                                        <label  data-bind="text:confirmMessage "/>
+                                     </div>
+                                <div slot="body">
+                                
+                                         <label  data-bind="text:rejectMessage "/>
+                                
+                                </div>    
+                            <div slot="footer">
+                                <button id="buttonOpenerNested" type="button"
+                                        data-bind="click: rejectIdentificationLetter,        ojComponent: {          component: 'ojButton',           label: yes,disabled:disableSubmit}"></button>
+                                 
+                                <button id="cancelButton" type="button"
+                                        data-bind="click: rejectCancelButton,        ojComponent: {          component: 'ojButton',           label: no}"></button>
+                            </div>
+                            <div class="oj-flex">
+                         <div class="oj-flex-item">
+                                            <label for="control1" data-bind="text:rejectReason"/>
+                                  </div>          <div class="oj-flex-item">
+            <input id='city' type="text"
+                   data-bind="ojComponent: {component: 'ojInputText', value:identificationLettersModel.rejectRessone, disabled: false,required: true}"/>
+          </div>
+        </div>
+                        </oj-dialog>
+                    </div>
+                </div>
+            </div>
+     </div>
+            
+            <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+                <div class="oj-flex-item">
+                   <label for="control1"  data-bind="text:arabicName "/>
+                 
+                </div>
+                <div class="oj-flex-item">
+                    <input id="arabicName" data-bind="ojComponent: {component: 'ojInputText',
+                                          value:identificationLettersModel.arabicName, disabled: true }">
+                </div>
+
+                <div class="oj-flex-item">
+                   <label for="control1"  data-bind="text:englishName "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="englishName" data-bind="ojComponent: {component: 'ojInputText',
+                                          value:identificationLettersModel.englishName, disabled: true}">
+                </div>
+
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:profession "/>
+                </div>
+                <div class="oj-flex-item">
+                             
+                              <input id="iqamaProfession" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:identificationLettersModel.iqamaProfession,  disabled: true}">
+                </div>
+
+            </div>
+
+
+            <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+             <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:requestDate "/>
+                </div>
+         
+                <div class="oj-flex-item">
+                
+                <input id="requestDate"
+                   data-bind="ojComponent: {component: 'ojInputDate',
+                   value: identificationLettersModel.requestDate, 
+                   converter: dateConverter, disabled: true}"/>
+                    
+                </div>
+                <div class="oj-flex-item">
+                     <label for="control1"  data-bind="text:requestReason "/>
+                     
+                </div>
+                <div class="oj-flex-item">
+                    <input id="reason" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:identificationLettersModel.reason,  disabled: true}">
+                </div>
+                <div class="oj-flex-item">
+                   <label for="control1"  data-bind="text:directTo "/>
+                     
+                </div>
+                <div class="oj-flex-item">
+                    <input id="directedTo" data-bind="ojComponent: {component: 'ojInputText',
+                                          value:identificationLettersModel.directedTo,  disabled: true}">
+                </div>
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:arabicEnglish "/>
+                     
+                </div>
+                <div class="oj-flex-item">
+                    <select id="arabicEng"
+                    data-bind="ojComponent: {component: 'ojSelect',value: identificationLettersModel.arabicEnglish,disabled: true}">
+                      <!-- ko foreach: hrIdentification -->
+                      <option data-bind="value:value, text:label"></option>
+                      <!-- /ko -->
+            </select>
+                </div>
+
+                <div class="oj-flex-item">
+                   <label for="control1"  data-bind="text:mailType "/>
+                     
+                </div>
+                <div class="oj-flex-item">
+                     <select id="mailType"
+                    data-bind="ojComponent: {component: 'ojSelect', value: identificationLettersModel.mailType,disabled: true}">
+                      <!-- ko foreach: mailTypes -->
+                      <option data-bind="value:value, text:label"></option>
+                      <!-- /ko -->
+            </select>
+                </div>
+                
+                <div class="oj-flex-item">
+                   <label for="control1"  data-bind="text:withSalary "/>
+                     
+                </div>
+                <div class="oj-flex-item">
+                    <oj-radioset id="checkboxSetAgreeId" labelled-by="agreeId" required=true  value="{{identificationLettersModel.withSalary}}" disabled=[[isDisabled]] class="oj-choice-direction-row">
+                        <oj-option id="agree" value="Yes" ><span><oj-bind-text value="[[yes]]"></oj-bind-text></span></oj-option>
+                        <oj-option id="disagree" value="No" ><span><oj-bind-text value="[[no]]"></oj-bind-text></span></oj-option>
+                    </oj-radioset>
+                </div>
+
+                <div class="oj-flex-item">
+                   <label for="control1"  data-bind="text:stamped "/>
+                     
+                </div>
+                <div class="oj-flex-item">
+                    <oj-radioset id="checkboxSetAgreeId" labelled-by="agreeId" required  value="{{identificationLettersModel.stamped}}" disabled=[[isDisabled]] class="oj-choice-direction-row">
+                        <oj-option id="agree" value="Yes" required ><span><oj-bind-text value="[[yes]]"></oj-bind-text></span></oj-option>
+                        <oj-option id="disagree" value="No" ><span><oj-bind-text value="[[no]]"></oj-bind-text></span></oj-option>
+                    </oj-radioset>
+                </div>
+
+          <!--<div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:comment "/>
+          </div>
+          <div class="oj-flex-item">
+            <input id='city' type="text"
+                   data-bind="ojComponent: {component: 'ojInputText', value: identificationLettersModel.comment, disabled: isDisabled,invalidComponentTracker: tracker,required: false}"/>
+          </div>-->
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,124 @@
+<div class="oj-flex-item oj-panel">
+    <div id="tableWrapper">
+        <label for="type"
+               style="display:block; font-size:large; font-weight:bold;">Routs Price </label>
+        <div id="form-container" class="oj-form-layout">
+                <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline">
+                <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1">Route Name</label>
+                </div>
+                <div class="oj-flex-item">
+                    <select id="payperiod"
+                    data-bind="ojComponent: {component: 'ojSelect',
+					required: true, value:routeValue,  disabled: false}">
+              <!-- ko foreach:ticketsRoutesArr -->
+              <option data-bind="value:value, text:label"></option>
+              <!-- /ko -->
+            </select>
+                </div>
+                 <div class="oj-flex-item">
+                <button id="butSearch" type="button" class="oj-button-primary" data-bind="
+            click: getRoutsPriceRecord,          
+            ojComponent: {          
+            component: 'ojButton', 
+            label: 'Search' ,
+            disabled: addDisabled,
+            icons:{end:'fa fa-plus'}}"></button>
+            </div>
+                </div>
+              
+              
+                 
+               
+             </div> 
+            <div class="oj-form">
+
+                <button id="addRwardRequestBtn" type="button" class="oj-button-primary" data-bind="
+            click: butAddAction,          
+            ojComponent: {          
+            component: 'ojButton', 
+            label: 'Add' ,
+            disabled: addDisabled,
+            icons:{end:'fa fa-plus'}}"></button>
+             <button id="edit" type="button"
+                class="oj-button-primary"
+             style="display:inline-block;vertical-align:top;"
+            data-bind="click: butEditAction,   
+            ojComponent: {
+            component: 'ojButton', disabled: editDisabled}">
+           Edit <i class="fa fa-pencil-square-o"></i>
+            </button>
+            <button id="viewBT" type="button"
+                class="oj-button-primary"
+            style="display:inline-block;vertical-align:top;"
+            data-bind="click: butViewAction,
+            ojComponent: {
+            component: 'ojButton', disabled: viewDisabled}">
+           View    <i class="fa fa-eye" aria-hidden="true"></i>
+            </button>
+            <button id="reject" type="button" class="demo-button-error"
+                        data-bind="click: deleteButton, ojComponent: { component: 'ojButton', label: 'Delete',disabled: editDisabled}"></button>
+          
+           <oj-dialog style="display:none;width:350px;height:auto"
+                                   id="deleteDialog" title="Reject Message">
+                            <div slot="body">Are You Sure To Delete Person Rules</div>
+                            <div slot="footer">
+                                <button id="buttonOpenerNested" type="button"
+                                        data-bind="click: deleteAction,        ojComponent: {          component: 'ojButton',           label: 'Yes'}"></button>
+                                 
+                                <button id="cancelButton" type="button"
+                                        data-bind="click: deleteCancelButton,        ojComponent: {          component: 'ojButton',           label: 'No'}"></button>
+                            </div>
+                        </oj-dialog>
+            
+               
+        </div>
+
+        
+      </div>
+    </div>
+             <!--dialog test-->   
+    
+       <div id="pagingControlDemo">
+<div class="oj-xl-8 oj-lg-8 oj-md-6 oj-flex-item" data-bind="visible:isVisible">
+    <oj-table id="tbl1" aria-label="Departments Table"
+                                data='[[dataSource]]'
+                                display = "grid"
+                                on-oj-before-current-row = "[[tableSelectionListener]]"
+                                selectionMode = "{'row': 'single'}"
+                                columns-default='{"sortable": "enabled"}'
+                                dnd='{"reorder": {"columns": "enabled"}}'
+                                columns='[{"headerText": "#", 
+                                           "field": "rowNumberRenderer"},
+                                           {"headerText": "Route Name", 
+                                           "field": "route_name"},
+                                           {"headerText": "Ticket Class", 
+                                           "field": "ticket_class"},
+                                           {"headerText": "Adult Price", 
+                                           "field": "adult_price"},
+                                           {"headerText": "Child Price", 
+                                           "field": "child_price"},
+                                           {"headerText": "Infant Price", 
+                                           "field": "infant_price"},
+                                          {"headerText": "Start Date", 
+                                           "field": "start_date"},
+                                            {"headerText": "End Date", 
+                                           "field": "end_date"}
+                                           
+                                           
+                                          ]'>
+                                           <oj-paging-control id="paging" data='[[dataSource]]' page-size='5' slot='bottom' class="display-inline-flex"/>
+    </oj-table>
+</div> 
+
+    </div>
+    </div>
+    <!--add first first record paragraph -->
+      <div class="oj-flex">
+            <div class="oj-panel oj-panel-alt1 oj-sm-margin-2x demo-mypanel" data-bind="visible:isShown"  style="width: 700px;  font-size:large; font-weight:bold; color:Green;" >
+             <!-- <h1><p> <label  data-bind="text:addFirstRecord"/></p></h1>-->
+            <h1><p>Please Add Your Frirst Request</p></h1>
+            </div>
+          </div>
+</div>

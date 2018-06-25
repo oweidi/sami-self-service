@@ -1,0 +1,235 @@
+<div id="train-container">
+
+   <div class="oj-form">
+        <div class="oj-flex-bar">
+            <div class="oj-flex-bar-start">
+                    <button id="cancel" type="button"  data-bind="click: cancelAction,
+							ojComponent: {
+							  component: 'ojButton', 
+							  label: cancel}">
+					</button>
+                    <button id="Previous" type="button"  data-bind="click: previousStep, 
+							ojComponent: {disabled:currentStepValue() == 'stp1',
+							  component: 'ojButton', 
+							  label: pervious}">
+					</button>
+            </div>
+            <div class="oj-flex-bar-end">
+                    <button id="Next" type="button"   data-bind="visible:nextBtnVisible,click: nextStep, 
+					ojComponent: {
+					  disabled:currentStepValue() == 'stp2',
+					  component: 'ojButton', 
+					  label: next}" />
+                    <button id="submit"  data-bind="visible:editBtnVisible ,click: submitButton, 
+                       ojComponent: { component: 'ojButton', label: submit}">
+					</button>
+                    
+                  <button id="submitDraft" style="vertical-align:top;float: right;" data-bind="click:draftButton,
+                  visible:editBtnVisible ,ojComponent: { component: 'ojButton', label: saveDraft }"></button>
+
+            </div>
+        </div>
+    </div>
+                
+                
+
+    <div style="text-align: center;white-space:nowrap;">
+      <oj-train id="train"
+                style="max-width:700px;margin-left:auto;margin-right:auto;"
+                selected-step="{{currentStepValue}}"
+                steps="[[stepArray]]"
+                class="oj-train-stretch"
+                on-oj-before-select="[[stopSelectListener]]"/>
+    </div>
+    <br/>
+    <h3 id="currentStepText" data-bind="text: currentStepValueText()" style="text-align: center">
+    </h3>
+
+
+    <div class="oj-form-layout">
+        <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline">
+
+            <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:arabicName "/>
+                 
+                </div>
+                <div class="oj-flex-item">
+                    <input id="arabicName" data-bind="ojComponent: {component: 'ojInputText', invalidComponentTracker: tracker,
+                                          value:identificationLettersModel.arabicName, required: true,  disabled: true,
+                                          validators: [{  
+                    type: 'regExp',   
+                    options: {  
+                      pattern: '^[\u0621-\u064A ]+$',   
+                      messageDetail: 'Please Enter Name in Arabic'}}]}">
+                </div>
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:englishName "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="englishName" data-bind="ojComponent: {component: 'ojInputText', invalidComponentTracker: tracker,
+                                          value:identificationLettersModel.englishName, required: true ,  disabled: true,validators: [{  
+                    type: 'regExp',   
+                    options: {  
+                      pattern: '^[a-zA-Z ]+$',   
+                      messageDetail: 'Please Enter Name in English'}}]}">
+                </div>
+
+                <div class="oj-flex-item">
+                   <label for="control1"  data-bind="text:position "/>
+                     
+                </div>
+                <div class="oj-flex-item">
+                    <input id="positionName" data-bind="ojComponent: {component: 'ojInputText', invalidComponentTracker: tracker,
+                                          value:identificationLettersModel.positionName, required: true,  disabled: isDisabled}">
+                </div>
+                <div class="oj-flex-item">
+                   <label for="control1"  data-bind="text:profession "/>
+                </div>
+                <div class="oj-flex-item">
+                             
+                              <input id="iqamaProfession" data-bind="ojComponent: {component: 'ojInputText',
+                                          value:identificationLettersModel.iqamaProfession, required: true ,  disabled: isDisabled}">
+                </div>
+
+            </div>
+                 <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+                        <div class="oj-flex-item">
+                            <label for="control1"  data-bind="text:requestDate "/>
+                        </div>
+                 
+                        <div class="oj-flex-item">
+                        
+                        <input id="requestDate"
+                           data-bind="ojComponent: {component: 'ojInputDate',
+                           value: identificationLettersModel.requestDate, 
+                           converter: dateConverter, invalidComponentTracker: tracker,required: true,  disabled: true}"/>
+                            
+                        </div>
+                <div class="oj-flex-item">
+                     <label for="control1"  data-bind="text:requestReason "/>
+                     
+                </div>
+                <div class="oj-flex-item">
+                    <input id="reason" data-bind="ojComponent: {component: 'ojInputText', invalidComponentTracker: tracker,
+                                          value:identificationLettersModel.reason, required: true,  disabled: isDisabled}">
+                </div>
+                <div class="oj-flex-item">
+                   <label for="control1"  data-bind="text:directTo "/>
+                     
+                </div>
+                <div class="oj-flex-item">
+                    <input id="directedTo" data-bind="ojComponent: {component: 'ojInputText', invalidComponentTracker: tracker,
+                                          value:identificationLettersModel.directedTo, required: true,  disabled: isDisabled}">
+                </div>
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:arabicEnglish "/>
+                     
+                </div>
+                <div class="oj-flex-item">
+                    <select id="arabicEng"
+                    data-bind="ojComponent: {component: 'ojSelect',value: identificationLettersModel.arabicEnglish,    placeholder: placeholder,disabled: isDisabled,invalidComponentTracker: tracker,required: true}">
+                      <!-- ko foreach: hrIdentification -->
+                      <option data-bind="value:value, text:label"></option>
+                      <!-- /ko -->
+            </select>
+                </div>
+                
+                <div class="oj-flex-item">
+                   <label for="control1"  data-bind="text:stamped "/>
+                     
+                </div>
+                <div class="oj-flex-item">
+                   <div id="radioSetId" aria-labelledby="radiosetlabel"
+                        data-bind="ojComponent: {component: 'ojRadioset', optionChange:validateStamped,value:identificationLettersModel.stamped}">
+                  </div>
+                    <oj-radioset id="checkboxSetAgreeId2" labelled-by="agreeId"   value="{{identificationLettersModel.stamped}}" disabled=[[isDisabled]] class="oj-choice-direction-row" required>
+                        <oj-option id="agree" value="Yes"  required ><span><oj-bind-text value="[[yes]]" style="margin-left: 13px;"></oj-bind-text></span></oj-option>
+                        <oj-option id="disagree" value="No" ><span><oj-bind-text value="[[no]]"></oj-bind-text></span></oj-option>
+                    </oj-radioset>
+                </div>
+                
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:mailType "/>
+                     
+                </div>
+                <div class="oj-flex-item">
+                     <select id="mailType"
+                    data-bind="ojComponent: {component: 'ojSelect', value: identificationLettersModel.mailType, placeholder: placeholder,disabled: isDisabled2,invalidComponentTracker: tracker,required: true}">
+                      <!-- ko foreach: mailTypes -->
+                      <option data-bind="value:value, text:label"></option>
+                      <!-- /ko -->
+            </select>
+                </div>
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:withSalary "/>
+                     
+                </div>
+                <div class="oj-flex-item">
+                    <oj-radioset id="checkboxSetAgreeId" labelled-by="agreeId" required=true  value="{{identificationLettersModel.withSalary}}" disabled=[[isDisabled]] class="oj-choice-direction-row">
+                        <oj-option id="agree" value="Yes" ><span><oj-bind-text value="[[yes]]"></oj-bind-text></span></oj-option>
+                        <oj-option id="disagree" value="No" ><span><oj-bind-text value="[[no]]"></oj-bind-text></span></oj-option>
+                    </oj-radioset>
+                </div>                
+          <!--<div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:comment "/>
+          </div>
+          <div class="oj-flex-item">
+            <input id='city' type="text"
+                   data-bind="ojComponent: {component: 'ojInputText', value: identificationLettersModel.commment, disabled: isDisabled,invalidComponentTracker: tracker,required: false}"/>
+          </div>-->
+        </div>
+
+                  <div id="sampleDemo" style="" class="demo-padding demo-container">
+                
+                
+            <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+             <div id="dialogWrapper">
+            <oj-dialog style="display:none;width:350px;height:auto" id="yesNoDialog" >
+                 <div slot="header" class="oj-helper-clearfix">
+                                   <label  data-bind="text:confirmMessage "/>
+                        </div>
+                                <div slot="body">
+                                
+                                         <label  data-bind="text:editMessage "/>
+                                
+                                </div>    
+                <div slot="footer">
+                   <button id="buttonOpenerNested" type="button" data-bind="click: commitRecord,
+							ojComponent: {
+							  component: 'ojButton', 
+							  label: yes}">
+					</button>
+                    <button id="cancelButton" type="button" data-bind="click: cancelButton,
+							ojComponent: {
+							  component: 'ojButton', 
+							  label: no}">
+					</button>
+                </div>
+            </oj-dialog>     
+            
+            <oj-dialog style="display:none;width:350px;height:auto"
+                       id="draftDialog">
+                  <div slot="header" class="oj-helper-clearfix">
+                    <label data-bind="text:confirmMessage "/>
+                  </div>
+                  <div slot="body">
+                    <label data-bind="text:editMessage "/>
+                  </div>
+                  <div slot="footer">
+                    <button id="buttonOpenerNested" type="button"
+                            data-bind="click: commitDraft,        ojComponent: {          component: 'ojButton',           label: yes}"></button>
+                     
+                    <button id="cancelButton" type="button"
+                            data-bind="click: cancelDraft,        ojComponent: {          component: 'ojButton',           label: no}"></button>
+                  </div>
+             </oj-dialog>
+        </div>
+
+        
+      </div>
+    </div>
+
+        </div>
+    </div>
+</div>

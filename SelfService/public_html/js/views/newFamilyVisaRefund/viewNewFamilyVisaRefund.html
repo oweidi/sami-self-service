@@ -1,0 +1,81 @@
+<div id="train-container">
+
+    <div class="oj-form">
+        <div class="oj-flex-bar">
+            <div class="oj-flex-bar-start">
+                            <button id="cancel" type="button" class="oj-button-primary" style="margin-left:auto;margin-right:auto;" data-bind="click: backAction,
+								ojComponent: {
+								  component: 'ojButton', 
+								  label: back,
+								  icons: {start:'oj-fwk-icon-back oj-fwk-icon'}}">
+                                </button>
+            </div>
+        </div>
+    </div>
+    <div class="oj-form-layout">
+        <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline">
+           <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:requestDate "/>
+                </div>
+         
+                <div class="oj-flex-item">
+                
+                <input id="requestDate"
+                   data-bind="ojComponent: {component: 'ojInputDate',
+                   value: familyVisaRefundModel.requestDate, 
+                   converter: dateConverter,  disabled: true}"/>
+                    
+                </div>
+
+                <div class="oj-flex-item">
+                  <label for="control1"  data-bind="text:contractType "/>
+                 
+                </div>
+                <div class="oj-flex-item">
+                    <input id="contractType" data-bind="ojComponent: {component: 'ojInputText',
+                                          value:familyVisaRefundModel.contractType,  disabled: true }">
+                </div>
+
+
+                <div class="oj-flex-item">
+                  <label for="control1"  data-bind="text:requesterNationality "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="nationality" data-bind="ojComponent: {component: 'ojInputText',
+                                          value:familyVisaRefundModel.reqNationality ,  disabled: true}">
+                </div>
+
+          
+                <div class="oj-flex-item">
+                  <label for="control1"  data-bind="text:amount "/>
+                </div>
+                <div class="oj-flex-item">
+                             
+                              <input id="amount" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:familyVisaRefundModel.amount, disabled: true}">
+                </div>
+
+            </div>
+
+
+            <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+                <div class="oj-flex-item">
+                  <label for="control1"  data-bind="text:remarks "/>
+                     
+                </div>
+                <div class="oj-flex-item">
+                    <input id="remark" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:familyVisaRefundModel.remarks,  disabled: true}">
+                </div>
+
+                  <div class="oj-flex-item">
+                         <label for="control1" data-bind="text:attachment "/>
+                  </div>
+                    <div class="oj-flex-item">
+                    <img src="#" height="200" alt="Image preview..." class="attClass" width= '207'/>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+<!--
+ Copyright (c) 2014, 2017, Oracle and/or its affiliates.
+ The Universal Permissive License (UPL), Version 1.0
+-->
+
+<div id="train-container" >
+      <oj-train id="train"
+                style="max-width:700px;margin-left:auto;margin-right:auto;"
+                selected-step="{{currentStepValue}}"
+                steps="[[stepArray]]"
+                class="oj-train-stretch"/>
+	<br/>
+	<h3 id="currentStepText"
+            data-bind="text: 'You are on ' +currentStepValueText()" 
+		style="text-align: center">
+	</h3>
+	<br/>
+</div>
+
+
+
+<div id='chart-container'>
+    <div id="funnelChart" data-bind="ojComponent: {
+            component: 'ojChart', 
+            type: 'funnel',
+            series: funnelSeriesValue,
+            orientation: orientationValue,
+            animationOnDisplay: 'auto',
+            animationOnDataChange: 'auto',
+            styleDefaults: {threeDEffect: ko.toJS(threeDValue)}
+        }"
+        style="max-width:500px;width:100%;height:350px;">
+    </div>
+    <div id="myToolbar" aria-label="Chart Display Options Toolbar" aria-controls="funnelChart"
+       data-bind="ojComponent: {component:'ojToolbar'}"
+       style="max-width:500px;width:100%;">
+        <!-- vertical/horizontal toggle button -->
+        <div id="radioButtonset" data-bind="ojComponent: {component: 'ojButtonset', focusManagement:'none', checked: orientationValue, chroming: 'half'}" 
+             aria-label="Choose an orientation.">
+            <!-- ko foreach: orientationOptions -->
+              <label data-bind="attr: {for: id}"></label>
+              <input type="radio" name="orientation"
+                   data-bind="value: value, attr: {id: id},
+                   ojComponent: {component: 'ojButton', label: label, 
+                                     icons: {start: icon}, display: 'icons'}"/>
+            <!-- /ko -->
+        </div>
+        <span role="separator" aria-orientation="vertical" class="oj-toolbar-separator"></span>
+        <!-- 2D/3D toggle button -->
+        <div id="radioButtonset2" data-bind="ojComponent: {component: 'ojButtonset', focusManagement:'none', checked: threeDValue, chroming: 'half'}" 
+             aria-label="Choose a setting.">
+            <!-- ko foreach: threeDOptions -->
+              <label data-bind="attr: {for: id}"></label>
+              <input type="radio" name="threeD"
+                   data-bind="value: value, attr: {id: id},
+                   ojComponent: {component: 'ojButton', label: label, 
+                                     icons: {start: icon}, display: 'icons'}"/>
+            <!-- /ko -->
+        </div>
+    </div> 
+</div>
+
+
+
+<div class="oj-hybrid-padding">
+  <h3>About Us:</h3>
+ Thank You
+</div>

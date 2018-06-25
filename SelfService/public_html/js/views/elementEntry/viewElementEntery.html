@@ -1,0 +1,132 @@
+
+
+<h1><b>View Elment Entery  : </b> <span data-bind="text: elementEnteryModel.name"
+                                               style="color:#a52a2a;"></span></h1>
+	<br>
+    <div class="oj-form-layout">
+        <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline">
+        
+                    <div class="oj-form-top" >
+                            <button id="cancel" type="button" class="oj-button-primary" style="vertical-align:center;margin-left:auto;margin-right:auto;" data-bind="click: backAction,
+								ojComponent: {
+								  component: 'ojButton', 
+								  label: 'Back',
+								  icons: {start:'oj-fwk-icon-back oj-fwk-icon'}}">
+                                </button>
+                        </div>
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1">Source System Owner</label>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:elementEnteryModel.source_system_owner,disabled: isDisabled }">
+                </div>
+
+            </div>
+
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1">Source System Id</label>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:elementEnteryModel.source_system_id,disabled: isDisabled }">
+                </div>
+
+
+            </div>
+
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1">Effective Start Date</label>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputDate', 
+
+                                         converter: dateConverter, value:elementEnteryModel.effective_start_date,disabled: isDisabled }">
+
+                </div>
+
+            </div>
+
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1">Effective End Date</label>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputDate', 
+                                         converter: dateConverter, value:elementEnteryModel.effective_end_date, disabled: isDisabled}">
+                                          
+                </div>
+
+            </div>
+
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1">Element Name</label>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText',  
+                                          value:elementEnteryModel.element_name,disabled: isDisabled}">
+                </div>
+
+            </div>
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1">Legislative Data Group Name</label>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText',
+                                          value:elementEnteryModel.legislative_data_group_name, disabled: isDisabled}">
+                </div>
+
+            </div>
+
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1">Assignment Number</label>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText',disabled: isDisabled,
+                                        value:elementEnteryModel.assignment_number}">
+                </div>
+
+            </div>
+
+
+            <div class="oj-flex" >
+                <div class="oj-flex-item">
+                    <label for="control1">Entry Type</label>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText',disabled: isDisabled,
+                                   value:elementEnteryModel.entry_type}">
+                </div>
+
+            </div>
+
+
+            <div class="oj-flex" >
+                <div class="oj-flex-item">
+                    <label for="control1">Creator Type</label>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText', disabled: isDisabled,
+                                       value:elementEnteryModel.creator_type}">
+                </div>
+
+            </div>
+
+            <div class="oj-flex">
+
+            </div>
+
+        </div>
+    </div>

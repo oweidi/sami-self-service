@@ -1,0 +1,21 @@
+diff a/SelfService/src/com/oracle/xmlns/apps/hcm/common/dataloader/core/dataloaderintegrationservice/HCMDataLoaderSoapHttpPortClient.java b/SelfService/src/com/oracle/xmlns/apps/hcm/common/dataloader/core/dataloaderintegrationservice/HCMDataLoaderSoapHttpPortClient.java	(rejected hunks)
+@@ -119,19 +119,15 @@
+                                  Node childDSNode = dataSeteChildNodes.item(k); 
+                                  if ("STATUS".equals(childDSNode.getNodeName())) { 
+                                      String status = dataSeteChildNodes.item(k).getTextContent().trim(); 
+-                                     System.out.println("Current Status of the Data Set " + dataSeteChildNodes.item(k).getTextContent().trim()); 
+                                      if ("COMPLETED".equals(status) || "ERROR".equals(status)) { 
+-                                         System.out.println("Data load status in interface tables :"+status);
+                                      return true; 
+                                      } 
+                                      else {
+                                          try { 
+-                                             System.out.println("Waiting for " + (6000 / 1000) + " secs, to recalculate the status ... "); 
+                                              Thread.sleep(6000); 
+                                              invokeGetDataSetStatus(hcmLoaderService, processId);
+                                              resp=true;
+                                          } catch (InterruptedException e) { 
+-                                             System.out.println("\n\nException while thread waiting....Program Exit"); 
+                                              resp=false;
+                                              } 
+                                          } 

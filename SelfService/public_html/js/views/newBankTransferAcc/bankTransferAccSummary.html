@@ -1,0 +1,85 @@
+<div class="oj-flex-item oj-panel">
+
+    <div id="tableWrapper">
+        <label for="type" style="display:block; font-size:large; font-weight:bold;" data-bind="text:bankLbl "/>
+
+        <div id="form-container" class="oj-form-layout">
+            <div class="oj-form">
+
+                <button id="addBankTransferAccSummaryBtn" type="button" class="oj-button-primary" data-bind="
+            click: addBankTransferAccSummary,          
+            ojComponent: {          
+            component: 'ojButton', 
+            label: addLabel ,
+            icons:{end:'fa fa-plus'}}"></button>
+
+                <button id="editBankTransferAccSummaryBtn" type="button" class="oj-button-primary" style="display:inline-block;vertical-align:top;" data-bind="click: editBankTransferAccSummary,   
+            ojComponent: {
+            component: 'ojButton',
+            label: editLabel,
+            disabled: editDisabled,
+            icons:{end:'fa fa-pencil-square-o'}}">
+            </button>
+                <button id="viewBankTransferAccSummaryBtn" type="button" class="oj-button-primary" data-bind="
+            click: viewBankTransferAccSummary,       
+            ojComponent: {          
+            component: 'ojButton', 
+           label: viewLabel ,
+            disabled: viewDisabled,
+            icons:{end:'fa fa-eye'}}"></button>
+
+                <button id="statusBankTransferAccSummaryBtn" type="button" class="oj-button-primary" style="display:inline-block;vertical-align:top;" data-bind="  click: viewBankTransferAccApproval,
+            ojComponent: {
+            component: 'ojButton',
+            disabled: viewDisabled,
+            label: viewApprovalsLbl,
+            icons:{end:'fa fa-check'}}">
+            </button>
+          <button id="deleteTRF" type="button"
+                class="demo-button-error"
+            style="display:inline-block;vertical-align:top;"
+            data-bind="click: deleteDraftSelfService,
+            ojComponent: {
+            component: 'ojButton', disabled: isDraft
+            ,label: deleteLabel,icons:{end:'fa fa-times'}}">
+            </button>
+
+            </div>
+        </div>
+        <br>
+
+        <div id="pagingControlDemo">
+<oj-table id="tbl1" aria-label="Identification Letters"
+                                data='[[dataSource]]'
+                                on-oj-before-current-row = "[[tableSelectionListener]]"
+                                display = "grid"
+                                selectionMode = "{'row': 'single'}"
+                                columns-default='{"sortable": "enabled"}'
+                                dnd='{"reorder": {"columns": "enabled"}}'
+                                style="width:700px"
+                                columns='{{columnArray}}'>
+    <oj-paging-control id="paging" data='[[dataSource]]' page-size='10' slot='bottom' class="display-inline-flex">
+                </oj-paging-control>
+    </oj-table>
+           
+        </div>
+        
+           <div style="display:none" id="modalDialog1" title="Approvals :" 
+       data-bind="ojComponent:{component: 'ojDialog', initialVisibility: 'hide',
+                               rootAttributes: { style: 'width: 38vw; height: 60vh;'}}">
+     <div class="oj-dialog-body">
+       
+   <oj-table id="tbl12" aria-label="View Approvals"
+                                            data='[[dataSourceTB2]]'
+                                            display = "grid"
+                                            columns-default='{"sortable": "enabled"}' 
+                                            columns='{{columnArrayApproval}}'>
+                </oj-table>
+     </div>
+     <div class="oj-dialog-footer">
+        <button id="okButton" data-bind="click: closeDialog,ojComponent: {component: 'ojButton', label: 'OK'}"> </button>
+      </div>
+  </div>
+</div>
+</div>
+  

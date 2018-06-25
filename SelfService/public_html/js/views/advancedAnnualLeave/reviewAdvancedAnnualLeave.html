@@ -1,0 +1,67 @@
+<h1>
+<label for="type" style="display:block; font-size:large; font-weight:bold;" data-bind="text:reviewAnnualLeave "/>
+    <span data-bind="text: advancedAnnualLeaveModel.name" style="color:#a52a2a;"></span>
+</h1>
+<br></br>
+<div class="oj-form-layout">
+    <div class="oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-flex-items-pad">
+        <div class="oj-flex">
+            <div class="oj-flex-item" style="margin: auto;">
+             <button id="back" type="button" class="oj-button-primary"
+                        data-bind="click: cancelAdvanceLeave,ojComponent: { component: 'ojButton', label: back,icons: {start:'oj-fwk-icon-back oj-fwk-icon'}}"></button>
+             
+            </div>
+            <div class="oj-form-layout">
+                <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline">
+                    <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+                        <div class="oj-flex-item">
+                            <label for="control1"
+                                   data-bind="text:requestDate "/>
+                        </div>
+                        <div class="oj-flex-item">
+                            <input id="requestDate"
+                                   data-bind="ojComponent: {component: 'ojInputText',value: advancedAnnualLeaveModel.requestDate,required: true,disabled: true}"/>
+                        </div>
+                        <div class="oj-flex-item">
+                            <label for="control1" data-bind="text:leave"/>
+                        </div>
+                        <div class="oj-flex-item">
+                            <input id="arabicName"
+                                   data-bind="ojComponent: {component: 'ojInputText',value: advancedAnnualLeaveModel.leave, required: true,  disabled: true}"></input>
+                        </div>
+                        <div class="oj-flex-item">
+                            <label for="control1" data-bind="text:leaveType "/>
+                        </div>
+                        <div class="oj-flex-item">
+                            <input id="arabicName"
+                                   data-bind="ojComponent: {component: 'ojInputText',value: advancedAnnualLeaveModel.leaveType, required: true,  disabled: true}"></input>
+                        </div>
+                        <div class="oj-flex-item">
+                            <label for="control1" data-bind="text:leaveSD "/>
+                        </div>
+                        <div class="oj-flex-item">
+                            <input id="requestDate"
+                                   data-bind="ojComponent: {component: 'ojInputText',value: advancedAnnualLeaveModel.leaveSD,required: true,disabled: true}"/>
+                        </div>
+                        <div class="oj-flex-item">
+                            <label for="control1" data-bind="text:leaveED "/>
+                        </div>
+                        <div class="oj-flex-item">
+                            <input id="requestDate"
+                                   data-bind="ojComponent: {component: 'ojInputText',value: advancedAnnualLeaveModel.leaveED,required: true,disabled: true}"/>
+                        </div>
+                        
+                        <div class="oj-flex-item">
+                            <label for="control1" data-bind="text:comment "/>
+                        </div>
+                        
+                        <div class="oj-flex-item">
+                            <input id="reason"
+                                   data-bind="ojComponent: {component: 'ojInputText',value:advancedAnnualLeaveModel.commment, disabled: true}"></input>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+</div>

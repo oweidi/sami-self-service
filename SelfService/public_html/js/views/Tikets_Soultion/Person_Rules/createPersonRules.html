@@ -1,0 +1,280 @@
+
+    <div id="form-container" class="oj-form-layout">
+    <div class="oj-form">
+                    <button id="cancel" type="button"  data-bind="click: cancelAction,
+							ojComponent: {
+							  component: 'ojButton', 
+							  label: cancel}">
+					</button>
+                    <button id="PreviousStep" type="button"  data-bind="click: previousStep, 
+							ojComponent: {disabled:currentStepValue() == 'stp1',
+							  component: 'ojButton', 
+							  label: back}">
+					</button>
+                    <button id="NextStep" type="button"  data-bind="visible:nextBtnVisible,click: nextStep, 
+					ojComponent: {
+					  disabled:currentStepValue() == 'stp2',
+					  component: 'ojButton', 
+					  label: next}" />
+                    <button id="submit"  data-bind="visible:addBtnVisible ,click: submitButton, 
+                       ojComponent: { component: 'ojButton', label: submit}">
+					</button>
+                                        
+                                           <div id="sampleDemo" style="" class="demo-padding demo-container">
+                
+                
+            <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+             <div id="dialogWrapper">
+            <oj-dialog style="display:none;width:350px;height:auto" id="yesNoDialog" title="Confirm Message">
+                                <div slot="header" class="oj-helper-clearfix">
+                                        <label  data-bind="text:confirmMessage "/>
+                                </div>
+                                    <div slot="body">     
+                                         <label  data-bind="text:addMessage "/>              
+                                    </div>       
+                <div slot="footer">
+                   <button id="buttonOpenerNested" type="button" data-bind="click: commitRecord,
+							ojComponent: {
+							  component: 'ojButton', 
+							  label: yes}">
+					</button>
+                    <button id="cancelButton" type="button" data-bind="click: cancelButton,
+							ojComponent: {
+							  component: 'ojButton', 
+							  label: no}">
+					</button>
+                </div>
+            </oj-dialog>
+        </div>
+
+        
+      </div>
+    </div>
+                </div>
+
+            </div>
+<div id="train-container">
+    <div style="text-align: center;white-space:nowrap;">
+        <oj-train id="train"
+                style="max-width:700px;margin-left:auto;margin-right:auto;"
+                selected-step="{{currentStepValue}}"
+                steps="[[stepArray]]"
+                class="oj-train-stretch"
+                on-oj-before-select="[[stopSelectListener]]"/>
+    </div>
+    <br/>
+    <h3 id="currentStepText" data-bind="text: currentStepValueText()" style="text-align: center">
+    </h3>
+
+
+    <div class="oj-form-layout">
+        <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline">
+          <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:personName "/>
+                </div>
+               <div class="oj-flex-item">
+                    <select id="payperiod"
+                    data-bind="ojComponent: {component: 'ojSelect',
+					required: true, value:personIndex,  disabled: isDisabled}">
+              <!-- ko foreach:personsObj -->
+              <option data-bind="value:indexs, text:displayName"></option>
+              <!-- /ko -->
+            </select>
+                </div>
+               
+            </div>
+        
+        
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:startdate "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputDate', invalidComponentTracker: tracker,
+                                          value:personRulesModel.startDate, required: true ,disabled:isDisabled}">
+                </div>
+
+            </div>
+
+            <div class="oj-flex">
+               <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:enddate "/>
+                    </div>
+                    <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputDate', invalidComponentTracker: tracker,
+                                          value:personRulesModel.endDate, required: false,  disabled: isDisabled}">
+                     </div>                     
+                
+               
+                </div>
+                 <div class="oj-flex">
+                <div class="oj-flex-item">
+                   <label for="control1"  data-bind="text:ticketClass "/>
+                </div>
+               	<div class="oj-flex-item">
+                  <select id="payperiod"
+                    data-bind="ojComponent: {component: 'ojSelect',invalidComponentTracker: tracker,
+					required: true, value:personRulesModel.ticketClass, disabled: isDisabled}">
+              <!-- ko foreach:ticketsClass -->
+              <option data-bind="value:values, text:values"></option>
+              <!-- /ko -->
+            </select>
+                </div>
+               
+            </div>
+            	     
+
+                
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:maxAccrualCarryOver"/>
+                    </div>
+            	       <div class="oj-flex-item">
+                       <input id="control1"
+                           data-bind="ojComponent: {component: 'ojInputNumber', invalidComponentTracker: tracker,                    
+                           value:personRulesModel.maxAccrualCarryOver, disabled: isDisabled,required: true ,invalidComponentTracker: tracker}"></input>
+                </div>
+                </div>
+                
+                
+                
+                <div class="oj-flex" >
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:allowEncashmentPayment"/>
+                </div>
+                <div class="oj-flex-item">
+                  <select id="payperiod"
+                    data-bind="ojComponent: {component: 'ojSelect',invalidComponentTracker: tracker,
+					required: true, value:personRulesModel.alloweEncashmentPayment,disabled: isDisabled}">
+              <!-- ko foreach:checkValues -->
+              <option data-bind="value:values, text:values"></option>
+              <!-- /ko -->
+            </select>
+                </div>
+
+            </div>
+
+
+            <!--
+            <div class="oj-flex">
+            
+                <div class="oj-flex-item">
+                    <label for="control1">Allow Encashment Payment</label>
+                </div>
+               <div class="oj-flex-item">
+                <!--  <oj-checkboxset id="checkboxSetAgreeId" labelled-by="agreeId"
+                            value="{{agreement}}"
+                             >
+              <oj-option id="agree" value="agree">I Agree</oj-option>
+            </oj-checkboxset>
+        
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText', invalidComponentTracker: tracker , 
+                                          value:personRulesModel.alloweEncashmentPayment, required: true,  disabled: isDisabled}">
+                </div>
+               
+          
+    
+                   
+               
+
+            </div>
+            -->
+
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:percentageOfTicketPrice"/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputNumber', invalidComponentTracker: tracker , 
+                                          value:personRulesModel.PrrcentageOFTicketprice, required: true,  disabled: isDisabled}">
+                </div>
+
+            </div>
+               <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:percentageOfAdultTicketPricet"/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1"
+                           data-bind="ojComponent: {component: 'ojInputNumber', invalidComponentTracker: tracker,                    
+                           value:personRulesModel.PrrcentageOFAdultTicketprice, disabled: isDisabled ,required: false}"></input>
+                </div>
+            </div>
+               <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:percentageOfChildTicketPrice"/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1"
+                           data-bind="ojComponent: {component: 'ojInputNumber', invalidComponentTracker: tracker,                                        
+                           value:personRulesModel.PrrcentageOFChildTicketprice, disabled: isDisabled,required: true}"></input>
+                </div>
+            </div>
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:percentageOfInfantTicketPrice"/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputNumber', invalidComponentTracker: tracker , 
+                                          value:personRulesModel.PrrcentageOFInfantTicketprice, required: true,  disabled: isDisabled}">
+                </div>
+
+            </div>
+             <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:maxAgeOfChild"/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1"
+                           data-bind="ojComponent: {component: 'ojInputNumber', invalidComponentTracker: tracker,                                        
+                           value:personRulesModel.maxAge, disabled: isDisabled,required: true}"></input>
+                </div>
+            </div>
+                         <div class="oj-flex">
+                <div class="oj-flex-item">
+                   <label for="control1"  data-bind="text:allowNationals"/>
+                </div>
+                <div class="oj-flex-item">
+                  <select id="payperiod"
+                    data-bind="ojComponent: {component: 'ojSelect',invalidComponentTracker: tracker,
+					required: true, value:personRulesModel.AllowNationals, disabled: isDisabled}">
+              <!-- ko foreach:checkValues -->
+              <option data-bind="value:values, text:values"></option>
+              <!-- /ko -->
+            </select>
+                </div>
+            </div>
+                         <div class="oj-flex">
+                <div class="oj-flex-item">
+                      <label for="control1"  data-bind="text:numberOfSpouseAllowed"/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1"
+                           data-bind="ojComponent: {component: 'ojInputNumber', invalidComponentTracker: tracker,                                        
+                           value:personRulesModel.NumberOFSpouseAllowed, disabled: isDisabled,required: true}"></input>
+                </div>
+            </div>
+                   <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:allowOtherRoutWhenApp"/>
+                </div>
+                <div class="oj-flex-item">
+                  <select id="payperiod"
+                    data-bind="ojComponent: {component: 'ojSelect',invalidComponentTracker: tracker,
+					required: true, value:personRulesModel.AllowOtherRoutWhenApply,disabled: isDisabled}">
+              <!-- ko foreach:checkValues -->
+              <option data-bind="value:values, text:values"></option>
+              <!-- /ko -->
+            </select>
+                </div>
+            </div>
+            
+
+
+        </div>
+    </div>
+</div>

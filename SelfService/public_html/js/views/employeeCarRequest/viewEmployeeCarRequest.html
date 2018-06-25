@@ -1,0 +1,78 @@
+<div id="train-container">
+    <div class="oj-form-layout">
+        <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline">
+            <div class="oj-form-top">
+                <button id="cancel" type="button" class="oj-button-primary"
+                        style="margin-left:auto;margin-right:auto;"
+                        data-bind="click: backAction,ojComponent: {component: 'ojButton',label: back,icons: {start:'oj-fwk-icon-back oj-fwk-icon'}}"></button>
+            </div>
+            <div class="oj-form-layout">
+                <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline">
+                    <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+                        <div class="oj-flex-item">
+                            <label for="control1"
+                                   data-bind="text:requestDate "/>
+                        </div>
+                        <div class="oj-flex-item">
+                            <input id="requestDate"
+                                   data-bind="ojComponent: {component: 'ojInputText',value: employeeCarRequestModel.requestDate, required: true,disabled: true}"/>
+                        </div>
+                        <div class="oj-flex-item">
+                            <label for="control1" data-bind="text:reason"/>
+                        </div>
+                        <div class="oj-flex-item">
+                            <input id="reason"
+                                   data-bind="ojComponent: {component: 'ojInputText',value: employeeCarRequestModel.reason, required: true,  disabled: true}"></input>
+                        </div>
+                        <div class="oj-flex-item">
+                            <label for="control1"
+                                   data-bind="text:receiveDate "/>
+                        </div>
+                        <div class="oj-flex-item">
+                            <input id="receiveDate"
+                                   data-bind="ojComponent: {component: 'ojInputText',value: employeeCarRequestModel.receiveDate, required: true,  disabled: true}"></input>
+                        </div>
+                        <div class="oj-flex-item">
+                            <label for="control1" data-bind="text:returnDate "/>
+                        </div>
+                        <div class="oj-flex-item">
+                            <input id="returnDate"
+                                   data-bind="ojComponent: {component: 'ojInputText',value: employeeCarRequestModel.returnDate,required: true,disabled: true}"/>
+                        </div>
+                        <div class="oj-flex-item">
+                            <label for="control1"
+                                   data-bind="text:receiveLocation "/>
+                        </div>
+                        <div class="oj-flex-item">
+                            <select id="businessTripRoute"
+                                    data-bind="ojComponent: {component: 'ojSelect', value:employeeCarRequestModel.receiveLocation , placeholder: placeholder, disabled: true}">
+                                <!-- ko foreach: receiveLocationList -->
+                                <option data-bind="value:value, text:label"></option>
+                                <!-- /ko -->
+                            </select>
+                        </div>
+                        <div class="oj-flex-item">
+                            <label for="control1"
+                                   data-bind="text:insideOutsideUse "/>
+                        </div>
+                        <div class="oj-flex-item">
+                            <select id="insideOutsideUse"
+                                    data-bind="ojComponent: {component: 'ojSelect',value:employeeCarRequestModel.insideOutsideUse, disabled: true,placeholder: placeholder}">
+                                <!-- ko foreach: insideOutsideUseList -->
+                                <option data-bind="value:value, text:label"></option>
+                                <!-- /ko -->
+                            </select>
+                        </div>
+                        <div class="oj-flex-item">
+                            <label for="control1" data-bind="text:remarks "/>
+                        </div>
+                        <div class="oj-flex-item">
+                            <input id="remarks"
+                                   data-bind="ojComponent: {component: 'ojInputText',value:employeeCarRequestModel.remarks, disabled: true}"></input>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

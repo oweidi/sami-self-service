@@ -1,0 +1,230 @@
+
+    <div id="form-container" class="oj-form-layout">
+    <div class="oj-form">
+                      <button id="back" type="button" class="oj-button-primary" style="vertical-align:center;margin-left:auto;margin-right:auto;" data-bind="click: backAction,
+								ojComponent: {
+								  component: 'ojButton', 
+								  label: back,
+								  icons: {start:'oj-fwk-icon-back oj-fwk-icon'}}">
+                                </button>
+                                        
+                                           <div id="sampleDemo" style="" class="demo-padding demo-container">
+                
+                
+            
+
+        
+      </div>
+    </div>
+                </div>
+
+            </div>
+<div id="train-container">
+    <div style="text-align: center;white-space:nowrap;">
+      
+    </div>
+   
+
+<div class="oj-form-layout">
+            <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline">
+                <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+                    <div class="oj-flex-item">
+                        <label for="control1" data-bind="text:requestDate "/>
+                    </div>
+                    <div class="oj-flex-item">
+                        <input id="control1"
+                               data-bind="ojComponent: {component: 'ojInputText',  
+                               value:cardsRequestModel.requestDate ,disabled:true}"></input>
+                    </div>
+                    <div class="oj-flex-item">
+                        <label for="control1" data-bind="text:cardTypeLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                        <oj-select-one id="reasonList"
+                                       value="{{cardsRequestModel.type}}"
+                                       options="{{typeArr}}"
+                                       placeholder='Please Select a Value'
+                                      
+                                         disabled="{{true}}"
+                                        
+                                         
+                                         ></oj-select-one>
+                    </div>
+
+                    <div class="oj-flex-item">
+                        <label for="control1" data-bind="text:employeeNameLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                        <input id="control1"
+                               data-bind="ojComponent: {component: 'ojInputText',  
+                               value:cardsRequestModel.employeeName , disabled: isDisabled}"></input>
+                    </div>
+                    <div class="oj-flex-item">
+                        <label for="control1" data-bind="text:arabicNameLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                        <input id="control1"
+                               data-bind="ojComponent: {component: 'ojInputText',
+                               value:cardsRequestModel.employeeNameAr,  
+                               disabled: isDisabled}"></input>
+                    </div>
+                </div>
+                <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+                  <div class="oj-flex-item">
+                        <label for="control1"
+                               data-bind="text:orgnizationNameLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                       <input id='city' type="text"
+                               data-bind="ojComponent: {component: 'ojInputText', 
+                               value: cardsRequestModel.orgnizationName, disabled: isDisabled
+                              }"/> 
+
+                    </div>
+                    <div class="oj-flex-item">
+                        <label for="control1"
+                               data-bind="text:positionNameLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                         <input id='position' type="text"
+                               data-bind="ojComponent: {component: 'ojInputText', 
+                               value: cardsRequestModel.position, disabled: isDisabled
+                               }"/>
+                    </div>                                  
+                    <div class="oj-flex-item">
+                        <label for="control1" data-bind="text:arPositionName "/>
+                    </div>
+                    <div class="oj-flex-item">
+                        <input id='city' type="text"
+                               data-bind="ojComponent: {component: 'ojInputText', 
+                               value: cardsRequestModel.positionAr, disabled: isDisabled
+                             }"/>
+                    </div>
+                      <div class="oj-flex-item">
+                        <label for="control1"
+                               data-bind="text:emailLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                          <input id='city' type="text"
+                               data-bind="ojComponent: {component: 'ojInputText',
+                               value: cardsRequestModel.email,
+                               disabled: true}"/>
+                        
+                    </div>
+                    <div class="oj-flex-item">
+                        <label for="control1"
+                               data-bind="text:remarksLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                          <input id='city' type="text"
+                               data-bind="ojComponent: {component: 'ojInputText', 
+                               value: cardsRequestModel.remarks,
+                               disabled: isDisabled}"/>
+                        
+                    </div>
+                </div>
+                <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations" data-bind="visible:isBC ">
+                     <div class="oj-flex-item">
+                        <label for="control1" data-bind="text:mobileNumberLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                        <input id="control1"
+                               data-bind="ojComponent: {component: 'ojInputText',  
+                               value:cardsRequestModel.mobileNumber,disabled: isDisabled}"></input>
+                    </div>
+                    <div class="oj-flex-item">
+                        <label for="control1"
+                               data-bind="text:telephoneNumberLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                            <input id='city' type="text"
+                               data-bind="ojComponent: {component: 'ojInputText',
+                               value: cardsRequestModel.telephoneNumber, 
+                               disabled: isDisabled,required: false}"/>
+                        
+                    </div>
+                    <div class="oj-flex-item">
+                        <label for="control1"
+                               data-bind="text:telephoneExtensionLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                          <input id='city' type="text"
+                               data-bind="ojComponent: {component: 'ojInputText', 
+                               value: cardsRequestModel.telephoneExtension,
+                               disabled: isDisabled,required: false}"/>
+                        
+                    </div>
+                     <div class="oj-flex-item">
+                        <label for="control1"
+                               data-bind="text:faxNumberLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                          <input id='city' type="text"
+                               data-bind="ojComponent: {component: 'ojInputText',
+                               value: cardsRequestModel.faxNumber,
+                               disabled: isDisabled,required: false}"/>
+                        
+                    </div>
+                 <div class="oj-flex-item">
+                        <label for="control1"
+                               data-bind="text:faxExtLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                          <input id='city' type="text"
+                               data-bind="ojComponent: {component: 'ojInputText', 
+                               value: cardsRequestModel.faxExt,
+                               disabled: isDisabled,required: false}"/>
+                        
+                    </div>
+
+                     <div class="oj-flex-item">
+                        <label for="control1"
+                               data-bind="text:poBoxLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                          <input id='city' type="text"
+                               data-bind="ojComponent: {component: 'ojInputText', 
+                               value: cardsRequestModel.poBox,
+                               disabled: isDisabled,required: false}"/>
+                        
+                    </div>
+                 <div class="oj-flex-item">
+                        <label for="control1"
+                               data-bind="text:zipCodeLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                          <input id='city' type="text"
+                               data-bind="ojComponent: {component: 'ojInputText', 
+                               value: cardsRequestModel.zipCode,
+                               disabled: isDisabled,required: false}"/>
+                        
+                    </div>
+                <div class="oj-flex-item">
+                        <label for="control1"
+                               data-bind="text:includeMobilNumberInBCLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                                <oj-select-one id="reasonList"
+                                       value="{{cardsRequestModel.includeMobilNumberInBC}}"
+                                       options="{{yesNoArr}}"
+                                       placeholder='Please Select a Value'
+                                        disabled="{{isDisabled}}"></oj-select-one>
+                        
+                    </div>
+
+                    
+
+                </div>
+                                <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+        <div class="oj-flex-item">
+          <label for="control1" data-bind="text:attachment"/>
+        </div>
+        <div class="oj-flex-item">
+         
+                    <img src="" height="200" alt="Image preview..." class="attClass" width= '207'/>
+        </div>
+            </div>
+            </div>
+        </div>
+
+</div>

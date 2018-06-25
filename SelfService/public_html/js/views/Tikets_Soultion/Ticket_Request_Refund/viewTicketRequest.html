@@ -1,0 +1,326 @@
+
+    <div id="form-container" class="oj-form-layout">
+    <div class="oj-form">
+                      <button id="back" type="button" class="oj-button-primary" style="vertical-align:center;margin-left:auto;margin-right:auto;" data-bind="click: backAction,
+								ojComponent: {
+								  component: 'ojButton', 
+								  label: back,
+								  icons: {start:'oj-fwk-icon-back oj-fwk-icon'}}">
+                                </button>
+                                        
+                                           <div id="sampleDemo" style="" class="demo-padding demo-container">
+                
+                
+            
+
+        
+      </div>
+    </div>
+                </div>
+
+            </div>
+<div id="train-container">
+    <div style="text-align: center;white-space:nowrap;">
+      
+    </div>
+   
+
+
+    <div class="oj-form-layout">
+        <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline">
+            <div class="oj-form-layout">
+            <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline">
+                <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+                    <div class="oj-flex-item">
+                        <label for="control1" data-bind="text:requestDate "/>
+                    </div>
+                    <div class="oj-flex-item">
+                        <input id="control1"
+                               data-bind="ojComponent: {component: 'ojInputText',   value:ticketRequestModel.requestDate, required: true ,disabled:true}"></input>
+                    </div>
+                      <div class="oj-flex-item">
+                        <label for="control1" data-bind="text:typeLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                        <oj-select-one id="reasonList"
+                                       value="{{ticketRequestModel.requestType}}"
+                                       options="{{typeArr}}"
+                                       placeholder='Please Select a Value'
+                                       disabled="{{isDisabled}}"
+                                      
+                                       required='true'
+                                       ></oj-select-one>
+                    </div>
+                    <div class="oj-flex-item">
+                        <label for="control1"
+                               data-bind="text:ticketsTravelDatelbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                        <input id="control1"
+                               data-bind="ojComponent: {component: 'ojInputDate', 
+                               
+                               value:ticketRequestModel.travelDate, required: true,                                disabled: isDisabled}"></input>
+                    </div>
+                    <div class="oj-flex-item">
+                        <label for="returnDate"
+                               data-bind="text:returnDateLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                        <input id="returnDate"
+                               data-bind="ojComponent: {component: 'ojInputDate',  
+                                
+                               value:ticketRequestModel.returnDate, required: true,
+                               disabled: isDisabled ,min:ticketRequestModel.travelDate}"></input>
+                    </div>
+                  
+                    <div class="oj-flex-item">
+                        <label for="control1" data-bind="text:hireDate "/>
+                    </div>
+                    <div class="oj-flex-item">
+                        <input id="control1"
+                               data-bind="ojComponent: {component: 'ojInputDate', value:ticketRequestModel.hireDate, required: true,                                disabled: true}"></input>
+                    </div>
+                    
+                
+                <div class="oj-flex-item">
+                        <label for="control1" data-bind="text:reason "/>
+                    </div>
+                    <div class="oj-flex-item">
+                        <input id='city' type="text"
+                               data-bind="ojComponent: {component: 'ojInputText',
+                               value: ticketRequestModel.reason, 
+                               disabled: isDisabled,
+                               required: false}"/>
+                    </div>
+                </div>
+                <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+                    <div class="oj-flex-item" >
+                        <label for="control1" data-bind="text:ticketClassLbl "/>
+                    </div>
+                    <div class="oj-flex-item" >
+                        <select id="ticketClass"
+                                data-bind="ojComponent: {component: 'ojSelect',value: ticketRequestModel.ticketClass,
+                                placeholder: 'Select Value',disabled: true,required: true}">
+                            <!-- ko foreach: ticketClassArr -->
+                            <option data-bind="value:value, text:label"></option>
+                            <!-- /ko -->
+                        </select>
+                    </div>
+                    <div class="oj-flex-item">
+                        <label for="control1"
+                               data-bind="text:contractTypeLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                         <input id='city' type="text"
+                               data-bind="ojComponent: {component: 'ojInputText',
+                               value: ticketRequestModel.contractType,
+                               disabled: true,required: false}"/>
+                    </div>   
+                     <div class="oj-flex-item" >
+                        <label for="control1" data-bind="text:employeeIncludedLbl "/>
+                    </div>
+                    <div class="oj-flex-item" >
+                        <select id="employeeIncluded"
+                                data-bind="ojComponent: {component: 'ojSelect',value: ticketRequestModel.employeeIncluded,               
+                                placeholder: 'Select Value',disabled: isDisabled,
+                                required: true}">
+                            <!-- ko foreach: yesNoArr -->
+                            <option data-bind="value:value, text:label"></option>
+                            <!-- /ko -->
+                        </select>
+                        </div>
+                <div class="oj-flex-item">
+                        <label for="control1" data-bind="text:employeeAmountLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                        <input id='city' type="text"
+                               data-bind="ojComponent: {component: 'ojInputText',
+                               value: ticketRequestModel.employeeAmount, 
+                               disabled: true,
+                               required: false}"/>
+                    </div>
+                    
+                    <div class="oj-flex-item">
+                        <label for="control1" data-bind="text:comment "/>
+                    </div>
+                    <div class="oj-flex-item">
+                        <input id='city' type="text"
+                               data-bind="ojComponent: {component: 'ojInputText',
+                               value: ticketRequestModel.commment, 
+                               disabled: true,
+                               required: false}"/>
+                    </div>
+                </div>
+                 <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+                    <div class="oj-flex-item">
+                        <label for="control1"
+                               data-bind="text:passengerNameLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+ <input id="control1"
+                               data-bind="ojComponent: {component: 'ojInputText',   value:ticketRequestModel.passengerName1
+                              , disabled: true}"></input>
+                               <oj-button display='icons' on-click='[[openDialog]]'>
+                    <span slot='startIcon' class="fa fa-address-card-o fa fa-address-card-o"></span>
+                    Name
+                  </oj-button>
+                    </div>
+                    <div class="oj-flex-item">
+                        <label for="dependent1TicketTripType"
+                               data-bind="text:dep1TypeLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                        <select id="dependent1TicketTripType"
+                                data-bind="ojComponent: {component: 'ojSelect',value: ticketRequestModel.dependent1TicketTripType, 
+                                placeholder: 'Select Value',disabled: true,
+                                 }">
+                            <!-- ko foreach: depTypeArr -->
+                            <option data-bind="value:value, text:label"></option>
+                            <!-- /ko -->
+                        </select>
+                    </div>
+                    <div class="oj-flex-item">
+                        <label for="control1"
+                               data-bind="text:dep1AmountLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                       <input id="control1"
+                               data-bind="ojComponent: {component: 'ojInputText',
+                               value:ticketRequestModel.passengerCost1, required: true, 
+                               disabled: true}"></input>
+                    </div>
+                    
+                </div>
+                 <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+                    <div class="oj-flex-item">
+                        <label for="passengerName2" data-bind="text:passengerNameLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                             <input id="passengerName2"
+                               data-bind="ojComponent: {component: 'ojInputText',   value:ticketRequestModel.passengerName2
+                              , disabled: true}"></input>
+                               <oj-button display='icons' on-click='[[openDialog2]]'>
+                    <span slot='startIcon' class="fa fa-address-card-o fa fa-address-card-o"></span>
+                    Name
+                  </oj-button>
+                    </div>
+                    <div class="oj-flex-item">
+                        <label for="dependent1TicketTripType"
+                               data-bind="text:dep2TypeLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                        <select id="dependent1TicketTripType"
+                                data-bind="ojComponent: {component: 'ojSelect',value: ticketRequestModel.dependent2TicketTripType, 
+                                placeholder: 'Select Value',disabled: true,
+                                 }">
+                            <!-- ko foreach: depTypeArr -->
+                            <option data-bind="value:value, text:label"></option>
+                            <!-- /ko -->
+                        </select>
+                    </div>
+                    <div class="oj-flex-item">
+                        <label for="control1"
+                               data-bind="text:dep2AmountLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                       <input id="control1"
+                               data-bind="ojComponent: {component: 'ojInputText', 
+                               value:ticketRequestModel.passengerCost2, required: false,  disabled: true
+                               }"></input>
+                    </div>
+                    
+                </div>
+                 <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+                    <div class="oj-flex-item">
+                        <label for="passengerName3"data-bind="text:passengerNameLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                          <input id="control1"
+                               data-bind="ojComponent: {component: 'ojInputText',   value:ticketRequestModel.passengerName3
+                              , disabled: true}"></input>
+                               <oj-button display='icons' on-click='[[openDialog3]]'>
+                    <span slot='startIcon' class="fa fa-address-card-o fa fa-address-card-o"></span>
+                    Name
+                  </oj-button>
+                    </div>
+                    <div class="oj-flex-item">
+                        <label for="dependent1TicketTripType"
+                               data-bind="text:dep3TypeLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                        <select id="dependent1TicketTripType"
+                                data-bind="ojComponent: {component: 'ojSelect',value: ticketRequestModel.dependent3TicketTripType, 
+                                placeholder: 'Select Value',disabled: true,
+                                 }">
+                            <!-- ko foreach: depTypeArr -->
+                            <option data-bind="value:value, text:label"></option>
+                            <!-- /ko -->
+                        </select>
+                    </div>
+                    <div class="oj-flex-item">
+                        <label for="control1"
+                               data-bind="text:dep3AmountLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                       <input id="control1"
+                               data-bind="ojComponent: {component: 'ojInputText', 
+                               value:ticketRequestModel.passengerCost3, required: false,
+                               disabled: true }"></input>
+                    </div>
+                    
+                </div>
+                        
+                 <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+                  <div class="oj-flex-item">
+                        <label for="control1"
+                               data-bind="text:totalAmountLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                        <input id="control1"
+                               data-bind="ojComponent: {component: 'ojInputText',
+                               value:ticketRequestModel.totalTicketsAmount, required: true, 
+                               disabled: true}"></input>
+                    </div>
+        <div class="oj-flex-item">
+          <label for="control1" data-bind="text:attachment"/>
+        </div>
+        <div class="oj-flex-item">
+          <input type="file" onchange="prev()" accept="image/*"/>
+                    <img src="" height="200" alt="Image preview..." class="attClass" width= '207'/>
+        </div>
+
+                 </div>
+            </div>
+            </div>
+
+
+            
+        </div>
+    </div>
+    
+                                <div id="componentDemoContent" style="width: 500px; min-width: 100%;">
+             <div id="dialogWrapper" style="overflow: hidden;" >
+            <oj-dialog class = "oj-dialog-content oj-dialog-default-content"  style="display:none;width: 70vw; height: auto;" id="modalDialog1" >
+                                     <div slot="header" class="oj-helper-clearfix">
+                                                    <label  data-bind="text:passengerDetails "/>
+                                            </div>
+                <div slot="body" >
+   <oj-table id="tbl12" aria-label="Approvals Table"
+                            data='[[dataSourceTB2]]'
+                                display = "grid"
+                                selectionMode = "{'row': 'single'}"
+                                columns-default='{"sortable": "enabled"}'
+                                dnd='{"reorder": {"columns": "enabled"}}'
+                                columns='{{columnArrayPassangerDetails}}'>
+    </oj-table>                
+                </div>
+                <div slot="footer">
+                          <button id="okButton" data-bind="click: closeDialog,ojComponent: {component: 'ojButton', label: ok}"> </button>
+
+                </div>
+            </oj-dialog>
+        </div>
+
+        
+      </div>
+</div>

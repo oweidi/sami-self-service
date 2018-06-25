@@ -1,0 +1,314 @@
+
+    
+<div id="form-container" class="oj-form-layout">
+    <div class="oj-form">
+        <div class="oj-flex-bar">
+            <div class="oj-flex-bar-start">
+                <button id="cancel" type="button"
+                        data-bind="click: cancelAction,                                                             ojComponent: {                                                               component: 'ojButton',                                                                label: cancel}"></button>
+                 
+                <button id="PreviousStep" type="button"
+                        data-bind="click: previousStep,                                                              ojComponent: {disabled:currentStepValue() == 'stp1',                                                               component: 'ojButton',                                                                label: back}"></button>
+            </div>
+            <div class="oj-flex-bar-end">
+             <button id="buttonOpener" class="oj-button-primary" type="button"
+                data-bind="click: openApprovalDialog,ojComponent: {component: 'ojButton',label: viewApprovalsLbl, icons:{end:'fa fa-check'}}"></button>
+                <button id="NextStep" type="button"
+                        data-bind="visible:nextBtnVisible,click: nextStep,                                              ojComponent: {                                               disabled:currentStepValue() == 'stp2',                                               component: 'ojButton',                                                label: next}"></button>
+                 
+                <button id="submit"
+                        data-bind="visible:addBtnVisible ,click: submitButton,                             ojComponent: { component: 'ojButton', label: submit}"></button>
+                 
+                <button id="submit"
+                        data-bind="visible:addBtnVisible ,click: submitDraft,                         ojComponent: { component: 'ojButton', label: saveDraft}"></button>
+                <div id="sampleDemo" style=""
+                     class="demo-padding demo-container"></div>
+                <div id="dialogWrapper">
+                    <oj-dialog style="display:none;width:350px;height:auto"
+                               id="yesNoDialog">
+                        <div slot="header" class="oj-helper-clearfix">
+                            <label data-bind="text:confirmMessage "/>
+                        </div>
+                        <div slot="body">
+                            <label data-bind="text:addMessage "/>
+                        </div>
+                        <div slot="footer">
+                            <button id="buttonOpenerNested" type="button"
+                                    data-bind="click: commitRecord,        ojComponent: {                                                             disabled:disableSubmit(),          component: 'ojButton',           label: yes}"></button>
+                             
+                            <button id="cancelButton" type="button"
+                                    data-bind="click: cancelButton,        ojComponent: {          component: 'ojButton',           label: no}"></button>
+                        </div>
+                    </oj-dialog>
+                     
+                    <oj-dialog style="display:none;width:350px;height:auto"
+                               id="draftDialog">
+                        <div slot="header" class="oj-helper-clearfix">
+                            <label data-bind="text:confirmMessage "/>
+                        </div>
+                        <div slot="body">
+                            <label data-bind="text:addMessage "/>
+                        </div>
+                        <div slot="footer">
+                            <button id="buttonOpenerNested" type="button"
+                                    data-bind="click: commitDraft,        ojComponent: {                                                         disabled:disableSubmit(),          component: 'ojButton',           label: yes}"></button>
+                             
+                            <button id="cancelButton" type="button"
+                                    data-bind="click: cancelDraft,        ojComponent: {          component: 'ojButton',           label: no}"></button>
+                        </div>
+                    </oj-dialog>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="train-container">
+        <div style="text-align: center;white-space:nowrap;">
+            <oj-train id="train"
+                      style="max-width:700px;margin-left:auto;margin-right:auto;"
+                      selected-step="{{currentStepValue}}" steps="[[stepArray]]"
+                      class="oj-train-stretch"
+                      on-oj-before-select="[[stopSelectListener]]"/>
+        </div>
+        <div id="progress-container"
+             style="max-width:400px;margin-left:auto;margin-right:auto;">
+            <oj-status-meter-gauge id="gauge9" min="0" max="100"
+                                   label="{{label}}"
+                                   thresholds="[[thresholdValues]]"
+                                   data-bind="value:progressValue "
+                                   metric-label.rendered="on"
+                                   plot-area.rendered="on" disabled="true"
+                                   readonly="readonly"
+                                   style="margin-top:5px;margin-bottom:5px;                          height:20px;width:100%;"></oj-status-meter-gauge>
+        </div>
+        <br/>
+         
+        <h3 id="currentStepText" data-bind="text: currentStepValueText()"
+            style="text-align: center"></h3>
+        <div class="oj-form-layout">
+            <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline">
+                <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+                    <div class="oj-flex-item">
+                        <label for="control1" data-bind="text:requestDate "/>
+                    </div>
+                    <div class="oj-flex-item">
+                        <input id="control1"
+                               data-bind="ojComponent: {component: 'ojInputText', invalidComponentTracker: tracker,                                           value:ticketRequestModel.requestDate, required: true ,disabled:true}"></input>
+                    </div>
+                    <div class="oj-flex-item">
+                        <label for="control1"
+                               data-bind="text:ticketsTravelDatelbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                        <input id="control1"
+                               data-bind="ojComponent: {component: 'ojInputDate',                                invalidComponentTracker: tracker,                                value:ticketRequestModel.travelDate, required: true,                                disabled: isDisabled}"></input>
+                    </div>
+                    <div class="oj-flex-item">
+                        <label for="control1" data-bind="text:reason "/>
+                    </div>
+                    <div class="oj-flex-item">
+                        <oj-select-one id="reasonList"
+                                       value="{{ticketRequestModel.reason}}"
+                                       options="{{reasonArr}}"
+                                        disabled="{{ isDisabled}}">
+                                       </oj-select-one>
+                    </div>
+                    <div class="oj-flex-item">
+                        <label for="control1" data-bind="text:hireDate "/>
+                    </div>
+                    <div class="oj-flex-item">
+                        <input id="control1"
+                               data-bind="ojComponent: {component: 'ojInputDate',                                invalidComponentTracker: tracker,                                value:ticketRequestModel.hireDate, required: true,                                disabled: true}"></input>
+                    </div>
+                    <div class="oj-flex-item" data-bind="visible:isEnapleClass ">
+                        <label for="control1" data-bind="text:tso "/>
+                    </div>
+                    <div class="oj-flex-item" data-bind="visible:isEnapleClass ">
+                        <input id="control1"
+                               data-bind="ojComponent: {component: 'ojInputText',                                invalidComponentTracker: tracker,                                value:ticketRequestModel.tso, required: true,                                disabled: true}"></input>
+                    </div>
+                </div>
+                <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+                    <div class="oj-flex-item" data-bind="visible:isEnapleClass ">
+                        <label for="control1" data-bind="text:tso "/>
+                    </div>
+                    <div class="oj-flex-item" data-bind="visible:isEnapleClass ">
+                        <select id="ticketClass"
+                                data-bind="ojComponent: {component: 'ojSelect',value: ticketRequestModel.ticketClass,
+                                placeholder: 'Select Value',disabled: isDisabled,invalidComponentTracker: tracker,required: true}">
+                            <!-- ko foreach: ticketClassArr -->
+                            <option data-bind="value:value, text:label"></option>
+                            <!-- /ko -->
+                        </select>
+                    </div>
+                    <div class="oj-flex-item">
+                        <label for="control1"
+                               data-bind="text:ticketsRouteLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                        <select id="Route"
+                                data-bind="ojComponent: {component: 'ojSelect',value: ticketRequestModel.route,      placeholder: 'Select Value',disabled: isDisabled,invalidComponentTracker: tracker,required: true}">
+                            <!-- ko foreach: routeArr -->
+                            <option data-bind="value:value, text:label"></option>
+                            <!-- /ko -->
+                        </select>
+                    </div>                                  
+                    <div class="oj-flex-item">
+                        <label for="control1" data-bind="text:comment "/>
+                    </div>
+                    <div class="oj-flex-item">
+                        <input id='city' type="text"
+                               data-bind="ojComponent: {component: 'ojInputText', value: ticketRequestModel.commment, disabled: isDisabled,invalidComponentTracker: tracker,required: false}"/>
+                    </div>
+                </div>
+                <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+                    <div class="oj-flex-item">
+                        <label for="control1"
+                               data-bind="text:passengerNameLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                        <select id="passengerName1"
+                                data-bind="ojComponent: {component: 'ojSelect',value: ticketRequestModel.passengerName1,               
+                                placeholder: 'Select Value',disabled: isDisabled,invalidComponentTracker: tracker,
+                                required: true,optionChange: passengerName1ChangedHandler}">
+                            <!-- ko foreach: dependantNameArr1 -->
+                            <option data-bind="value:value, text:label"></option>
+                            <!-- /ko -->
+                        </select>
+                               <oj-button display='icons' on-click='[[openDialog]]'>
+                    <span slot='startIcon' class="fa fa-address-card-o fa fa-address-card-o"></span>
+                    Home
+                  </oj-button>
+                    </div>
+                    <div class="oj-flex-item">
+                        <label for="control1"
+                               data-bind="text:passengerNameLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+   <oj-select-one id="passengerName2"
+                                       value="{{ticketRequestModel.passengerName2}}"
+                                       options="{{dependantNameArr2}}"
+                                       placeholder='Please Select a Value'
+                                       disabled="{{isDisabled}}"
+                                        on-value-changed = "{{passengerName2ChangedHandler}}"
+                                       ></oj-select-one>
+                         <oj-button display='icons' on-click='[[openDialog2]]'>
+                    <span slot='startIcon' class="fa fa-address-card-o fa fa-address-card-o"></span>
+                    Home
+                  </oj-button>
+                    </div>
+                    <div class="oj-flex-item">
+                        <label for="control1"
+                               data-bind="text:passengerNameLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+<oj-select-one id="passengerName3"
+                                       value="{{ticketRequestModel.passengerName3}}"
+                                       options="{{dependantNameArr3}}"
+                                       placeholder='Please Select a Value'
+                                       disabled="{{isDisabled}}"
+                                        on-value-changed = "{{passengerName3ChangedHandler}}"
+                                       ></oj-select-one>
+                          <oj-button display='icons' on-click='[[openDialog3]]'>
+                    <span slot='startIcon' class="fa fa-address-card-o fa fa-address-card-o"></span>
+                    Home
+                  </oj-button>
+                    </div>
+                    <div class="oj-flex-item">
+                        <label for="control1"
+                               data-bind="text:passengerNameLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+<oj-select-one id="passengerName4"
+                                       value="{{ticketRequestModel.passengerName4}}"
+                                       options="{{dependantNameArr4}}"
+                                       placeholder='Please Select a Value'
+                                       disabled="{{isDisabled}}"
+                                        on-value-changed = "{{passengerName4ChangedHandler}}"
+                                       ></oj-select-one>
+                          <oj-button display='icons' on-click='[[openDialog4]]'>
+                    <span slot='startIcon' class="fa fa-address-card-o fa fa-address-card-o"></span>
+                    Home
+                  </oj-button>
+                    </div>
+                </div>
+                 <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+                  <div class="oj-flex-item">
+                        <label for="control1"
+                               data-bind="text:totalAccruedTicketsLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                        <input id="control1"
+                               data-bind="ojComponent: {component: 'ojInputText', invalidComponentTracker: tracker, 
+                               value:ticketRequestModel.totalAccruedTickets, required: true,  disabled: true}"></input>
+                    </div>
+                 <div class="oj-flex-item">
+                        <label for="control1"
+                               data-bind="text:totalChildrenLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                        <input id="control1"
+                               data-bind="ojComponent: {component: 'ojInputText', invalidComponentTracker: tracker, 
+                               value:ticketRequestModel.child, required: true,  disabled: true}"></input>
+                    </div>
+                    <div class="oj-flex-item">
+                        <label for="control1"
+                               data-bind="text:totalAdultsLbl "/>
+                    </div>
+                    <div class="oj-flex-item">
+                        <input id="control1"
+                               data-bind="ojComponent: {component: 'ojInputText', invalidComponentTracker: tracker, 
+                               value:ticketRequestModel.adult, required: true,  disabled: true}"></input>
+                    </div>
+                    
+                 </div>
+            </div>
+        </div>
+    </div>
+                <div id="componentDemoContent" style="width: 500px; min-width: 100%;">
+             <div id="dialogWrapper" style="overflow: hidden;" >
+            <oj-dialog class = "oj-dialog-content oj-dialog-default-content"  style="display:none;width: 70vw; height: auto;" id="modalDialog1" >
+                                     <div slot="header" class="oj-helper-clearfix">
+                                                    <label  data-bind="text:passengerDetails "/>
+                                            </div>
+                <div slot="body" >
+   <oj-table id="tbl12" aria-label="Approvals Table"
+                            data='[[dataSourceTB2]]'
+                                display = "grid"
+                                selectionMode = "{'row': 'single'}"
+                                columns-default='{"sortable": "enabled"}'
+                                dnd='{"reorder": {"columns": "enabled"}}'
+                                columns='{{columnArrayPassangerDetails}}'>
+    </oj-table>                
+                </div>
+                <div slot="footer">
+                          <button id="okButton" data-bind="click: closeDialog,ojComponent: {component: 'ojButton', label: ok}"> </button>
+
+                </div>
+            </oj-dialog>
+        </div>
+
+        
+      </div>
+      
+      
+          <div style="display:none" id="modalApprovalDialog"
+         data-bind="ojComponent:{component: 'ojDialog', initialVisibility: 'hide', rootAttributes: { style: 'min-width: 50vw; min-height: 65vh;'}}">
+      <div class="oj-dialog-header">
+        <span data-bind="text:approvals"></span>
+      </div>
+      <div class="oj-dialog-body">
+        <div id="tableDemo" class="oj-flex oj-flex-items-pad">
+          <div class="oj-xl-8 oj-lg-8 oj-md-6 oj-flex-item">
+            <oj-table id="tbl12" aria-label="Departments Table"
+                      data='[[approvalDataSourceTB2]]' display="grid"
+                      columns-default='{"sortable": "enabled"}'
+                      columns='{{columnArrayApproval}}'></oj-table>
+          </div>
+        </div>
+      </div>
+      <div class="oj-dialog-footer">
+        <button id="okButton"
+                data-bind="click: closeApprovalDialog,ojComponent: {component: 'ojButton', label: ok}"></button>
+      </div>
+    </div>
+</div>

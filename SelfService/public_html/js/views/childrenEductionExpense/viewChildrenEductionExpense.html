@@ -1,0 +1,139 @@
+	<div class="oj-form-layout">
+		<div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline">
+                      <div class="oj-form-top" >
+                            <button id="backBtn" type="button" class="oj-button-primary" style="vertical-align:center;margin-left:auto;margin-right:auto;" data-bind="click: backAction,
+								ojComponent: {
+								  component: 'ojButton', 
+								  label: back,
+								  icons: {start:'oj-fwk-icon-back oj-fwk-icon'}}">
+                                </button>
+                        </div>
+			 <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:requestDate "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText',
+                                          value:childrenExpenseModel.requestDate ,disabled:true}">
+                </div>
+
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:semesterFrom "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1"
+                           data-bind="ojComponent: {component: 'ojInputDate',                    
+                           value:childrenExpenseModel.semesterFrom, converter: dateConverter,disabled: true}"></input>
+                </div>
+       
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:semesterTo "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1"
+                           data-bind="ojComponent: {component: 'ojInputDate',                     
+                           value:childrenExpenseModel.semesterTo, converter: dateConverter,disabled: true}"></input>
+                </div>
+          
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:semesterNum "/>
+                </div>
+                <div class="oj-flex-item">
+                     <input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:childrenExpenseModel.semesterNumber,  disabled: true}">
+                </div>
+          
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:schoolYear "/>
+                </div>
+                <div class="oj-flex-item">
+                     <input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:childrenExpenseModel.schoolYear,  disabled: true}">
+                </div>
+            </div> 
+            <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:name1 "/>
+                </div>
+                <div class="oj-flex-item">
+                     <input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:childrenExpenseModel.dependentName1,  disabled: true}">
+                </div>
+           
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:amount1 "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:childrenExpenseModel.amount1,  disabled: true}">
+                </div>
+          
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:name2 "/>
+                </div>
+                <div class="oj-flex-item">
+              <input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:childrenExpenseModel.dependentName2,  disabled: true}">
+                </div>
+          
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:amount2 "/>
+                </div>
+                <div class="oj-flex-item">
+                   <input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:childrenExpenseModel.amount2,  disabled: true}">
+                </div>
+          
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:name3 "/>
+                </div>
+                <div class="oj-flex-item">
+              <input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:childrenExpenseModel.dependentName3,  disabled: true}">
+                </div>
+         
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:amount3 "/>
+                </div>
+                <div class="oj-flex-item">
+                   <input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:childrenExpenseModel.amount3,  disabled: true}">
+                </div>
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:name4 "/>
+                </div>
+                <div class="oj-flex-item">
+              <input id="control1" data-bind="ojComponent: {component: 'ojInputText',
+                                          value:childrenExpenseModel.dependentName4,  disabled: true}">
+                </div>
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:amount4 "/>
+                </div>
+                <div class="oj-flex-item">
+                   <input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:childrenExpenseModel.amount4,  disabled: true}">
+                </div>
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:name5 "/>
+                </div>
+                <div class="oj-flex-item">
+              <input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:childrenExpenseModel.dependentName5,  disabled: true}">
+                </div>
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:amount5 "/>
+                </div>
+                <div class="oj-flex-item">
+                   <input id="control1" data-bind="ojComponent: {component: 'ojInputText',
+                                          value:childrenExpenseModel.amount5,  disabled: true}">
+                </div>
+                  <div class="oj-flex-item">
+                         <label for="control1" data-bind="text:attachment "/>
+                  </div>
+                    <div class="oj-flex-item">
+                    <img src="#" height="200" alt="Image preview..." class="attClass" width= '207'/>
+                  </div>          
+            </div>
+            </div>
+			</div>
+		</div>

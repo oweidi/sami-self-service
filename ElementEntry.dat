@@ -1,0 +1,9 @@
+METADATA|ElementEntry|SourceSystemOwner|SourceSystemId|ElementName|LegislativeDataGroupName|EntryType|EffectiveStartDate|EffectiveEndDate|AssignmentNumber|CreatorType
+MERGE|ElementEntry|hcm_impl|300000002295126|BUSINESS_TRIP_ADVANCE|Sa Legislative Data Group|E|2017/09/11|2017/09/30|E100001|F
+
+COMMENT #########################################################################################################################################################
+COMMENT Child object Element Entry Values - Specify information for InputValues
+COMMENT #########################################################################################################################################################
+
+METADATA|ElementEntryValue|SourceSystemOwner|SourceSystemId|ElementEntryId(SourceSystemId)|LegislativeDataGroupName|ElementName|EffectiveStartDate|EffectiveEndDate|AssignmentNumber|InputValueName|ScreenEntryValue
+MERGE|ElementEntryValue|hcm_impl|Kareem,Al-Dahabi_106_HSELMNT_IV1|Kareem,Al-Dahabi_106_HSELMNT1|Sa Legislative Data Group|BUSINESS_TRIP_ADVANCE|2017/09/11|2017/09/30|E100001|Business Trip Payment|1750

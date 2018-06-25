@@ -1,0 +1,186 @@
+<div id="train-container">
+
+ <div id="form-container" class="oj-form-layout">
+                <div class="oj-form" >
+                   <button id="cancel" type="button" style="vertical-align:top;" data-bind="click: cancelAction,
+							ojComponent: {
+							  component: 'ojButton', 
+							  label: 'Cancel', icons:{end:'fa fa-times-circle-o'}}">
+					</button>
+                    <button id="PreviousStep" type="button" style="vertical-align:top;" data-bind="click: previousStep, 
+							ojComponent: {disabled:currentStepValue() == 'stp1',
+							  component: 'ojButton', 
+							  label: 'Back',
+							  icons: {start:'oj-fwk-icon-back oj-fwk-icon'}}">
+					</button>
+                                        <button id="submit" style="vertical-align:top;float: right;" data-bind="visible:editBtnVisible ,click: submitButton, 
+                       ojComponent: { component: 'ojButton', label: 'Submit', icons:{end: 'fa fa-paper-plane'}}">
+					</button>
+                                        
+                    <button id="NextStep" type="button" style="display:inline-block;vertical-align:top;float: right;" data-bind="visible:nextBtnVisible,click: nextStep, 
+					ojComponent: {
+					  disabled:currentStepValue() == 'stp2',
+					  component: 'ojButton', 
+					  label: 'Next ',
+					  icons: {end:'oj-fwk-icon-next oj-fwk-icon'}}" />  
+                </div>
+                  <div id="componentDemoContent" style="width: 1px; min-width: 100%;">
+        <div id="dialogWrapper">
+            <oj-dialog style="display:none;width:350px;height:auto" id="yesNoDialog" title="Confirm Message">
+                <div slot="body">
+                  Are You Sure To Edit Element Entry  Request
+                
+                </div>
+                <div slot="footer">
+                   <button id="buttonOpenerNested" type="button" data-bind="click: commitRecord,
+							ojComponent: {
+							  component: 'ojButton', 
+							  label: 'Yes'}">
+					</button>
+                    <button id="cancelButton" type="button" data-bind="click: cancelButton,
+							ojComponent: {
+							  component: 'ojButton', 
+							  label: 'No'}">
+					</button>
+                </div>
+            </oj-dialog>
+        </div>
+
+        
+      </div>
+                </div>
+    <div style="text-align: center;white-space:nowrap;">
+        <div id="train" class="oj-train-stretch" style="max-width:700px;margin-left:auto;margin-right:auto;" data-bind="ojComponent:{
+		component: 'ojTrain', 
+		selectedStep: currentStepValue, 
+		steps: stepArray,
+                beforeSelect:stopSelectListener}"></div>
+    </div>
+           
+    <br/>
+    <h3 id="currentStepText" data-bind="text: currentStepValueText()" style="text-align: center">
+    </h3>
+
+
+    <div class="oj-form-layout">
+        <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline">
+        
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1">Source System Owner</label>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText', invalidComponentTracker: tracker,
+                                          value:elementEnteryModel.source_system_owner,disabled: isDisabled, required: true }">
+                </div>
+
+            </div>
+
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1">Source System Id</label>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText', invalidComponentTracker: tracker,
+                                          value:elementEnteryModel.source_system_id,disabled: isDisabled, required: true }">
+                </div>
+
+
+            </div>
+
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1">Effective Start Date</label>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputDate', invalidComponentTracker: tracker,
+
+                                          value:elementEnteryModel.effective_start_date,converter: dateConverter,disabled: isDisabled, required: true }">
+
+                </div>
+
+            </div>
+
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1">Effective End Date</label>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputDate', invalidComponentTracker: tracker,
+                                          value:elementEnteryModel.effective_end_date, converter: dateConverter,disabled: isDisabled,required: true}">
+                                        
+                </div>
+
+            </div>
+
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1">Element Name</label>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText', invalidComponentTracker: tracker , 
+                                          value:elementEnteryModel.element_name,disabled: isDisabled, required: true}">
+                </div>
+
+            </div>
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1">Legislative Data Group Name</label>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText', invalidComponentTracker: tracker , 
+                                          value:elementEnteryModel.legislative_data_group_name, disabled: isDisabled,required: true}">
+                </div>
+
+            </div>
+
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1">Assignment Number</label>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText', invalidComponentTracker: tracker , disabled: isDisabled,
+                                      required:true,    value:elementEnteryModel.assignment_number}">
+                </div>
+
+            </div>
+
+
+            <div class="oj-flex" >
+                <div class="oj-flex-item">
+                    <label for="control1">Entry Type</label>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText', invalidComponentTracker: tracker,disabled: isDisabled,
+                                    required:true,      value:elementEnteryModel.entry_type}">
+                </div>
+
+            </div>
+
+
+            <div class="oj-flex" >
+                <div class="oj-flex-item">
+                    <label for="control1">Creator Type</label>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText', invalidComponentTracker: tracker ,disabled: isDisabled,
+                                       required:true,   value:elementEnteryModel.creator_type}">
+                </div>
+
+            </div>
+
+            <div class="oj-flex">
+
+
+            </div>
+
+        </div>
+    </div>
+</div>

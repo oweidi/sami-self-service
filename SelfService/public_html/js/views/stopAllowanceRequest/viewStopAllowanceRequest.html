@@ -1,0 +1,52 @@
+	<div class="oj-form-layout">
+		<div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline">
+                      <div class="oj-form-top" >
+                            <button id="backBtn" type="button" class="oj-button-primary" style="vertical-align:center;margin-left:auto;margin-right:auto;" data-bind="click: backAction,
+								ojComponent: {
+								  component: 'ojButton', 
+								  label: back,
+								  icons: {start:'oj-fwk-icon-back oj-fwk-icon'}}">
+                                </button>
+                        </div>
+			<div class="oj-flex">
+					<div class="oj-flex-item">
+						<label for="control1" data-bind="text:requestDate"/>
+					</div>
+					<div class="oj-flex-item">
+						<input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:stopAllowanceRequestModel.requestDate,disabled:  true}">
+					</div>
+			</div>
+			
+			<div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1" data-bind="text:allowanceType"/>
+                </div>
+				  <div class="oj-flex-item">
+						<input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:stopAllowanceRequestModel.allowanceType,disabled:  true}">
+					</div>
+            </div>
+            
+		<div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1" data-bind="text:stoppingDate"/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1"
+                           data-bind="ojComponent: {component: 'ojInputText',                  
+                           value:stopAllowanceRequestModel.stoppingDate,disabled: true}">
+                </div>
+        </div>
+		
+		 <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1" data-bind="text:reason"/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:stopAllowanceRequestModel.reason,  disabled: true}">
+                </div>
+            </div>  
+	 </div>
+</div>

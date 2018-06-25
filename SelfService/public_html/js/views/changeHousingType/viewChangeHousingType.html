@@ -1,0 +1,78 @@
+<div id="train-container">
+
+   <div class="oj-form">
+        <button id="cancel" type="button" class="oj-button-primary" style="margin-left:auto;margin-right:auto;" data-bind="click: backAction,
+								ojComponent: {
+								  component: 'ojButton', 
+								  label: back,
+								  icons: {start:'oj-fwk-icon-back oj-fwk-icon'}}">
+                                </button>
+    </div>
+                
+                
+
+   
+    <br/>
+
+
+    <div class="oj-form-layout">
+        <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline">
+               
+                 <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+                              <div class="oj-flex-item">
+                <label for="control1"  data-bind="text:requestDate "/>
+										  
+                </div>
+         
+                <div class="oj-flex-item">
+                
+                <input id="requestDate"
+                   data-bind="ojComponent: {component: 'ojInputDate',
+                   value: changeHousingTypeModel.requestDate, 
+                   converter: dateConverter,   disabled: true}"/> 
+                </div>
+
+                <div class="oj-flex-item">
+                   <label for="control1"  data-bind="text:currentHousingType "/>
+                     
+                </div>
+                <div class="oj-flex-item">
+                    <input id="reason" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:changeHousingTypeModel.currentHousingType,  disabled: true}"/>
+                </div>                
+                <div class="oj-flex-item">
+                   <label for="control1"  data-bind="text:newHousingType "/>
+                     
+                </div>
+                <div class="oj-flex-item">  
+                <input id="reason" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:changeHousingTypeModel.newHousingType,  disabled: true}"/>
+                </div> 
+                
+                 <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:changeDate "/>
+                     
+                </div>
+                <div class="oj-flex-item">
+                 <input id="changeDate"
+                   data-bind="ojComponent: {component: 'ojInputDate', min: changeHousingTypeModel.requestDate,  converter: dateConverter,
+                   value: changeHousingTypeModel.changeDate, disabled: true}"/>
+                </div>
+                
+                  <div class="oj-flex-item">
+                   <label for="control1"  data-bind="text:changeReason "/>
+                     
+                </div>
+                <div class="oj-flex-item">
+                    <input id="reason" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:changeHousingTypeModel.changeReason,   disabled: true}">
+                </div>
+                </div>
+                
+        </div>
+
+    </div>
+
+        </div>
+    </div>
+</div>

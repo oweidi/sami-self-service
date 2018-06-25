@@ -1,0 +1,30 @@
+<div class="oj-flex-item oj-panel">
+    <div id="tableWrapper">
+        <label for="type"
+               style="display:block; font-size:large; font-weight:bold;">Element
+                                                                         Entery</label>
+        <div id="form-container" class="oj-form-layout">
+            <div class="oj-form">
+                <button id="addElementEnteryBtn" type="button"
+                        class="oj-button-primary"
+                        data-bind="             click: addElementEntery,                       ojComponent: {                       component: 'ojButton',              label: 'Add' ,             icons:{end:'fa fa-plus'}}"></button>
+                 
+                <button id="editElementEnteryBtn" type="button"
+                        class="oj-button-primary"
+                        style="display:inline-block;vertical-align:top;"
+                        data-bind="click: editElementEntery,                ojComponent: {             component: 'ojButton',             label: 'Edit',             disabled: editDisabled,             icons:{end:'fa fa-pencil-square-o'}}"></button>
+                 
+                <button id="viewElementEnteryBtn" type="button"
+                        class="oj-button-primary"
+                        data-bind="             click: viewElementEntery,                    ojComponent: {                       component: 'ojButton',              label: 'View' ,             disabled: viewDisabled,             icons:{end:'fa fa-eye'}}"></button>
+            </div>
+        </div>
+        <br></br>
+        <div id="pagingControlDemo">
+            <table id="tbl1"
+                   data-bind="ojComponent: {component: 'ojTable',          data: dataSource,         columnsDefault: {sortable: 'enabled'},           display: 'grid',          selectionMode: {row: 'single'},           optionChange : tableSelectionListener,         dnd: {reorder: {columns: 'enabled'}},                  columns: [   {headerText: '#',                                     renderer: rowNumberRenderer},             {headerText: 'System Owner', field: 'source_system_owner'},             {headerText: 'System Id', field: 'source_system_id'},             {headerText: 'Start Date', field: 'effective_start_date'},              {headerText: 'End Date', field: 'effective_end_date'},             {headerText: 'Element Name', field: 'element_name'},        {headerText: 'Groupt Name', field: 'legislative_data_group_name'}    ]     }"></table>
+            <div id="paging"
+                 data-bind="ojComponent: {component: 'ojPagingControl', data: dataSource, pageSize: 10}"></div>
+        </div>
+    </div>
+</div>

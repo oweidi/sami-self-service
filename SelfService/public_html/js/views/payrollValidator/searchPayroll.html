@@ -1,0 +1,148 @@
+<div id="train-container">
+    <div class="oj-form-layout">
+        <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline">
+            <div style="display:none" id="modalDialog1"
+                 data-bind="ojComponent:{component: 'ojDialog', initialVisibility: 'hide',rootAttributes: { style: 'min-width: 50vw; min-height: 65vh;'}}">
+                <div class="oj-dialog-header">
+                    <span data-bind="text:process"></span>
+                </div>
+                <div class="oj-dialog-body">
+                    <div id="tableDemo" class="oj-flex oj-flex-items-pad">
+                        <div class="oj-xl-8 oj-lg-8 oj-md-6 oj-flex-item">
+                            <div class="oj-flex-item">
+                                <label for="control1"
+                                       data-bind="text: effectiveDate"/>
+                            </div>
+                            <div class="oj-flex-item">
+                                <input id="startDate"
+                                       data-bind="ojComponent: {component: 'ojInputDate',value: startdate, converter: dateConverter}"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="oj-dialog-footer">
+                    <button id="okButton"
+                            data-bind="click: closeDialog,ojComponent: {component: 'ojButton', label: process}"></button>
+                </div>
+            </div>
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="personNumber" data-bind="text:name "/>
+                </div>
+                <div class="oj-flex-item">
+            <select id="allService"
+                  data-bind="ojComponent: {component: 'ojSelect', value:searchModel.selfServiceType , placeholder:selfServicePlaceHolder,required: true}">
+            <!-- ko foreach: allService -->
+            <option data-bind="value:value, text:label"></option>
+            <!-- /ko -->
+          </select>
+                </div>
+            </div>
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="personNumber" data-bind="text:personnumber "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="personNumber"
+                           data-bind="ojComponent: {component: 'ojInputText',                                                     value:searchModel.personNumber}"/>
+                </div>
+            </div>
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="personNumber" data-bind="text:effictiveDate "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="startDate"
+                           data-bind="ojComponent: {component: 'ojInputDate',                                                     value: searchModel.effectiveDate,                                                     converter: dateConverter}"/>
+                </div>
+            </div>
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="personNumber"
+                           data-bind="text:processedInPayroll "/>
+                </div>
+                <div class="oj-flex-item">
+                    <oj-select-one id="yesNoDDL"
+                                   value="{{searchModel.processedInPayroll}}"
+                                   placeholder="[[yesPlaceHolder]]"
+                                   options="{{yesNoLookupDP}}"></oj-select-one>
+                </div>
+            </div>
+             <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="personNumber"
+                           data-bind="text:assigmentStatus "/>
+                </div>
+                <div class="oj-flex-item">
+                    <oj-select-one id="assignmentStatus"
+                                   value="{{searchModel.assignmentStatus}}"
+                                   placeholder="[[yesPlaceHolder]]"
+                                   options="{{assigmentStatusDP}}"></oj-select-one>
+                </div>
+            </div>
+            <div class="oj-flex">
+                <div class="oj-flex-item" align="right">
+                    <oj-button id="Search"
+                                on-click="[[searchElement]]">
+                                <span data-bind="text: search"></span>
+                    </oj-button>
+                     
+                    <oj-button id="reset"
+                               on-click="[[reset]]">
+                             <span data-bind="text: clear"></span>
+                    </oj-button>
+                     
+                    <oj-button on-click="[[reviewNotification]]"
+                               id="review"
+                               class="oj-button-primary">
+                               <span data-bind="text: review"></span>
+                    </oj-button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="oj-xl-8 oj-lg-8 oj-md-6 oj-flex-item">
+        
+         <oj-table id="tbl1" aria-label="Employees"
+                                    data='[[dataSource]]'
+                                    display = "grid"
+                                    selectionMode = "{'row': 'multiple'}"
+                                    columns-default='{"sortable": "enabled"}'
+                                    dnd='{"reorder": {"columns": "enabled"}}'
+                                    style="width:804px"
+                                    on-selection-changed='[[selectionListener]]'
+                                    columns='{{columnArray}}'>
+                                               <oj-paging-control id="paging" data='[[dataSource]]' page-size='10' slot='bottom' class="display-inline-flex">
+                    </oj-paging-control>
+        </oj-table>
+        
+        
+        <script type="text/html" id="checkbox_tmpl">
+                    <td>
+                        <oj-checkboxset aria-hidden='true'
+                                        value='{{$context.row.Selected}}' 
+                                        class='oj-checkboxset-no-chrome'>
+                            <oj-option data-bind="attr:{
+                                    id: 'checbox' + $context.cellContext.status.rowIndex}" value="checked" disabled="{{$context.row.status == 'YES'}}"></oj-option>
+                        </oj-checkboxset>
+                    </td>
+            </script>
+            <script type="text/html" id="checkbox_hdr_tmpl">
+                    <td>
+                        <oj-checkboxset value='[false]'
+                                        on-value-changed='[[$parent.selectAllListener]]'
+                                        class='oj-checkboxset-no-chrome'>
+                          <oj-option id="checkbox_hdr" value="checked"></oj-option>
+                        </oj-checkboxset>
+                    </td>
+            </script>
+        
+    </div> 
+    <br/>
+     
+    <oj-button id="currentSelection" on-click="[[openDialog]]"
+               class="oj-button-confirm">
+        <span data-bind="text: process"></span>
+    </oj-button>
+</div>

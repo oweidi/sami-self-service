@@ -1,0 +1,112 @@
+
+
+
+<h1>
+    <b>View Elment Entery Value: </b>
+    <span data-bind="text: elementEnteryValueModel.name" style="color:#a52a2a;"></span>
+</h1>
+<br></br>
+<div class="oj-form-layout">
+    <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline">
+        <div class="oj-form-top">
+            <button id="cancel" type="button" class="oj-button-primary"
+                    style="vertical-align:center;margin-left:auto;margin-right:auto;"
+                    data-bind="click: backAction,         ojComponent: {           component: 'ojButton',            label: 'Back',           icons: {start:'oj-fwk-icon-back oj-fwk-icon'}}"></button>
+        </div>
+        <div class="oj-flex">
+            <div class="oj-flex-item">
+                <label for="elementEntryID">Element Entery Id</label>
+            </div>
+            <div class="oj-flex-item">
+                <select id="elementEntryID"
+                        data-bind="ojComponent: {component: 'ojSelect',  placeholder: 'Please Select a Value',value: elementEnteryValueModel.element_entery_id ,required: true,  disabled: isDisabled}">
+                    <!-- ko foreach: elementEntryArray-->
+                    <option data-bind="value:id, text:element_name"></option>
+                    <!-- /ko -->
+                </select>
+            </div>
+        </div>
+        <div class="oj-flex">
+            <div class="oj-flex-item">
+                <label for="control1">Source System Owner</label>
+            </div>
+            <div class="oj-flex-item">
+                <input id="control1"
+                       data-bind="ojComponent: {component: 'ojInputText',                                            value:elementEnteryValueModel.source_system_owner,disabled: isDisabled }"></input>
+            </div>
+        </div>
+        <div class="oj-flex">
+            <div class="oj-flex-item">
+                <label for="control1">Source System Id</label>
+            </div>
+            <div class="oj-flex-item">
+                <input id="control1"
+                       data-bind="ojComponent: {component: 'ojInputText',                                            value:elementEnteryValueModel.source_system_id,disabled: isDisabled }"></input>
+            </div>
+        </div>
+        <div class="oj-flex">
+            <div class="oj-flex-item">
+                <label for="control1">Effective Start Date</label>
+            </div>
+            <div class="oj-flex-item">
+                <input id="control1"
+                       data-bind="ojComponent: {component: 'ojInputDate',    converter: dateConverter  ,                                        value:elementEnteryValueModel.effective_start_date,disabled: isDisabled }"></input>
+            </div>
+        </div>
+        <div class="oj-flex">
+            <div class="oj-flex-item">
+                <label for="control1">Effective End Date</label>
+            </div>
+            <div class="oj-flex-item">
+                <input id="control1"
+                       data-bind="ojComponent: {component: 'ojInputDate',               converter: dateConverter,                              value:elementEnteryValueModel.effective_end_date, disabled: isDisabled}"></input>
+            </div>
+        </div>
+        <div class="oj-flex">
+            <div class="oj-flex-item">
+                <label for="control1">Element Name</label>
+            </div>
+            <div class="oj-flex-item">
+                <input id="control1"
+                       data-bind="ojComponent: {component: 'ojInputText',                                             value:elementEnteryValueModel.element_name,disabled: isDisabled}"></input>
+            </div>
+        </div>
+        <div class="oj-flex">
+            <div class="oj-flex-item">
+                <label for="control1">Legislative Data Group Name</label>
+            </div>
+            <div class="oj-flex-item">
+                <input id="control1"
+                       data-bind="ojComponent: {component: 'ojInputText',                                           value:elementEnteryValueModel.legislative_data_group_name, disabled: isDisabled}"></input>
+            </div>
+        </div>
+        <div class="oj-flex">
+            <div class="oj-flex-item">
+                <label for="control1">Assignment Number</label>
+            </div>
+            <div class="oj-flex-item">
+                <input id="control1"
+                       data-bind="ojComponent: {component: 'ojInputText',disabled: isDisabled,                                         value:elementEnteryValueModel.assignment_no}"></input>
+            </div>
+        </div>
+        <div class="oj-flex">
+            <div class="oj-flex-item">
+                <label for="control1">Input Value Name</label>
+            </div>
+            <div class="oj-flex-item">
+                <input id="control1"
+                       data-bind="ojComponent: {component: 'ojInputText',disabled: isDisabled,                                    value:elementEnteryValueModel.input_value_name}"></input>
+            </div>
+        </div>
+        <div class="oj-flex">
+            <div class="oj-flex-item">
+                <label for="control1">Screen Entery Value</label>
+            </div>
+            <div class="oj-flex-item">
+                <input id="control1"
+                       data-bind="ojComponent: {component: 'ojInputText', disabled: isDisabled,                                        value:elementEnteryValueModel.screen_entery_value}"></input>
+            </div>
+        </div>
+        <div class="oj-flex"></div>
+    </div>
+</div>

@@ -1,0 +1,116 @@
+<div id="train-container">
+
+   <div class="oj-form">
+        <button id="cancel" type="button" class="oj-button-primary" style="margin-left:auto;margin-right:auto;" data-bind="click: backAction,
+								ojComponent: {
+								  component: 'ojButton', 
+								  label: back,
+								  icons: {start:'oj-fwk-icon-back oj-fwk-icon'}}">
+                                </button>
+    </div>
+                
+                
+
+   
+    <br/>
+
+
+    <div class="oj-form-layout">
+        <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline">
+               
+                 <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+                         
+                         
+                                             <div class="oj-flex-item">
+                        <label for="control1"  data-bind="text:requestDate "/>            								  
+                    </div>
+             
+                    <div class="oj-flex-item">
+                    
+                    <input id="requestDate"
+                       data-bind="ojComponent: {component: 'ojInputDate',
+                       value: returnAfterLeaveModel.requestDate, 
+                       converter: dateConverter,  disabled: true}"/>  
+                    </div>
+                    
+                    <div class="oj-flex-item">
+                      <label for="control1"  data-bind="text:rejoinDate "/>										  
+                    </div>
+             
+                    <div class="oj-flex-item">
+                    
+                    <input id="rejoinDate"
+                       data-bind="ojComponent: {component: 'ojInputDate',
+                       value: returnAfterLeaveModel.rejoinDate, 
+                       converter: dateConverter,  disabled: true}"/> 
+    
+                       
+                    </div>
+                      <div class="oj-flex-item">
+                        <label for="control1" data-bind="text:leave"/>
+                    </div>
+                    <div class="oj-flex-item">
+                        <input id="leave"
+                               data-bind="ojComponent: {component: 'ojInputText',value: returnAfterLeaveModel.leave,  disabled: true}"></input>
+                    </div>
+                    
+                    <div class="oj-flex-item">
+                        <label for="control1" data-bind="text:leaveType "/>
+                    </div>
+                    <div class="oj-flex-item">
+                        <input id="leaveType"
+                               data-bind="ojComponent: {component: 'ojInputText',value: returnAfterLeaveModel.leaveType,  disabled: true}"></input>
+                    </div>
+                    <div class="oj-flex-item">
+                        <label for="control1" data-bind="text:leaveSD "/>
+                    </div>
+                    <div class="oj-flex-item">
+                       <input id="leaveSD"
+                       data-bind="ojComponent: {component: 'ojInputDate',
+                       value: returnAfterLeaveModel.leaveStartDate, 
+                       converter: dateConverter,   disabled: true}"/> 
+                    </div>
+                    <div class="oj-flex-item">
+                        <label for="control1" data-bind="text:leaveED "/>
+                    </div>
+                    <div class="oj-flex-item">
+                       <input id="leaveED"
+                       data-bind="ojComponent: {component: 'ojInputDate',
+                       value: returnAfterLeaveModel.leaveEndDate, 
+                       converter: dateConverter, disabled: true}"/> 
+    
+                    </div>
+                    
+                    <div class="oj-flex-item">
+                        <label for="control1" data-bind="text:daysAfterRejoin "/>
+                    </div>
+                    <div class="oj-flex-item">
+                        <input id="daysAfterRejoin"
+                               data-bind="ojComponent: {component: 'ojInputText',value:returnAfterLeaveModel.daysAfterRejoin, disabled: true}"></input>
+                    </div>
+    
+                    
+                    <div class="oj-flex-item">
+                        <label for="control1" data-bind="text:comment "/>
+                    </div>
+                    <div class="oj-flex-item">
+                        <input id="comment"
+                               data-bind="ojComponent: {component: 'ojInputText',
+                               value:returnAfterLeaveModel.comments,disabled: true}"></input>
+                    </div>
+
+         
+
+                              
+                 
+                
+               
+                </div>
+                
+        </div>
+
+    </div>
+
+        </div>
+    </div>
+</div>

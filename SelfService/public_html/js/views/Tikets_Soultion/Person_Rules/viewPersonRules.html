@@ -1,0 +1,195 @@
+
+    <div id="form-container" class="oj-form-layout">
+    <div class="oj-form">
+                      <button id="cancel" type="button" class="oj-button-primary" style="vertical-align:center;margin-left:auto;margin-right:auto;" data-bind="click: backAction,
+								ojComponent: {
+								  component: 'ojButton', 
+								  label: back,
+								  icons: {start:'oj-fwk-icon-back oj-fwk-icon'}}">
+                                </button>
+                                        
+                                           <div id="sampleDemo" style="" class="demo-padding demo-container">
+                
+                
+            
+
+        
+      </div>
+    </div>
+                </div>
+
+            </div>
+<div id="train-container">
+    <div style="text-align: center;white-space:nowrap;">
+      
+    </div>
+   
+
+
+    <div class="oj-form-layout">
+        <div class="oj-form oj-sm-odd-cols-12 oj-md-odd-cols-4 oj-md-labels-inline">
+        <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:personName "/>
+                </div>
+               <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText' , 
+                                          value:personRulesModel.personNumber, required: true,  disabled: true}">
+                </div>
+               
+            </div>
+        
+        
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:startdate "/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:personRulesModel.startDate ,disabled:true}">
+                </div>
+
+            </div>
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:enddate "/>
+                </div>
+                 <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText',  
+                                          value:personRulesModel.endDate, required: true,  disabled: true}">
+               
+                </div>
+                </div>
+                 <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:ticketClass "/>
+                </div>
+               <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText', 
+                                          value:personRulesModel.ticketClass, required: true,  disabled: true}">
+                </div>
+               
+            </div>
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                   <label for="control1"  data-bind="text:maxAccrualCarryOver"/>
+                </div>
+            	       <div class="oj-flex-item">
+                       <input id="control1" data-bind="ojComponent: {component: 'ojInputText',  
+                                          value:personRulesModel.maxAccrualCarryOver, required: true,  disabled: true}">
+                
+                
+                   
+                </div>
+
+                </div>
+
+
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                   <label for="control1"  data-bind="text:allowEncashmentPayment"/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText',  
+                                        value:personRulesModel.alloweEncashmentPayment, required: true,  disabled: true}">
+                </div>
+
+            </div>
+
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:percentageOfTicketPrice"/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText',   
+                                          value:personRulesModel.PrrcentageOFTicketprice, required: true,  disabled: true}">
+                </div>
+
+            </div>
+               <div class="oj-flex">
+                <div class="oj-flex-item">
+                   <label for="control1"  data-bind="text:percentageOfAdultTicketPricet"/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1"
+                           data-bind="ojComponent: {component: 'ojInputText',                      
+                           value:personRulesModel.PrrcentageOFAdultTicketprice,disabled: true,required: true}"></input>
+                </div>
+            </div>
+               <div class="oj-flex">
+                <div class="oj-flex-item">
+                   <label for="control1"  data-bind="text:percentageOfChildTicketPrice"/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1"
+                           data-bind="ojComponent: {component: 'ojInputText',                                        
+                           value:personRulesModel.PrrcentageOFChildTicketprice,disabled: true,required: true}"></input>
+                </div>
+            </div>
+
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:percentageOfInfantTicketPrice"/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1" data-bind="ojComponent: {component: 'ojInputText',   
+                                       value:personRulesModel.PrrcentageOFInfantTicketprice, required: true,  disabled: true}">
+                </div>
+
+            </div>
+            <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:maxAgeOfChild"/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1"
+                           data-bind="ojComponent: {component: 'ojInputNumber',                                       
+                           value:personRulesModel.maxAge, disabled: true,required: true}"></input>
+                </div>
+            </div>
+                         <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:allowNationals"/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1"
+                           data-bind="ojComponent: {component: 'ojInputText',                                         
+                           value:personRulesModel.AllowNationals, disabled: true,required: true}"></input>
+                </div>
+            </div>
+                         <div class="oj-flex">
+                <div class="oj-flex-item">
+                      <label for="control1"  data-bind="text:numberOfSpouseAllowed"/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1"
+                           data-bind="ojComponent: {component: 'ojInputNumber',                                       
+                           value:personRulesModel.NumberOFSpouseAllowed, disabled: true,required: true}"></input>
+                </div>
+            </div>
+                   <div class="oj-flex">
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:allowOtherRoutWhenApp"/>
+                </div>
+                <div class="oj-flex-item">
+                    <input id="control1"
+                           data-bind="ojComponent: {component: 'ojInputText',                                         
+                           value:personRulesModel.AllowOtherRoutWhenApply, disabled: true,required: true}"></input>
+                </div>
+            </div>
+            
+            
+
+
+            
+
+            
+
+
+        </div>
+    </div>
+</div>
