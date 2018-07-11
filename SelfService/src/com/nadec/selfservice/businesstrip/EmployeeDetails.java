@@ -391,15 +391,23 @@ public class EmployeeDetails extends RestHelper {
                 emp.setPositionId(assignmets.getJSONObject(i).getString("PositionId"));
 
                 String positionName = "";
+                String positionCode = "";
 
                 if (emp.getPositionId() != null &&
                     !emp.getPositionId().equals("null")) {
-                    positionName = getPositionById(emp.getPositionId());
+                    String ar[] = getPositionById(emp.getPositionId());
+                    positionName = ar[0];
+                    positionCode = ar[1];
                 }
-
+                
+                
                 emp.setPositionName(positionName);
+                emp.setPositionCode(positionCode);
                 emp.setAssignmentName(positionName);
-
+                
+                if(emp.getPositionCode() != null && !"6000010".equals(emp.getPositionCode())) {
+                    emp.setPositionName(positionName + " N");
+                }
                 emp.setManagerId(assignmets.getJSONObject(i).getString("ManagerId"));
                 //++
                 String managerName = "";
@@ -625,7 +633,7 @@ new URI("https", null, SAAS_URL, 443,
     }
 
 
-    public String getPositionById(String personNumber) {
+    public String[] getPositionById(String personNumber) {
 
         HttpsURLConnection https = null;
         HttpURLConnection connection = null;
@@ -681,7 +689,10 @@ new URI("https", null, SAAS_URL, 443,
             JSONObject obj = new JSONObject(response.toString());
             JSONArray arr = obj.getJSONArray("items");
             JSONObject xx = (JSONObject)arr.get(0);
-            return xx.getString("Name");
+            String [] ar = new String[2];
+            ar[0] = xx.getString("Name");
+            ar[1] = xx.getString("PositionCode");
+            return ar;
 
         } catch (URISyntaxException e) {
             e.printStackTrace();

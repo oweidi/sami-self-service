@@ -24,3 +24,5 @@ hs_err_pid*
 *.jdb
 *.jdb
 *.jdb
+SelfService/classes/.data/SelfService.cdi_javac
+*.jdb

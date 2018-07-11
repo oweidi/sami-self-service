@@ -83,6 +83,8 @@ public class EmployeeBean {
     
     private String organizationName;
     private String businessUnitName;
+    
+    private String positionCode;
   
     public void setOrganizationName(String organizationName) {
         this.organizationName = organizationName;
@@ -448,5 +450,13 @@ public class EmployeeBean {
 
     public String getBusinessUnitName() {
         return businessUnitName;
+    }
+
+    public void setPositionCode(String positionCode) {
+        this.positionCode = positionCode;
+    }
+
+    public String getPositionCode() {
+        return positionCode;
     }
 }

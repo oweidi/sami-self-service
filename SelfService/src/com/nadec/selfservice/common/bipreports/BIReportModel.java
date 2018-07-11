@@ -587,6 +587,7 @@ public class BIReportModel extends RestHelper {
 
             byte[] buffer = new byte[getSoapRequest().length()];
             buffer = getSoapRequest().getBytes();
+            System.out.println(getSoapRequest());
             ByteArrayOutputStream bout = new ByteArrayOutputStream();
             bout.write(buffer);
             byte[] b = bout.toByteArray();
