@@ -15,7 +15,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojtrain', 'con
         self.rewardRequest = ko.observable();
         self.identificationLetter = ko.observable();
         self.TicketRequest = ko.observable();
-        self.TicketRequestRefund= ko.observable();
+        self.TicketRequestRefund = ko.observable();
         self.carRequest = ko.observable();
         self.annualLeave = ko.observable();
         self.medicalInsurance = ko.observable();
@@ -23,18 +23,14 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojtrain', 'con
         self.advanceHousing = ko.observable();
         self.newFamilyVisa = ko.observable();
         self.changeHousingType = ko.observable();
-        self.bankAccount= ko.observable();
-        self.returnAfterLeave= ko.observable();
-        self.cards =  ko.observable();
-        
-
+        self.bankAccount = ko.observable();
+        self.returnAfterLeave = ko.observable();
+        self.cards = ko.observable();
 
         this.error = function () {
             app.hasErrorOccured(true);
             app.router.go("error");
         };
-
-       
 
         self.refreshView = ko.computed(function () {
             if (app.refreshViewForLanguage()) {
@@ -46,15 +42,19 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojtrain', 'con
         this.icons = ko.observableArray([]);
 
         this.computeIconsArray = ko.computed(function () {
-        if(rootViewModel.personDetails()){
-
+            if (rootViewModel.personDetails()) {
                 self.icons([
-                            {
-                                label : 'b', value : 'demo-icon-circle-b', router : 'summaryIdentificationLetter', iconType : '  fa fa-file-pdf-o', text : self.identificationLetter(), visible : true
-                            }
-                        ]);
-                 
- 
+                    {
+                        label : 'b', value : 'demo-icon-circle-b', router : 'summaryIdentificationLetter', iconType : '  fa fa-file-pdf-o', text : self.identificationLetter(), visible : true
+                    }
+                ]);
+
+                if (rootViewModel.personDetails().grade() == 'M1' || rootViewModel.personDetails().grade() == 'M2' || rootViewModel.personDetails().grade() == 'M3' || rootViewModel.personDetails().grade() == 'S1' || rootViewModel.personDetails().grade() == 'S2' || rootViewModel.personDetails().grade() == 'S3' || rootViewModel.personDetails().grade() == 'E1' || rootViewModel.personDetails().grade() == 'E2' || rootViewModel.personDetails().grade() == 'E3') {
+                    self.icons.push( {
+                        label : 'f', value : 'demo-icon-circle-g', router : 'summaryChildrenEductionExpense', iconType : ' fa fa-book', text : self.childrenEductionExpense(), visible : true
+                    });
+                }
+
             }
         });
 

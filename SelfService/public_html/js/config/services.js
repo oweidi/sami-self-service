@@ -501,6 +501,63 @@ define(['config/serviceconfig', 'util/commonhelper'], function (serviceConfig, c
             };
             return serviceConfig.callPostService(serviceURL, payload, serviceConfig.contentTypeApplicationJSON, false, headers);
         };
+        
+        self.getChildrenEductionExpense = function (personNumber) {
+            var serviceURL = paasServiceHost + "childrenEductionExpense";
+            var headers = {
+                "personNumber" : personNumber
+            };
+
+            return serviceConfig.callGetApexService(serviceURL, serviceConfig.contentTypeApplicationJSON, headers, true);
+
+        };
+        self.addChildrenEductionExpense = function (payload) {
+            var serviceURL = paasServiceHost + "childrenEductionExpense";
+            var headers = {
+            };
+            return serviceConfig.callPostApexService(serviceURL, payload, serviceConfig.contentTypeApplicationJSON, true, headers);
+
+        };
+        self.editChildrenEductionExpense = function (payload) {
+            var serviceURL = paasServiceHost + "childrenEductionExpense";
+            var headers = {
+            };
+            return serviceConfig.callPutApexService(serviceURL, payload, serviceConfig.contentTypeApplicationJSON, true, headers);
+        };
+        self.getChildrenEductionExpenseById = function (id) {
+            var serviceURL = paasServiceHost + "childrenEductionExpense/" + id;
+            var headers = {
+            };
+
+            return serviceConfig.callGetApexService(serviceURL, serviceConfig.contentTypeApplicationJSON, headers, true);
+        };
+
+        self.getDependentsName = function (personNumber) {
+            var serviceURL = appServiceHost + restPath + biReportServletPath;
+            var payload = {
+                "personNumber" : personNumber, "reportName" : "DependentsReport"
+            };
+            var headers = {
+            };
+            return serviceConfig.callPostService(serviceURL, payload, serviceConfig.contentTypeApplicationJSON, false, headers);
+        };
+        self.getChildrenEductionExpenseValidation = function (semesterNumber, schoolYear, dependentName1, dependentName2, dependentName3, dependentName4, dependentName5) {
+            var serviceURL = paasServiceHost + "childrenEductionExpenseValidation";
+            var headers = {
+                "semesterNumber" : semesterNumber, "schoolYear" : schoolYear, "name1" : dependentName1, "name2" : dependentName2, "name3" : dependentName3, "name4" : dependentName4, "name5" : dependentName5
+            };
+            return serviceConfig.callGetApexService(serviceURL, serviceConfig.contentTypeApplicationJSON, headers, false);
+        };
+
+        self.getchildrenEductionExpenseGradeValidation = function (personNumber, schoolYear,id) {
+            var serviceURL = paasServiceHost + "childrenEductionExpenseGradeValidation";
+            var headers = {
+                "personNumber" : personNumber, "schoolYear" : schoolYear,"id":id
+            };
+
+            return serviceConfig.callGetApexService(serviceURL, serviceConfig.contentTypeApplicationJSON, headers, true);
+
+        };
 
     };
 

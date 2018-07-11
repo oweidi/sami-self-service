@@ -320,8 +320,8 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'util/commonhelper'
             {
                 label : self.review(), id : 'stp2'
             }
-]);
-            self.addMessage(getTranslation("identificationLetters.addMessage"));
+]); 
+            self.addMessage(getTranslation("car.addMessage"));
             self.identificationLettersRefundRequests(getTranslation("labels.identificationLettersRequests"));
             self.arabicName(getTranslation("identificationLetters.arabicName"));
             self.englishName(getTranslation("identificationLetters.englishName"));

@@ -9,7 +9,7 @@ define([], function () {
         };
 
         self.getPaaSHost = function () {
-            var host = "https://apex-hcuk.db.em2.oraclecloudapps.com/apex/xx_selfService/";
+            var host = "https://144.21.75.237/ords/pdb1/sami/xx_selfService/";
             return host;
         };
 
@@ -72,6 +72,11 @@ define([], function () {
             var host = "rest/";
             return host;
         };
+        
+//        self.getInternalRest = function () {
+//            var host = "resources/";
+//            return host;
+//        };
 
     }
 

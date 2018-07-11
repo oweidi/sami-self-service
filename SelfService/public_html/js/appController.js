@@ -401,10 +401,26 @@ define(['ojs/ojcore', 'knockout', 'util/commonhelper', 'config/services', 'knock
             if (homePages.indexOf(id) >  - 1) {
                 self.navLeftArray([]);
                 navDataLeft = buildHomeNavigationPage(oj, this);
-
+                
                 //added
 
-                self.navLeftArray(navDataLeft);
+                
+                if(self.personDetails() ) {
+                        if(self.personDetails().grade() == 'M1' || self.personDetails().grade() == 'M2' || 
+                           self.personDetails().grade() == 'M3'|| self.personDetails().grade() == 'S1'|| 
+                           self.personDetails().grade() == 'S2' || self.personDetails().grade() == 'S3'|| 
+                           self.personDetails().grade() == 'E1'|| self.personDetails().grade() == 'E2'|| 
+                           self.personDetails().grade() == 'E3'){
+                             navDataLeft.push ({
+                                                 name: getTranslation("pages.childrenEductionExpense"),
+                                                    id: 'summaryChildrenEductionExpense',
+                                                iconClass: 'oj-navigationlist-item-icon fa fa-book'
+
+
+                                            }) ;
+                            }
+                     }
+                     self.navLeftArray(navDataLeft);
                 self.navDataSourceLeft(new oj.ArrayTableDataSource(self.navLeftArray, 
                 {
                     idAttribute : 'id'

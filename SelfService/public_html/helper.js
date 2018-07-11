@@ -195,6 +195,7 @@ function buildHomeNavigationPage(oj, rootViewModel) {
         name : getTranslation("pages.identificationLetters"), id : 'summaryIdentificationLetter', iconClass : 'oj-navigationlist-item-icon fa fa-file-pdf-o'
     });
     
+    
     return navDataLeft;
 }
 
@@ -289,7 +290,22 @@ function buildRouter(oj) {
         },
 'viewIdentificationLetterSpecialist' :  {
             label : 'View Identification Letters', value : 'identificationLetter/viewIdentificationLetter', title : 'Identification Letters'
-        }    
+        } ,
+'summaryChildrenEductionExpense' :  {
+            label : 'Summary Children Eduction Expense', value : 'childrenEductionExpense/summaryChildrenEductionExpense', title : 'Children Eduction Expense'
+        },
+'createChildrenEductionExpense' :  {
+            label : 'Create Children Eduction Expense', value : 'childrenEductionExpense/createChildrenEductionExpense', title : 'Children Eduction Expense'
+        },
+'editChildrenEductionExpense' :  {
+            label : 'Edit Children Eduction Expense', value : 'childrenEductionExpense/editChildrenEductionExpense', title : 'Children Eduction Expense'
+        },
+'viewChildrenEductionExpense' :  {
+            label : 'View Children Eduction Expense', value : 'childrenEductionExpense/viewChildrenEductionExpense', title : 'Children Eduction Expense'
+        },
+'reviewChildrenEductionExpense' :  {
+            label : 'Review Children Eduction Expense', value : 'childrenEductionExpense/reviewNotificationChildrenEductionExpense', title : 'Children Eduction Expense'
+        }   
     };
 
     return router;

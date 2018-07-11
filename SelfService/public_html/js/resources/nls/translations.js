@@ -677,7 +677,9 @@ define({
                       "attachmentError":"Mandatory Attachment ",
                       "gradeError": "Your Grade Not Eligible  For Business Cards "
 
-    }
+    },   "car":{
+                     "addMessage":"Are You Sure To Add Car Request" 
+    } 
 },
 
     // Supported locales
