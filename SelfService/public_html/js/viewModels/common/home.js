@@ -49,11 +49,11 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojtrain', 'con
                     }
                 ]);
 
-                if (rootViewModel.personDetails().grade() == 'M1' || rootViewModel.personDetails().grade() == 'M2' || rootViewModel.personDetails().grade() == 'M3' || rootViewModel.personDetails().grade() == 'S1' || rootViewModel.personDetails().grade() == 'S2' || rootViewModel.personDetails().grade() == 'S3' || rootViewModel.personDetails().grade() == 'E1' || rootViewModel.personDetails().grade() == 'E2' || rootViewModel.personDetails().grade() == 'E3') {
-                    self.icons.push( {
-                        label : 'f', value : 'demo-icon-circle-g', router : 'summaryChildrenEductionExpense', iconType : ' fa fa-book', text : self.childrenEductionExpense(), visible : true
-                    });
-                }
+//                if (rootViewModel.personDetails().grade() == 'M1' || rootViewModel.personDetails().grade() == 'M2' || rootViewModel.personDetails().grade() == 'M3' || rootViewModel.personDetails().grade() == 'S1' || rootViewModel.personDetails().grade() == 'S2' || rootViewModel.personDetails().grade() == 'S3' || rootViewModel.personDetails().grade() == 'E1' || rootViewModel.personDetails().grade() == 'E2' || rootViewModel.personDetails().grade() == 'E3') {
+//                    self.icons.push( {
+//                        label : 'f', value : 'demo-icon-circle-g', router : 'summaryChildrenEductionExpense', iconType : ' fa fa-book', text : self.childrenEductionExpense(), visible : true
+//                    });
+//                }
 
             }
         });
