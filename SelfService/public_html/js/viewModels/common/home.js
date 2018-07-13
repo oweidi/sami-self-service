@@ -46,6 +46,9 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'ojs/ojtrain', 'con
                 self.icons([
                     {
                         label : 'b', value : 'demo-icon-circle-b', router : 'summaryIdentificationLetter', iconType : '  fa fa-file-pdf-o', text : self.identificationLetter(), visible : true
+                    },
+                    {
+                        label : 'f', value : 'demo-icon-circle-g', router : 'summaryChildrenEductionExpense', iconType : ' fa fa-book', text : self.childrenEductionExpense(), visible : true
                     }
                 ]);
 

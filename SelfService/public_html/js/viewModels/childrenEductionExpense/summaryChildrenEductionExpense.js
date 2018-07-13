@@ -15,10 +15,8 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'util/commonhelper'
         self.columnArrayApproval = ko.observableArray([]);
         self.columnArray = ko.observableArray([]);
         var rootViewModel = ko.dataFor(document.getElementById('globalBody'));
-        self.userPriv = ko.observable('T');
-        self.tablesNamesList = ko.observable("XXX_HR_REG_BTRIP_DAYS_B,XXX_HR_TRAIN_BTRIP_DAYS_B,XXX_HR_REG_BTRIP_DAYS_A,XXX_HR_TRAIN_BTRIP_DAYS_A,XXX_HR_REG_BTRIP_PERDIEM,XXX_HR_TRAIN_BTRIP_PERDIEM,XXX_HR_REG_BTRIP_TICKET,XXX_HR_TRAIN_BTRIP_TICKET");
-        self.selectedChildrenExpense = ko.observable();
         self.selectedIndex = ko.observable();
+        self.selectedChildrenExpense = ko.observable();
         self.mode = ko.observable();
         var managerId = rootViewModel.personDetails().managerId();
         this.specialistSummary = ko.observable("");//added
@@ -28,6 +26,7 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'util/commonhelper'
         self.isDraft = ko.observable(true);   //add for delete draft    
         
         var getChildrenEductionExpenseCbFn = function (data) {
+        console.log(data);
         if(data.items.length !=0){
             self.data([]);
             self.isVisible(true);
@@ -37,29 +36,17 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'util/commonhelper'
             rowNumberRenderer : (index + 1),
             id:val.id,
             request_date:val.request_date,
-            semester_from: val.semester_from,
-            semester_to: val.semester_to,
             created_by: val.created_by,
             creation_date: val.creation_date,
             updated_by: val.updated_by,
             updated_date: val.updated_date,
             school_year : val.school_year,
-            semester_number: val.semester_number,
-            dependent_name_1 : val.dependent_name_1,
-            dependent_name_2 : val.dependent_name_2,
-            dependent_name_3 : val.dependent_name_3,
-            dependent_name_4 : val.dependent_name_4,
-            dependent_name_5 : val.dependent_name_5,
-            amount_1 : val.amount_1,
-            amount_2 : val.amount_2,
-            amount_3 : val.amount_3,
-            amount_4 : val.amount_4,
-            amount_5 : val.amount_5,
+                        
             latestResponseCode : val.latest_response_code,
-            dependent_age: val.dependent_age,
-            commment:val.commment,
+            comments:val.comments,
             person_number:val.person_number,
-            payment_period:val.payment_period,
+            children_number:val.children_number,
+            amount:val.amount,
             status:document.documentElement.lang === 'ar' ? val.status_ar : val.status_en, 
             ar_status:val.status_ar,
             en_status:val.status_en,
@@ -197,9 +184,9 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'util/commonhelper'
         self.handleActivated = function (info) {
 
         }
-         if(managerId == 'null' || !managerId) {
-                self.addDisabled(true);
-            }
+//         if(managerId == 'null' || !managerId) {
+//                self.addDisabled(true);
+//            }
             
 
         self.handleAttached = function (info) {
@@ -243,16 +230,14 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'util/commonhelper'
             self.name = ko.observable();
             self.amount1 = ko.observable();
             self.name1 = ko.observable();
-            self.semesterFrom = ko.observable();
-            self.semesterTo = ko.observable();
             self.schoolYear = ko.observable();
-            self.semesterNum = ko.observable();
             self.childrenEductionExpense = ko.observable();
             self.requestDate = ko.observable();
-            self.dependentAge = ko.observable();
             self.addFirstRecord = ko.observable();
             self.deleteLabel = ko.observable();
-            self.amount_1 = ko.observable();//added
+            self.amount = ko.observable();
+            self.noOfChildren = ko.observable();
+            self.comment = ko.observable();//added
             var getTranslation = oj.Translations.getTranslatedString;
 
          self.refreshView = ko.computed(function() {
@@ -277,16 +262,12 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'util/commonhelper'
             self.status(getTranslation("labels.status"));
             self.approvalDate(getTranslation("labels.approvalDate"));
             self.requestDate(getTranslation("labels.requestDate"));
-            self.semesterFrom(getTranslation("childrenEductionExpense.semesterFrom"));
-            self.semesterTo(getTranslation("childrenEductionExpense.semesterTo"));
             self.schoolYear(getTranslation("childrenEductionExpense.schoolYear"));
-            self.semesterNum(getTranslation("childrenEductionExpense.semesterNum"));
-            self.name1(getTranslation("childrenEductionExpense.name1"));
-            self.amount1(getTranslation("childrenEductionExpense.amount1"));
-            self.dependentAge(getTranslation("childrenEductionExpense.dependentAge")); 
-            self.amount_1(getTranslation("childrenEductionExpense.amount1")); 
+            self.amount(getTranslation("childrenEductionExpense.amount")); 
             self.addFirstRecord(getTranslation("labels.addFirstRecord"));
             self.deleteLabel(getTranslation("others.delete"));
+            self.comment(getTranslation("others.comment"));
+            self.noOfChildren(getTranslation("childrenEductionExpense.noOfChildren"));
             self.columnArrayApproval([{"headerText":  self.name(), 
                                "field": "name"},
                                {"headerText": self.type(), 
@@ -298,21 +279,17 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'util/commonhelper'
             self.columnArray([{"headerText": self.rowNumber(), 
                                "field": "rowNumberRenderer"},
                               {"headerText": self.requestDate(), 
-                               "field": "request_date"},                               
-                               {"headerText": self.status(), 
-                               "field": "status"},
-                              {"headerText":self.semesterFrom(), 
-                               "field": "semester_from"},
-                              {"headerText": self.semesterTo(), 
-                               "field": "semester_to"},
+                               "field": "request_date"},
                               {"headerText": self.schoolYear(), 
                                    "field": "school_year"},
-                              {"headerText": self.semesterNum(), 
-                                   "field": "semester_number"},
-                              {"headerText": self.name1(), 
-                               "field": "dependent_name_1"},
-                              {"headerText": self.amount_1(), 
-                               "field": "amount_1"}]);
+                              {"headerText": self.noOfChildren(), 
+                                   "field": "children_number"},
+                              {"headerText": self.amount(), 
+                               "field": "amount"},
+                               {"headerText": self.comment(), 
+                               "field": "comments"},
+                               {"headerText": self.status(), 
+                               "field": "status"}]);
         }  
     }  
     return ChildrenEductionExpenseSummaryContentViewModel;
