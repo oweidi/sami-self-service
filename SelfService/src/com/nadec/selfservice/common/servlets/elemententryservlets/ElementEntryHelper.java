@@ -699,7 +699,7 @@ HCMElementEntryHelper.uploadAndLoadFile(path, fileContent, toBytes, trsId,
             //jsonObj.getString("sourceSystemId");
             String EffectiveStartDate = "%EffectiveStartDate%";
             String EffectiveEndDate = "%EffectiveEndDate%";
-            String ElementName = "Nadec Education Allowance";
+            String ElementName = "Education Reimbursement";
             String LegislativeDataGroupName = "SA Legislative Data Group";
             String AssignmentNumber = "E" + jsonObj.getString("personNumber");
             String EntryType = "E";
@@ -710,7 +710,7 @@ HCMElementEntryHelper.uploadAndLoadFile(path, fileContent, toBytes, trsId,
             ;
             String lineEffectiveStartDate = "%EffectiveStartDate%";
             String lineEffectiveEndDate = "%EffectiveEndDate%";
-            String lineElementName = "Education Claim Payment"; //
+            String lineElementName = "Education Reimbursement"; //
             String lineLegislativeDataGroupName = "SA Legislative Data Group";
             String lineAssignmentNumber =
                 "E" + jsonObj.getString("personNumber");

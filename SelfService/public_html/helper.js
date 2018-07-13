@@ -193,7 +193,9 @@ function buildHomeNavigationPage(oj, rootViewModel) {
     });
     navDataLeft.push( {
         name : getTranslation("pages.identificationLetters"), id : 'summaryIdentificationLetter', iconClass : 'oj-navigationlist-item-icon fa fa-file-pdf-o'
-    });
+    },
+    {
+      name: getTranslation("pages.childrenEductionExpense"),id: 'summaryChildrenEductionExpense',iconClass: 'oj-navigationlist-item-icon fa fa-book'  });
     
     
     return navDataLeft;

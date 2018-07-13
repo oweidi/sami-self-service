@@ -101,165 +101,44 @@
                                           value:childrenExpenseModel.requestDate, required: true ,disabled:true}">
                 </div>
 
-                <div class="oj-flex-item">
-                    <label for="control1"  data-bind="text:semesterFrom "/>
-                </div>
-                <div class="oj-flex-item">
-                    <input id="control1"
-                           data-bind="ojComponent: {component: 'ojInputDate', invalidComponentTracker: tracker,   max: childrenExpenseModel.semesterTo,                 
-                           value:childrenExpenseModel.semesterFrom, converter: dateConverter,disabled: isDisabled,required: true}">
-                </div>
-                   
-           
-                <div class="oj-flex-item">
-                    <label for="control1"  data-bind="text:semesterTo "/>
-                </div>
-                <div class="oj-flex-item">
-                    <input id="control1"
-                           data-bind="ojComponent: {component: 'ojInputDate', invalidComponentTracker: tracker,   min: childrenExpenseModel.semesterFrom,                 
-                           value:childrenExpenseModel.semesterTo, converter: dateConverter,disabled: isDisabled,required: true}">
-                </div>
           
                 <div class="oj-flex-item">
                     <label for="control1"  data-bind="text:schoolYear "/>
                 </div>
-            	       <div class="oj-flex-item">
-                
-                <select id="type" data-bind="ojComponent: {component: 'ojSelect',value: childrenExpenseModel.schoolYear , 
-                                    placeholder: 'Please Select a Value',
-                                    invalidComponentTracker: tracker,required: true,  disabled: isDisabled}">
-     <!-- ko foreach: eduYearsArray -->
-     <option data-bind="value:value, text:label"></option>
-     <!-- /ko -->   
-    </select>
+            	       <div class="oj-flex-item">                               
+             <input id="control1" data-bind="ojComponent: {component: 'ojInputNumber', invalidComponentTracker: tracker,required: true,
+                                         value:childrenExpenseModel.schoolYear,  disabled: isDisabled}">
+
+                </div>
+                <div class="oj-flex-item">
+                    <label for="control1"  data-bind="text:noOfChildren "/>
+                </div>
+            	       <div class="oj-flex-item">                                
+              <input id="control1" data-bind="ojComponent: {component: 'ojInputNumber', invalidComponentTracker: tracker,required: true,
+                                          value:childrenExpenseModel.childrenNumber,  disabled: isDisabled,min:1}">
                    
                 </div>
 
-                <div class="oj-flex-item">
-                    <label for="control1"  data-bind="text:semesterNum "/>
-                </div>
-            	       <div class="oj-flex-item">
-                
-                <select id="type" data-bind="ojComponent: {component: 'ojSelect',value: childrenExpenseModel.semesterNumber , 
-                                    placeholder: 'Please Select a Value',
-                                    invalidComponentTracker: tracker,required: true,  disabled: isDisabled}">
-     <!-- ko foreach: eduSemesterArray -->
-     <option data-bind="value:value, text:label"></option>
-     <!-- /ko -->   
-    </select>
-                   
-                </div>
 
-                </div>          
-        <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
                 <div class="oj-flex-item">
-                    <label for="control1"  data-bind="text:name1 "/>
-                </div>
-                 <div class="oj-flex-item">
-                      <select id="type" data-bind="ojComponent: {component: 'ojSelect', 
-                                    placeholder: 'Please Select a Value',value:childrenExpenseModel.dependentName1,
-                                    invalidComponentTracker: tracker,required: true,  disabled: isDisabled}">
-                                <!-- ko foreach: dependantNameArr1 -->
-                                <option data-bind="value:value, text:label"></option>
-                                <!-- /ko -->
-    </select>
-                </div>
-           
-                <div class="oj-flex-item">
-                    <label for="control1"  data-bind="text:amount1 "/>
+                    <label for="control1"  data-bind="text:amount"/>
                 </div>
                 <div class="oj-flex-item">
                     <input id="control1" data-bind="ojComponent: {component: 'ojInputNumber', invalidComponentTracker: tracker,required: true,
-                                          value:childrenExpenseModel.amount1,  disabled: isDisabled}">
-                </div>
-           
-                        <div class="oj-flex-item">
-                    <label for="control1"  data-bind="text:name2 "/>
-                        </div>
-                         <div class="oj-flex-item">
-                              <oj-select-one id="dependentName2"
-                                       value="{{childrenExpenseModel.dependentName2}}"
-                                       options="{{dependantNameArr2}}"
-                                       placeholder='Please Select a Value'
-                                       disabled="{{isDisabled}}"
-                                        on-value-changed = "{{passengerName2ChangedHandler}}">
-                             </oj-select-one>
-                        </div>
+                                          value:childrenExpenseModel.amount,  disabled: isDisabled}">
                     
-                <div class="oj-flex-item">
-                    <label for="control1"  data-bind="text:amount2 "/>
-                </div>
-                <div class="oj-flex-item">
-                   <input id="control1" data-bind="ojComponent: {component: 'ojInputNumber', invalidComponentTracker: tracker,
-                                          value:childrenExpenseModel.amount2,  disabled: isDisabled}">
-                </div>
          
-                        <div class="oj-flex-item">
-                    <label for="control1"  data-bind="text:name3 "/>
-                        </div>
-                         <div class="oj-flex-item">
-                              <oj-select-one id="dependentName3"
-                                       value="{{childrenExpenseModel.dependentName3}}"
-                                       options="{{dependantNameArr3}}"
-                                       placeholder='Please Select a Value'
-                                       disabled="{{isDisabled}}"
-                                        on-value-changed = "{{passengerName3ChangedHandler}}">
-                                        </oj-select-one>
-                        </div>
-              
-                <div class="oj-flex-item">
-                    <label for="control1"  data-bind="text:amount3 "/>
-                </div>
-                <div class="oj-flex-item">
-                   <input id="control1" data-bind="ojComponent: {component: 'ojInputNumber', invalidComponentTracker: tracker,
-                                          value:childrenExpenseModel.amount3,  disabled: isDisabled}">
-                </div>
-            
-                        <div class="oj-flex-item">
-                    <label for="control1"  data-bind="text:name4 "/>
-                        </div>
-                         <div class="oj-flex-item">
-                              <oj-select-one id="dependentName4"
-                                       value="{{childrenExpenseModel.dependentName4}}"
-                                       options="{{dependantNameArr4}}"
-                                       placeholder='Please Select a Value'
-                                       disabled="{{isDisabled}}"
-                                        on-value-changed = "{{passengerName4ChangedHandler}}">
-                                        </oj-select-one>
-                        </div>
-                 
-                <div class="oj-flex-item">
-                    <label for="control1"  data-bind="text:amount4"/>
-                </div>
-                <div class="oj-flex-item">
-                   <input id="control1" data-bind="ojComponent: {component: 'ojInputNumber', invalidComponentTracker: tracker,
-                                          value:childrenExpenseModel.amount4,  disabled: isDisabled}">
-                </div>
-
-                <div class="oj-flex-item">
-                    <label for="control1"  data-bind="text:name5 "/>
-                </div>
-                 <div class="oj-flex-item">
-                       <oj-select-one id="dependentName5"
-                                       value="{{childrenExpenseModel.dependentName5}}"
-                                       options="{{dependantNameArr5}}"
-                                       placeholder='Please Select a Value'
-                                       disabled="{{isDisabled}}"
-                                        on-value-changed = "{{passengerName4ChangedHandler}}">
-                                        </oj-select-one>
-                </div>
-            
-                <div class="oj-flex-item">
-                    <label for="control1"  data-bind="text:amount5 "/>
-                </div>
-                <div class="oj-flex-item">
-                   <input id="control1" data-bind="ojComponent: {component: 'ojInputNumber', invalidComponentTracker: tracker,
-                                          value:childrenExpenseModel.amount5,  disabled: isDisabled}">
-                </div>
    
                
             </div>
-             <div class="oj-flex oj-panel oj-sm-margin-2x demo-panel-customizations">
+            <div class="oj-flex-item">
+                   <label for="control1"  data-bind="text:comment "/>
+                     
+                </div>
+                <div class="oj-flex-item">
+                    <input id="comments" data-bind="ojComponent: {component: 'ojInputText', invalidComponentTracker: tracker,
+                                          value:childrenExpenseModel.comments, required: true,  disabled: isDisabled}">
+                </div>
              <div class="oj-flex-item">
                          <label for="control1"  data-bind="text:attachment" />
                   </div>
@@ -267,7 +146,8 @@
                     <input type="file" onchange="previewFile()" accept="image/*"/>
                                             <img src="#" height="200" alt="Image preview..." class="attClass" width= '207'/>
                     </div>
+                                    </div>          
+
                   
-        </div>
     </div>
 </div>
