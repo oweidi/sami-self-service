@@ -283,7 +283,7 @@ define({
         "name3":"Dependant Name3",
         "name4":"Dependant Name4",
         "name5":"Dependant Name5",
-        "amount1":"Amount1",
+        "amount":"Amount",
         "amount2":"Amount2",
         "amount3":"Amount3",
         "amount4":"Amount4",
@@ -301,7 +301,8 @@ define({
          "notifyEdit":"Children Eduction Expense  Request Edited",
          "validateSemster":"can't request Education Payment Twice For One Child On The same Semester Year And Number",
          "validateChildNo":"You Have Reach Your Max Children Number",
-          "validateChildAmount":"You Have Reach Your Max Amount"
+          "validateChildAmount":"You Have Reach Your Max Amount",
+          "noOfChildren":"No of Children"
     },//added
     "newFamilyVisaRefund":{
     "contractType":"Contract Type",
@@ -365,8 +366,8 @@ define({
             "approveNotify":"Employee Grievance Request Approved",
             "rejectNotify":"Employee Grievance Request Rejected",
             "notifyCreateSuccess":"Employee Grievance Request Sent",
-            "directManagerManagerComment":"Direct Manager’s Manager Comment",
-            "directManagerManagerStatus":"Direct Manager’s Manager Status",
+            "directManagerManagerComment":"Direct Managerâ€™s Manager Comment",
+            "directManagerManagerStatus":"Direct Managerâ€™s Manager Status",
             "employeeRelationComment":"Employee Relation Comment",
             "employeeRelationStatus":"Employee Relation Status",
             "headofHRComment":"Head of HR Comment",
