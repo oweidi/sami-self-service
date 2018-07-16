@@ -582,7 +582,7 @@ define(['ojs/ojcore', 'knockout', 'util/commonhelper', 'config/services', 'knock
                     $("#aboutDialog").ojDialog("open");
                     break;
                 case "out":
-                    window.location.href = "/SamiSelfService/logout";
+                    window.location.href = "/SamiSelfServiceProd/logout";
                 default :
             }
         };

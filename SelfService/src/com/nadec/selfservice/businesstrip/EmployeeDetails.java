@@ -35,8 +35,8 @@ public class EmployeeDetails extends RestHelper {
         super();
     }
 
-    final String SAAS_URL_IP = "https://ejdu-dev1.fa.em2.oraclecloud.com:443";
-    final String SAAS_URL = "ejdu-dev1.fa.em2.oraclecloud.com";
+    final String SAAS_URL_IP = "https://ejdu.fa.em2.oraclecloud.com:443";
+    final String SAAS_URL = "ejdu.fa.em2.oraclecloud.com";
     final static HostnameVerifier DO_NOT_VERIFY = new HostnameVerifier() {
         public boolean verify(String hostname, SSLSession session) {
             return true;
@@ -396,8 +396,11 @@ public class EmployeeDetails extends RestHelper {
                 if (emp.getPositionId() != null &&
                     !emp.getPositionId().equals("null")) {
                     String ar[] = getPositionById(emp.getPositionId());
-                    positionName = ar[0];
-                    positionCode = ar[1];
+                    if(ar != null && ar.length > 0) {
+                        positionName = ar[0];
+                        positionCode = ar[1];    
+                    }
+                    
                 }
                 
                 
@@ -405,9 +408,12 @@ public class EmployeeDetails extends RestHelper {
                 emp.setPositionCode(positionCode);
                 emp.setAssignmentName(positionName);
                 
-                if(emp.getPositionCode() != null && !"6000010".equals(emp.getPositionCode())) {
-                    emp.setPositionName(positionName + " N");
+                if(emp.getPositionCode() != null && !emp.getPositionCode().isEmpty()) {
+                    if(emp.getPositionCode() != null && !"6000010".equals(emp.getPositionCode())) {
+                        emp.setPositionName(positionName + " N");
+                    }    
                 }
+                
                 emp.setManagerId(assignmets.getJSONObject(i).getString("ManagerId"));
                 //++
                 String managerName = "";
@@ -492,6 +498,7 @@ public class EmployeeDetails extends RestHelper {
                                               "Basic aGNtdXNlcjpXZWxjb21lQDEyMw==");
                 BufferedImage bi = ImageIO.read(connection.getInputStream());
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                System.out.println(bi.toString());
                 ImageIO.write(bi, "jpg", baos);
                 baos.flush();
                 byte[] imageInByte = baos.toByteArray();

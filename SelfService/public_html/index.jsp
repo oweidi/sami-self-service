@@ -136,7 +136,7 @@
                                         <oj-option id="about" value="About">
                                             <span class="demo-icon-font demo-info-icon-24" slot="startIcon"></span><span data-bind="text: about_lng"></span>
                                         </oj-option>
-                                        <oj-option id="out" value="Sign Out" data-bind="click:function(){window.location.href = '/SamiSelfService/logout';}">
+                                        <oj-option id="out" value="Sign Out" data-bind="click:function(){window.location.href = '/SamiSelfServiceProd/logout';}">
                                             <span class="demo-icon-font demo-signout-icon-24" slot="startIcon" ></span><span data-bind="text: signOut_lng"></span>
                                         </oj-option>
                                     </oj-menu>

@@ -47,8 +47,8 @@ public class Login extends RestHelper{
             ByteArrayOutputStream bout = new ByteArrayOutputStream();
             bout.write(buffer);
             byte[] b = bout.toByteArray();
-            java.net.URL url = new URL(null, "https://ejdu-dev1.fa.em2.oraclecloud.com/xmlpserver/services/PublicReportService",new sun.net.www.protocol.https.Handler());
-            java.net.HttpURLConnection  http;
+            java.net.URL url = new URL(null, "https://ejdu.fa.em2.oraclecloud.com/xmlpserver/services/PublicReportService",new sun.net.www.protocol.https.Handler());
+            java.net.HttpURLConnection  http;         
             if (url.getProtocol().toLowerCase().equals("https")) {
                 trustAllHosts();
                 java.net.HttpURLConnection  https = (HttpsURLConnection) url.openConnection();

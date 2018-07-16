@@ -45,8 +45,8 @@ public class HDLServiceUtil extends HttpServlet {
             ServletContext context = session.getServletContext();
             String path = context.getRealPath(request.getContextPath());
 
-            if (null != path && path.contains("SamiSelfService")) {
-                path = path.split("SamiSelfService")[0] + "/images";
+            if (null != path && path.contains("SamiSelfServiceProd")) {
+                path = path.split("SamiSelfServiceProd")[0] + "/images";
             } else if (null != path && path.contains("selfservice")) {
                 path = System.getProperty("java.scratch.dir");
             }

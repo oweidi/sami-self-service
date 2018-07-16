@@ -25,7 +25,7 @@ import sdo.commonj.java.ObjectFactory;
 // For reporting problems, use the following
 // Version = Oracle WebServices (11.1.1.0.0, build 130224.1947.04102)
 
-@WebService(wsdlLocation="https://ejdu-dev1.fa.em2.oraclecloud.com/hcmCommonDataLoader/HCMDataLoader?wsdl",
+@WebService(wsdlLocation="https://ejdu.fa.em2.oraclecloud.com/hcmCommonDataLoader/HCMDataLoader?wsdl",
   targetNamespace="http://xmlns.oracle.com/apps/hcm/common/dataLoader/core/dataLoaderIntegrationService/",
   name="HCMDataLoader")
 @XmlSeeAlso(

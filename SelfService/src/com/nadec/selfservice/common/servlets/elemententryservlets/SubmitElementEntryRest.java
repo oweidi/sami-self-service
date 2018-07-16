@@ -52,8 +52,8 @@ public class SubmitElementEntryRest extends ElementEntryHelper {
             ServletContext context = session.getServletContext();
             String path = context.getRealPath(request.getContextPath());
             
-            if (null != path && path.contains("SamiSelfService")) {
-                path = path.split("SamiSelfService")[0] + "/images";
+            if (null != path && path.contains("SamiSelfServiceProd")) {
+                path = path.split("SamiSelfServiceProd")[0] + "/images";
             } else {
                 path = System.getProperty("java.scratch.dir");
             }
@@ -135,8 +135,8 @@ public class SubmitElementEntryRest extends ElementEntryHelper {
         StringBuilder crunchifyBuilder = new StringBuilder();
         String path = context.getRealPath(request.getContextPath());
 
-        if (null != path && path.contains("SamiSelfService")) {
-            path = path.split("SamiSelfService")[0] + "/images";
+        if (null != path && path.contains("SamiSelfServiceProd")) {
+            path = path.split("SamiSelfServiceProd")[0] + "/images";
         } else {
             path = System.getProperty("java.scratch.dir");
         }

@@ -36,8 +36,8 @@ public class RestHelper {
             return true;
         }
     };
-    final String SAAS_URL_IP = "https://ejdu-dev1.fa.em2.oraclecloud.com:443";
-    final String SAAS_URL = "https://ejdu-dev1.fa.em2.oraclecloud.com";
+    final String SAAS_URL_IP = "https://ejdu.fa.em2.oraclecloud.com:443";
+    final String SAAS_URL = "https://ejdu.fa.em2.oraclecloud.com";
     
     /**
      *

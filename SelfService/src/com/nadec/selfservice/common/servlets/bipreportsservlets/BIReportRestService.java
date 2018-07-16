@@ -280,8 +280,11 @@ public class BIReportRestService {
                     fresponse = biPReports.executeReports();
                     JSONObject xmlJSONObj =
                         XML.toJSONObject(fresponse.toString());
-                    String jsonString =
-                        xmlJSONObj.getJSONObject("DATA_DS").get("G_1").toString();
+                    String jsonString = "";
+                    if (!xmlJSONObj.getJSONObject("DATA_DS").isNull("G_1")) {
+                        jsonString =
+                                xmlJSONObj.getJSONObject("DATA_DS").get("G_1").toString();
+                    }
                     session.setAttribute(BIPReports.REPORT_NAME.PERSON_FUSE_REPORT.getValue(),
                                          jsonString);
                     return jsonString;
