@@ -35,8 +35,6 @@ public class EmployeeDetails extends RestHelper {
         super();
     }
 
-    final String SAAS_URL_IP = "https://ejdu.fa.em2.oraclecloud.com:443";
-    final String SAAS_URL = "ejdu.fa.em2.oraclecloud.com";
     final static HostnameVerifier DO_NOT_VERIFY = new HostnameVerifier() {
         public boolean verify(String hostname, SSLSession session) {
             return true;
@@ -572,7 +570,7 @@ public class EmployeeDetails extends RestHelper {
             URI uri;
 
             uri =
-new URI("https", null, SAAS_URL, 443,
+new URI("https", null, SAAS_URL_HTTP, 443,
         "/hcmCoreApi/resources/latest/emps", queryParam, null);
             URL url1;
             url1 = uri.toURL();
@@ -656,7 +654,7 @@ new URI("https", null, SAAS_URL, 443,
             URI uri;
 
             uri =
-                    new URI("https", null, SAAS_URL, 443,
+                    new URI("https", null, SAAS_URL_HTTP, 443,
                     "/hcmRestApi/resources/latest/positions", queryParam, null);
             URL url1;
             url1 = uri.toURL();
@@ -734,7 +732,7 @@ new URI("https", null, SAAS_URL, 443,
             URI uri;
             ////hcmRestApi/resources/11.13.17.11/locations/{locationsUniqID}
             uri =
-new URI("https", null, SAAS_URL, 443,
+new URI("https", null, SAAS_URL_HTTP, 443,
         "/hcmRestApi/resources/latest/locations", queryParam, null);
             URL url1;
             url1 = uri.toURL();
@@ -810,7 +808,7 @@ new URI("https", null, SAAS_URL, 443,
             URI uri;
             ////hcmRestApi/resources/11.13.17.11/locations/{locationsUniqID}
             uri =
-                    new URI("https", null, SAAS_URL, 443,
+                    new URI("https", null, SAAS_URL_HTTP, 443,
                             "/hcmRestApi/resources/latest/grades", queryParam, null);
             URL url1;
             url1 = uri.toURL();
@@ -889,7 +887,7 @@ new URI("https", null, SAAS_URL, 443,
             URI uri;
             /////hcmCoreApi/resources/latest/emps
             uri =
-new URI("https", null, SAAS_URL, 443,
+new URI("https", null, SAAS_URL_HTTP, 443,
         "/hcmCoreApi/resources/latest/emps", queryParam, null);
             URL url1;
             url1 = uri.toURL();
@@ -975,7 +973,7 @@ new URI("https", null, SAAS_URL, 443,
             URI uri;
 
             uri =
-new URI("https", null, SAAS_URL, 443,
+new URI("https", null, SAAS_URL_HTTP, 443,
         "/hcmRestApi/resources/latest/organizations", queryParam, null);
             URL url1;
             url1 = uri.toURL();
@@ -1128,7 +1126,7 @@ new URI("https", null, SAAS_URL, 443,
             URI uri;
 
             uri =
-                    new URI("https", null, SAAS_URL, 443,
+                    new URI("https", null, SAAS_URL_HTTP, 443,
                     "/hcmRestApi/resources/latest/jobs", queryParam, null);
             URL url1;
             url1 = uri.toURL();
@@ -1201,7 +1199,7 @@ new URI("https", null, SAAS_URL, 443,
             URI uri;
 
             uri =
-                    new URI("https", null, SAAS_URL, 443,
+                    new URI("https", null, SAAS_URL_HTTP, 443,
                     "/hcmRestApi/resources/latest/organizations", queryParam, null);
             URL url1;
             url1 = uri.toURL();

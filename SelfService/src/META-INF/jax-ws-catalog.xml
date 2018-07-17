@@ -1,6 +1,6 @@
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-  <system systemId="https://ejdu.fa.em2.oraclecloud.com/hcmCommonDataLoader/HCMDataLoader?wsdl#%7Bhttp%3A%2F%2Fxmlns.oracle.com%2Fapps%2Fhcm%2Fcommon%2FdataLoader%2Fcore%2FdataLoaderIntegrationService%2F%7DHCMDataLoader"
+  <system systemId="https://ejdu-dev.fa.em2.oraclecloud.com/hcmCommonDataLoader/HCMDataLoader?wsdl#%7Bhttp%3A%2F%2Fxmlns.oracle.com%2Fapps%2Fhcm%2Fcommon%2FdataLoader%2Fcore%2FdataLoaderIntegrationService%2F%7DHCMDataLoader"
           uri="../com/oracle/xmlns/apps/hcm/common/dataloader/core/dataloaderintegrationservice/HCMDataLoader.wsdl"/>
-  <system systemId="https://ejdu.fa.em2.oraclecloud.com/hcmCommonDataLoader/HCMDataLoader?wsdl"
+  <system systemId="https://ejdu-dev.fa.em2.oraclecloud.com/hcmCommonDataLoader/HCMDataLoader?wsdl"
           uri="../com/oracle/xmlns/apps/hcm/common/dataloader/core/dataloaderintegrationservice/HCMDataLoader.wsdl"/>
 </catalog>

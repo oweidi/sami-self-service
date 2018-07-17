@@ -38,8 +38,15 @@ public class Person {
         ObjectMapper mapper = new ObjectMapper();
         EmployeeBean obj = new EmployeeBean();
         EmployeeDetails det = new EmployeeDetails();
+        if(session.getAttribute("loginUserName") != null && !session.getAttribute("loginUserName").equals(username2) ) {
+            session.setAttribute("loginUserName", username2); 
+            session.setAttribute("EmpDetails", null);
+        }else {
+            session.setAttribute("loginUserName", username2);    
+        }
         
-        if(session.getAttribute("EmpDetails") != null) {
+        
+        if(session.getAttribute("EmpDetails") != null ) {
             obj = (EmployeeBean)session.getAttribute("EmpDetails");
         } else {
             if(username2 != null &&

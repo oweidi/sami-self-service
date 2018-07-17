@@ -108,10 +108,10 @@ define(['ojs/ojcore', 'knockout', 'jquery', 'appController', 'util/commonhelper'
                 var preview = document.querySelector('.attClass');
                 self.childrenExpenseModel.imageBase64(preview.src);
                 
-                if(preview.src.indexOf("data:") < 0) {
-                       $.notify(self.attachmentNotify(), "error");
-                       return;
-                }
+//                if(preview.src.indexOf("data:") < 0) {
+//                       $.notify(self.attachmentNotify(), "error");
+//                       return;
+//                }
            
             var next = document.getElementById("train").getNextSelectableStep();
             if (next != null)

@@ -9,7 +9,7 @@ define([], function () {
         };
 
         self.getPaaSHost = function () {
-            var host = "https://144.21.75.237/ords/pdb1/sami_prod/xx_selfService/";
+            var host = "https://144.21.75.237/ords/pdb1/sami/xx_selfService/";
             return host;
         };
 
@@ -68,15 +68,15 @@ define([], function () {
             return host;
         };
 
-//        self.getInternalRest = function () {
-//            var host = "rest/";
-//            return host;
-//        };
-        
         self.getInternalRest = function () {
-            var host = "resources/";
+            var host = "rest/";
             return host;
         };
+        
+//        self.getInternalRest = function () {
+//            var host = "resources/";
+//            return host;
+//        };
 
     }
 

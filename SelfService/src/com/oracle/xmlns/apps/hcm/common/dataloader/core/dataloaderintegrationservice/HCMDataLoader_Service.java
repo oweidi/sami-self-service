@@ -1,5 +1,7 @@
 package com.oracle.xmlns.apps.hcm.common.dataloader.core.dataloaderintegrationservice;
 
+import com.nadec.selfservice.common.restHelper.RestHelper;
+
 import java.io.File;
 
 import java.net.MalformedURLException;
@@ -19,7 +21,7 @@ import javax.xml.ws.WebServiceFeature;
 // For reporting problems, use the following
 // Version = Oracle WebServices (11.1.1.0.0, build 130224.1947.04102)
 
-@WebServiceClient(wsdlLocation="https://ejdu.fa.em2.oraclecloud.com/hcmCommonDataLoader/HCMDataLoader?wsdl",
+@WebServiceClient(wsdlLocation=RestHelper.SAAS_URL +"/hcmCommonDataLoader/HCMDataLoader?wsdl",
   targetNamespace="http://xmlns.oracle.com/apps/hcm/common/dataLoader/core/dataLoaderIntegrationService/",
   name="HCMDataLoader")
 public class HCMDataLoader_Service
@@ -37,12 +39,12 @@ public class HCMDataLoader_Service
       if (baseUrl == null)
       {
         wsdlLocationURL =
-            HCMDataLoader_Service.class.getResource("https://ejdu.fa.em2.oraclecloud.com/hcmCommonDataLoader/HCMDataLoader?wsdl");
+            HCMDataLoader_Service.class.getResource(RestHelper.SAAS_URL + "/hcmCommonDataLoader/HCMDataLoader?wsdl");
         if (wsdlLocationURL == null)
         {
           baseUrl = new File(".").toURL();
           wsdlLocationURL =
-              new URL(baseUrl, "https://ejdu.fa.em2.oraclecloud.com/hcmCommonDataLoader/HCMDataLoader?wsdl");
+              new URL(baseUrl, RestHelper.SAAS_URL +"/hcmCommonDataLoader/HCMDataLoader?wsdl");
         }
       }
       else
@@ -51,13 +53,13 @@ public class HCMDataLoader_Service
          baseUrl = new URL(baseUrl, baseUrl.getPath() + "/");
 }
                 wsdlLocationURL =
-            new URL(baseUrl, "https://ejdu.fa.em2.oraclecloud.com/hcmCommonDataLoader/HCMDataLoader?wsdl");
+            new URL(baseUrl, RestHelper.SAAS_URL +"/hcmCommonDataLoader/HCMDataLoader?wsdl");
       }
     }
     catch (MalformedURLException e)
     {
       logger.log(Level.ALL,
-          "Failed to create wsdlLocationURL using https://ejdu.fa.em2.oraclecloud.com/hcmCommonDataLoader/HCMDataLoader?wsdl",
+          "Failed to create wsdlLocationURL using "+RestHelper.SAAS_URL +"/hcmCommonDataLoader/HCMDataLoader?wsdl",
           e);
     }
   }

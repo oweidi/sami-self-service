@@ -1,5 +1,7 @@
 package com.oracle.xmlns.apps.hcm.common.dataloader.core.dataloaderintegrationservice;
 
+import com.nadec.selfservice.common.restHelper.RestHelper;
+
 import com.oracle.xmlns.adf.svc.types.ObjAttrHints;
 import com.oracle.xmlns.adf.svc.types.ServiceViewInfo;
 
@@ -25,7 +27,7 @@ import sdo.commonj.java.ObjectFactory;
 // For reporting problems, use the following
 // Version = Oracle WebServices (11.1.1.0.0, build 130224.1947.04102)
 
-@WebService(wsdlLocation="https://ejdu.fa.em2.oraclecloud.com/hcmCommonDataLoader/HCMDataLoader?wsdl",
+@WebService(wsdlLocation=RestHelper.SAAS_URL + "/hcmCommonDataLoader/HCMDataLoader?wsdl",
   targetNamespace="http://xmlns.oracle.com/apps/hcm/common/dataLoader/core/dataLoaderIntegrationService/",
   name="HCMDataLoader")
 @XmlSeeAlso(

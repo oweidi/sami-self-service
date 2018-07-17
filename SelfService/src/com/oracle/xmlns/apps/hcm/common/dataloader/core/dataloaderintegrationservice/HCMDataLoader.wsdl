@@ -833,9 +833,9 @@
     </wsdl:binding>
     <wsdl:service name="HCMDataLoader">
         <wsdl:port name="HCMDataLoaderSoapHttpPort" binding="tns:HCMDataLoaderSoapHttp">
-            <soap:address location="https://ejdu.fa.em2.oraclecloud.com:443/hcmCommonDataLoader/HCMDataLoader"/>
+            <soap:address location="https://ejdu-dev.fa.em2.oraclecloud.com:443/hcmCommonDataLoader/HCMDataLoader"/>
             <wsa:EndpointReference xmlns:wsa="http://www.w3.org/2005/08/addressing">
-                <wsa:Address xmlns:wsa="http://www.w3.org/2005/08/addressing">https://ejdu.fa.em2.oraclecloud.com:443/hcmCommonDataLoader/HCMDataLoader</wsa:Address>
+                <wsa:Address xmlns:wsa="http://www.w3.org/2005/08/addressing">https://ejdu-dev.fa.em2.oraclecloud.com:443/hcmCommonDataLoader/HCMDataLoader</wsa:Address>
                 <wsid:Identity xmlns:wsid="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
                     <dsig:KeyInfo xmlns:dsig="http://www.w3.org/2000/09/xmldsig#">
                         <dsig:X509Data>
